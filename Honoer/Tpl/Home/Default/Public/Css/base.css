@@ -1,4 +1,4 @@
-body {background-color:#F2F2F2;}
+body {background-color:#FCFCFC;}
 #header {
     height:60px;
     background-color:#F2F2F2;
@@ -24,13 +24,6 @@ body {background-color:#F2F2F2;}
     padding-top: 20px;
     white-space: normal;
     border-top: 1px solid #CCC;
-    /*    border-top: 1px solid rgba(0, 0, 0, 0);
-        -webkit-box-shadow: 0 0 3px rgba(0, 0, 0, 0.2);
-        -moz-box-shadow: 0 0 3px rgba(0, 0, 0, 0.2);
-        box-shadow: 0 0 3px rgba(0, 0, 0, 0.2);
-        -webkit-background-clip: padding-box;
-        -moz-background-clip: padding;
-        background-clip: padding-box;*/
 }
 #wrap{
 
@@ -38,13 +31,79 @@ body {background-color:#F2F2F2;}
 .blue {color:#0088CC;}
 
 ul.ho-docs-nav{
-    margin-top:15px;
+    margin-top:20px;
 }
 .ho-docs-nav li a{
     width: 70px;
     text-align: center;
     margin: 0 10px;
 }
+
+.container{
+    width: 980px;
+}
+
+.ho-docs-box {
+    padding: 10px;
+    margin-bottom: 20px;
+    border: 1px solid #CCC;
+    background-color: #FFFFFF;
+    -webkit-border-radius: 6px;
+    -moz-border-radius: 6px;
+    border-radius: 6px;
+    -webkit-box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+    -moz-box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+}
+
+.ho-docs-title {
+    border-bottom:1px solid #D4D4D4;
+    margin-bottom: 10px;
+}
+
+.ho-docs-title a:hover {
+    text-decoration: none;
+}
+
+.ho-docs-list{
+    background: #FFF;
+}
+.ho-docs-flash {
+    background-color: #D0E3EF;
+    background-image: linear-gradient(#D8EBF8, #D0E3EF);
+    background-repeat: repeat-x;
+    border: 1px solid #97C1DA;
+    border-radius: 3px 3px 3px 3px;
+    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
+    color: #264C72;
+    font-size: 12px;
+    font-weight: bold;
+    width: 400px;
+    padding: 15px;
+    position: fixed;
+    top:30%;
+    left:50%;
+    margin-left: -215px;
+    text-shadow: 0 1px 0 rgba(255, 255, 255, 0.8);
+}
+
+
+
+
+
+
+
+
+
+
+
+/*
+
+
+
+
+
+
 
 
 
@@ -72,22 +131,10 @@ ul.ho-docs-nav{
     text-align: center;
 }
 
-.container{
-    width: 980px;
-}
 
 
-.bs-docs-box {
-    padding: 10px;
-    border: 1px solid #CCC;
-    background-color: #FFFFFF;
-    -webkit-border-radius: 6px;
-    -moz-border-radius: 6px;
-    border-radius: 6px;
-    -webkit-box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
-    -moz-box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
-    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
-}
+
+
 
 .bs-docs-banner {
     height: 200px;
@@ -100,8 +147,6 @@ ul.ho-docs-nav{
 }
 
 
-/* Topnav for Docs
--------------------------------------------------- */
 .header .nav {
     margin-top:40px;
     margin-bottom: 0;
@@ -116,8 +161,6 @@ ul.ho-docs-nav{
     text-align: center;
 }
 
-/* Sidenav for Docs
--------------------------------------------------- */
 .bs-docs-sidenav {
     width: 218px;
 }
@@ -160,7 +203,6 @@ ul.ho-docs-nav{
     -moz-box-shadow: inset 1px 0 0 rgba(0,0,0,.1), inset -1px 0 0 rgba(0,0,0,.1);
     box-shadow: inset 1px 0 0 rgba(0,0,0,.1), inset -1px 0 0 rgba(0,0,0,.1);
 }
-/* Chevrons */
 .bs-docs-sidenav .icon-chevron-right {
     float: right;
     margin-top: 2px;
@@ -179,9 +221,6 @@ ul.ho-docs-nav{
     opacity: 1;
 }
 
-
-/** News list for Docs
---------------------------------------------------------- */
 .bs-docs-list > li{
     line-height: 20px;
     padding:8px;
@@ -197,11 +236,10 @@ ul.ho-docs-nav{
 }
 
 
-/** Service img for Docs
---------------------------------------------------------- */
 .bs-docs-img > img{
     display: block;
     height:160px;
     width: 100%;
     overflow:hidden;
 }
+*/

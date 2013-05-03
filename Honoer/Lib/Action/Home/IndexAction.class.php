@@ -6,4 +6,10 @@ class IndexAction extends BasicAction {
         $this->display();
     }
 
+    public function read() {
+        $aid = $this->_get('aid');
+
+        $data = D('Article')->getDetail($aid);
+    }
+
 }
