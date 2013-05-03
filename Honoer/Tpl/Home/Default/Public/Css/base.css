@@ -64,10 +64,18 @@ ul.ho-docs-nav{
 .ho-docs-title a:hover {
     text-decoration: none;
 }
+.ho-docs-title span {
+    width: 260px;
+    overflow: hidden;
+    word-break:keep-all;
+    white-space:nowrap;
+    text-overflow:ellipsis;
+}
 
 .ho-docs-list{
     background: #FFF;
 }
+
 .ho-docs-flash {
     background-color: #D0E3EF;
     background-image: linear-gradient(#D8EBF8, #D0E3EF);
