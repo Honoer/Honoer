@@ -1,0 +1,10 @@
+<ul> 
+    <volist name="data['_comment']" id="vo">
+        <li><div>
+                {$vo.comment_email|save_user}:
+            <small>&nbsp; Time:{$vo.create_time|substr=0,-3} &nbsp;</small>
+            <div>{$vo.comment_content}</div>
+            </div></li>
+        
+    </volist>
+</ul>

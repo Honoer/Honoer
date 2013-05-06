@@ -1,0 +1,34 @@
+<div class="row">
+    <div class="span3">
+        <a class="brand" href="#"><h3></h3></a>
+    </div>
+    <div class="span9">
+        <ul class="nav nav-pills pull-right ho-docs-nav">
+            <volist name="topnav" id="vo">
+                <empty name="vo['_child']">
+                    <li <if condition="$vo['class_module'] eq MODULE_NAME">class="active"</if>>
+                    <a href="{:U($vo['class_module'].'/index')}">{$vo.class_name}</a>
+                    </li>
+                    <else />
+                    <li class="dropdown <if condition="$vo['class_module'] eq MODULE_NAME">active</if>">
+                        <a class="dropdown-toggle" data-toggle="dropdown" href="#">{$vo.class_name}
+                            <b class="caret"></b>
+                        </a>
+                        <ul class="dropdown-menu">
+                            <volist name="vo['_child']" id="child">
+                                <li <if condition="$child['class_id'] eq $_GET['cid']">class="active"</if>>
+                                <a href="{:U($vo['class_module'].'/index',array('cid'=>$child['class_id']))}">{$child.class_name}</a>
+                                </li>
+                            </volist>
+                            <li class="divider"></li>
+                            <li <if condition="empty($_GET['cid']) && MODULE_NAME eq $vo['class_module']">class="active"</if>>
+                            <a href="{:U($vo['class_module'].'/index')}">所有</a>
+                    </li>
+                    </ul>
+                    </li>
+                </empty>
+            </volist>
+        </ul>
+    </div>
+</div>
+

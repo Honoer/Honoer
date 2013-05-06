@@ -1,6 +1,6 @@
 <?php
 
-class IndexAction extends BasicAction {
+class IndexAction extends CommonAction {
 
     public function index() {
         $this->display();

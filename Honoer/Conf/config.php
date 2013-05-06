@@ -11,6 +11,7 @@ $app_config = array(
     'DEFAULT_GROUP' => 'Home', //默认分组
     'DEFAULT_THEME' => 'Default', //默认模版
     'LAYOUT_ON' => true, //开启layout
+    'VAR_PAGE' => 'p',
     'TMPL_FILE_DEPR' => '-', //模版分割符
 //    'TMPL_ACTION_ERROR' => TMPL_PATH . 'dispatch_jump.html',
 //    'TMPL_ACTION_SUCCESS' => TMPL_PATH . 'dispatch_jump.html',

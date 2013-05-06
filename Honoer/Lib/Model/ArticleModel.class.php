@@ -21,13 +21,24 @@ class ArticleModel extends RelationModel {
         ),
     );
 
-    public function getList($where, $order, $limit) {
-        empty($order) && $order = array('create_time' => 'DESC');
-        return $this->field(true)
-                        ->where($where)
-                        ->order($order)
-                        ->limit($limit)
-                        ->select();
+    public function getList($where, &$pages = false) {
+        $order = array('create_time' => 'DESC');
+        if (false !== $pages) {
+            $p = isset($_GET['p']) ? intval($_GET['p']) : 1;
+            $this->page($p . ',5');
+        }
+        $data = $this->field(true)
+                ->where($where)
+                ->order($order)
+                ->select();
+
+        if (false !== $pages) {
+            import('@.ORG.Util.Page');
+            $count = $this->where($where)->count();
+            $Page = new Page($count, 5);
+            $pages = $Page->show();
+        }
+        return $data;
     }
 
     public function getDetail($where) {
@@ -35,6 +46,13 @@ class ArticleModel extends RelationModel {
             $where = array('article_id' => $where);
         }
         return $this->field(true)->where($where)->find();
+    }
+
+    public function getTopSeven($num) {
+        $order = array('article_view' => 'DESC');
+        $this->order($order);
+        $this->limit($num);
+        return $this->getList($where);
     }
 
 }

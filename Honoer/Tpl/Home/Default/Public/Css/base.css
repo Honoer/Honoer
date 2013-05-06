@@ -1,4 +1,4 @@
-body {background-color:#FCFCFC;}
+body {background:#FCFCFC;}
 #header {
     height:60px;
     background-color:#F2F2F2;
@@ -33,7 +33,7 @@ body {background-color:#FCFCFC;}
 ul.ho-docs-nav{
     margin-top:20px;
 }
-.ho-docs-nav li a{
+.ho-docs-nav > li > a{
     width: 70px;
     text-align: center;
     margin: 0 10px;
@@ -47,7 +47,7 @@ ul.ho-docs-nav{
     padding: 10px;
     margin-bottom: 20px;
     border: 1px solid #CCC;
-    background-color: #FFFFFF;
+    background:#FCFCFC url(../Images/bg.png) repeat;
     -webkit-border-radius: 6px;
     -moz-border-radius: 6px;
     border-radius: 6px;

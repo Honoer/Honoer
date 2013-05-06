@@ -1,14 +1,18 @@
 <?php
 
-class ArticleAction extends BasicAction {
+class ArticleAction extends CommonAction {
 
     public function index() {
-        $data = D('Article')->relation(true)->getList($where,$order);
+        $cid = $_GET['cid'];
+        !empty($cid) && $where['class_id'] = $cid;
+        $order = array();
+        $data = D('Article')->relation(true)->getList($where, $pages);
         $data = sub_content($data, 'article_content');
         $this->assign('data', $data);
         //热门文章 根据点击次数去7条
-        $hot = D('Article')->getList(null,array('article_view'=>'DESC'),7);
+        $hot = D('Article')->getTopSeven(7);
         $this->assign('hot', $hot);
+        $this->assign('page', $pages);
         $this->display();
     }
 
@@ -21,6 +25,13 @@ class ArticleAction extends BasicAction {
         $this->assign('next', $next);
         $this->assign('data', $data);
         $this->display();
+    }
+    
+    public function reply(){
+        $data = $_POST;
+        $data['article_id'] = $_GET['aid'];
+        $result =D('Comment')->addComment($data);
+        dump($result);
     }
 
 }

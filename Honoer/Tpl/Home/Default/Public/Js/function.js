@@ -9,15 +9,15 @@ $(function(){
         },300);
     });
     
-//    $("html").click(function(){
-//        alertHtml('这只是测试');
-//    });
-//    var alertHtml=function(message){
-//        $("#wrap").append('<div class="ho-docs-flash">'+message+'</div>').fadeIn(1000);
-//        setTimeout(function(){
-//            $(".ho-docs-flash").fadeOut(1000);
-//        },2000);
-//    } 
+    $("html").click(function(){
+        alertHtml('这只是测试');
+    });
+    var alertHtml=function(message){
+        $('<div class="ho-docs-flash">'+message+'</div>').appendTo("#wrap").hide().fadeIn(600);
+        setTimeout(function(){
+            $(".ho-docs-flash").fadeOut(1000);
+        },1000);
+    } 
 })
     
 
