@@ -76,6 +76,13 @@ ul.ho-docs-nav{
     background: #FFF;
 }
 
+.ho-docs-reply{
+    border-top:1px dashed #CCC;
+    padding: 10px 20px;
+    margin-top: 10px;
+    text-indent: 24px;
+}
+
 .ho-docs-flash {
     background-color: #D0E3EF;
     background-image: linear-gradient(#D8EBF8, #D0E3EF);
