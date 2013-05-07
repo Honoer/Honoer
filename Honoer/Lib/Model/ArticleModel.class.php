@@ -30,6 +30,7 @@ class ArticleModel extends RelationModel {
             $this->limit($Page->firstRow . ',' . $Page->listRows);
         }
         return $this->field(true)
+                        ->relation(true)
                         ->where($where)
                         ->select();
     }
@@ -41,9 +42,19 @@ class ArticleModel extends RelationModel {
                         ->find();
     }
 
-    public function getSeven($num) {
-        $this->order(array('article_view' => 'DESC'));
-        $this->limit($num);
+    public function getSeven($type, $num = 7) {
+        switch ($type) {
+            case 'top':
+                $this->order(array('article_view' => 'DESC'));
+                $this->limit($num);
+                break;
+            case 'new':
+                $this->order(array('create_time' => 'DESC'));
+                $this->limit($num);
+                break;
+            default :
+                break;
+        }
         return $this->getList();
     }
 

@@ -3,7 +3,7 @@
 //公共函数文件
 
 function timer($time, $start, $length) {
-    return mb_substr(date('Y-m-d H:i:s', $time), $start, $length);
+    return substr(is_numeric($time) ? date('Y-m-d H:i:s', $time) : $time, $start, $length);
 }
 
 function save_user($email) {
