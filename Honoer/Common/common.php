@@ -2,14 +2,13 @@
 
 //公共函数文件
 
-function timer(){
-    return date('Y-m-d H:i:s',time());
+function timer($time, $start, $length) {
+    return mb_substr(date('Y-m-d H:i:s', $time), $start, $length);
 }
 
-function save_user($email){
+function save_user($email) {
     return strstr($email, '@', true);
 }
-
 
 /**
  * 把返回的数据集转换成Tree
@@ -44,10 +43,10 @@ function list_to_tree($list, $pk = 'id', $pid = 'pid', $child = '_child', $root 
     return $tree;
 }
 
-function sub_content($data, $field) {
+function sub_content($data, $field, $length) {
     foreach ($data as $key => $value) {
-        if (strlen($value[$field]) > 200) {
-            $data[$key][$field] = blog_summary($value[$field], 200, '');
+        if (strlen($value[$field]) > $length) {
+            $data[$key][$field] = blog_summary($value[$field], $length, '');
         }
     }
     return $data;

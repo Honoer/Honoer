@@ -15,6 +15,7 @@ class EmptyAction extends Action {
     }
 
     private function notfound() {
+        send_http_status(404);
         $this->display(THEME_PATH . '_404.html');
     }
 

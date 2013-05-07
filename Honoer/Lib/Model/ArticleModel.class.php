@@ -14,45 +14,37 @@ class ArticleModel extends RelationModel {
         ),
         'User' => array(
             'mapping_type' => BELONGS_TO,
-            'mapping_name' => 'User',
-            'class_name' => 'User',
+            'mapping_name' => '_user',
+            'class_name' => '_user',
             'foreign_key' => 'user_id',
             'as_fields' => 'user_nickname',
         ),
     );
 
-    public function getList($where, &$pages = false) {
-        $order = array('create_time' => 'DESC');
-        if (false !== $pages) {
-            $p = isset($_GET['p']) ? intval($_GET['p']) : 1;
-            $this->page($p . ',5');
-        }
-        $data = $this->field(true)
-                ->where($where)
-                ->order($order)
-                ->select();
-
+    public function getList($where = null, &$pages = false) {
         if (false !== $pages) {
             import('@.ORG.Util.Page');
             $count = $this->where($where)->count();
-            $Page = new Page($count, 5);
+            $Page = new Page($count, C('PAGESIZE'));
             $pages = $Page->show();
+            $this->limit($Page->firstRow . ',' . $Page->listRows);
         }
-        return $data;
+        return $this->field(true)
+                        ->where($where)
+                        ->select();
     }
 
-    public function getDetail($where) {
-        if (is_numeric($where)) {
-            $where = array('article_id' => $where);
-        }
-        return $this->field(true)->where($where)->find();
+    function getDetail($where) {
+        is_numeric($where) && $where = array('article_id' => $where);
+        return $this->field(true)
+                        ->where($where)
+                        ->find();
     }
 
-    public function getTopSeven($num) {
-        $order = array('article_view' => 'DESC');
-        $this->order($order);
+    public function getSeven($num) {
+        $this->order(array('article_view' => 'DESC'));
         $this->limit($num);
-        return $this->getList($where);
+        return $this->getList();
     }
 
 }

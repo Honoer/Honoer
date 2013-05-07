@@ -8,7 +8,6 @@ class IndexAction extends CommonAction {
 
     public function read() {
         $aid = $this->_get('aid');
-
         $data = D('Article')->getDetail($aid);
     }
 

@@ -3,12 +3,13 @@
         <volist name="data" id="vo">
             <div class="ho-docs-box">
                 <div class="ho-docs-title">
-                    <blockquote>
-                        <h4><a href="{:U('read',array('aid'=>$vo['article_id']))}" title="{$vo.article_title}">{$vo.article_title}</a></h4>
-                        <small>Author:{$vo.user_nickname} &nbsp; Time:{$vo.create_time|substr=0,-3} &nbsp; Tags:Source Title</small>
-                    </blockquote>
+                    <span class="pull-left">{$vo.create_time|timer=5,5}</span>
+                    <h4><a href="{:U('read',array('aid'=>$vo['article_id']))}" title="{$vo.article_title}">{$vo.article_title}</a></h4>
+                    <small>Author:{$vo.user_nickname} &nbsp; &nbsp; Tags:Source Title</small>
                 </div>
-                {$vo.article_content}
+                <div class="ho-docs-content">
+                    {$vo.article_content}
+                </div>
             </div>
         </volist>
     </div>
@@ -24,4 +25,4 @@
         </ul>
     </div>
 </div>
-<div class="pagination">{$page}</div>
+<div class="page">{$page}</div>

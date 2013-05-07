@@ -2,26 +2,34 @@
 
 class ClassModel extends RelationModel {
 
-    protected $fields = array('class_id', 'class_name', 'class_pid', 'class_path', 'class_using', 'create_time', 'class_module',
+    protected $fields = array('class_id', 'class_name', 'class_pid', 'class_path', 'class_module', 'class_status',
         '_pk' => 'class_id', '_autoinc' => true);
 
-    public function getList($where = null, $order = null, &$pages = false) {
-        empty($order) && $order = array('create_time' => 'DESC');
+    public function getList($where = null, &$pages = false) {
+        if (false !== $pages) {
+            import('@.ORG.Util.Page');
+            $count = $this->where($where)->count();
+            $Page = new Page($count, C('PAGESIZE'));
+            $pages = $Page->show();
+            $this->limit($Page->firstRow . ',' . $Page->listRows);
+        }
         return $this->field(true)
                         ->where($where)
-                        ->order($order)
                         ->select();
     }
 
     public function getDetail($where) {
         if (is_numeric($where)) {
-            $where = array('class_id' => $where);
+            $where = array('class__id' => $where);
         }
-        return $this->field(true)->where($where)->find();
+        return $this->field(true)
+                        ->where($where)
+                        ->find();
     }
 
-    public function classTree($where = null) {
-        return list_to_tree($this->getList($where), 'class_id', 'class_pid');
+    public function parsePath($where = null, $isTree = true) {
+        $class = $this->getList($where);
+        return $isTree ? list_to_tree($class, 'class_id', 'class_pid') : $class;
     }
 
 }

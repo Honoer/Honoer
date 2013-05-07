@@ -1,20 +1,24 @@
 
 <div class="ho-docs-box">
     <div class="ho-docs-title">
+        <div class="ho-docs-prev pull-right">
+            <small>上一篇：&nbsp;<empty name="prev">没有啦！<else /><a href="{:U('read',array('aid'=>$prev['article_id']))}" title="{$prev.article_title}">{$prev.article_title}</a></empty></small><br/>
+            <small>下一篇：&nbsp;<empty name="next">没有啦！<else /><a href="{:U('read',array('aid'=>$next['article_id']))}" title="{$next.article_title}">{$next.article_title}</a></empty></small>
+        </div>
         <blockquote>
             <h4>{$data.article_title}</h4>
-            <span class="pull-right">
-                <em>上一篇：&nbsp;</em><empty name="prev">没有啦！<else /><a href="{:U('read',array('aid'=>$prev['article_id']))}" title="{$prev.article_title}">{$prev.article_title}</a></empty><br>
-                <em>下一篇：&nbsp;</em><empty name="next">没有啦！<else /><a href="{:U('read',array('aid'=>$next['article_id']))}" title="{$next.article_title}">{$next.article_title}</a></empty>
-            </span>
             <small>Author:{$data.user_nickname} &nbsp; Time:{$data.create_time|substr=0,-3} &nbsp; Tags:Source Title</small>
         </blockquote>
     </div>
-    {$data.article_content}
+    <div class="ho-docs-content">
+        {$data.article_content}
+    </div>
+    <div class="ho-docs-next text-center">
+        <small>上一篇：&nbsp;<empty name="prev">没有啦！<else /><a href="{:U('read',array('aid'=>$prev['article_id']))}" title="{$prev.article_title}">{$prev.article_title}</a></empty></small>
+        <small>下一篇：&nbsp;<empty name="next">没有啦！<else /><a href="{:U('read',array('aid'=>$next['article_id']))}" title="{$next.article_title}">{$next.article_title}</a></empty></small>
+    </div>
 </div>
 <include file="Article:reply" />
 <div class="ho-docs-box">
     <include file="Article:form" />
 </div>
-<em>上一篇：&nbsp;</em><empty name="prev">没有啦！<else /><a href="{:U('read',array('aid'=>$prev['article_id']))}" title="{$prev.article_title}">{$prev.article_title}</a></empty>
-<em>下一篇：&nbsp;</em><empty name="next">没有啦！<else /><a href="{:U('read',array('aid'=>$next['article_id']))}" title="{$next.article_title}">{$next.article_title}</a></empty>
