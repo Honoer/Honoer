@@ -2,7 +2,7 @@
 
 class ClassModel extends RelationModel {
 
-    protected $fields = array('class_id', 'class_name', 'class_pid', 'class_path', 'class_module', 'class_status',
+    protected $fields = array('class_id', 'class_name', 'class_pid', 'class_path', 'class_module', 'class_using',
         '_pk' => 'class_id', '_autoinc' => true);
 
     public function getList($where = null, &$pages = false) {
@@ -27,7 +27,7 @@ class ClassModel extends RelationModel {
                         ->find();
     }
 
-    public function parsePath($where = null, $isTree = true) {
+    public function classToTree($where = null, $isTree = true) {
         $class = $this->getList($where);
         return $isTree ? list_to_tree($class, 'class_id', 'class_pid') : $class;
     }
