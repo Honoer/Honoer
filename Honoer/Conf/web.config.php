@@ -2,6 +2,6 @@
 
 //公共配置文件
 return array(
-    'PAGESIZE' => 10,
+    'PAGESIZE' => 5,
 );
 ?>

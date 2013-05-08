@@ -1,4 +1,48 @@
-body {background:#FCFCFC;}
+body {background:#FFF;}
+
+.dc-404{
+    width: 511px;
+    margin: 100px auto;
+    height:200px;
+    background:url(../Images/404.jpg) no-repeat;
+}
+.dc-404 > p{
+    padding: 100px 0 0 200px;
+}
+
+#header {
+    height:80px;
+    margin-bottom: 20px;
+    background-color: #F9F9F9;
+    background-image: -moz-linear-gradient(center top , #F9F9F9, #F4F4F4);
+    border-bottom: 1px solid #DADADA;
+    box-shadow: 0 1px 0 #FFFFFF inset, 0 1px 5px rgba(0, 0, 0, 0.1);
+}
+#footer{
+    height:60px;
+    color: #333;
+    background:#F2F2F2;
+    /*    background:url(../Images/footer.jpg) repeat;*/
+    margin-top: 20px;
+    padding-top: 20px;
+    white-space: normal;
+    border-top: 1px solid #CCC;
+}
+#wrap{
+
+}
+
+ul.dc-nav{
+    margin-top:20px;
+}
+.dc-nav li a{
+    width: 70px;
+    text-align: center;
+    margin: 0 10px;
+}
+
+
+
 
 .dc-box {
     position: relative;
@@ -30,10 +74,31 @@ body {background:#FCFCFC;}
 }
 .dc-tit > h4{
     float: left;
-    margin-top: 0;
+    margin: 0;
     line-height: 60px;
 }
 .dc-tit > small {
     line-height: 90px;
     margin-right: 10px;
+}
+
+.dc-prev-next {
+    margin-bottom: 10px;
+}
+.dc-prev-next >small:first-child {
+    margin-right: 30px;
+}
+.dc-prev-next >small:last-child {
+    margin-left: 30px;
+}
+.dc-tab{
+    margin-bottom: 0;
+    border:none;
+}
+.dc-tab li a{
+    padding:5px 20px;
+}
+
+.dc-list{
+    background: #FFF;
 }

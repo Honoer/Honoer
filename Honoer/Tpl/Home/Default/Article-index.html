@@ -5,7 +5,7 @@
                 <div class="dc-tit">
                     <span class="pull-left text-center">{$vo.create_time|timer=5,5}</span>
                     <h4><a href="{:U('read',array('aid'=>$vo['article_id']))}" title="{$vo.article_title}">{$vo.article_title}</a></h4>
-                    <small class="pull-right">Author:{$vo.user_nickname}&nbsp;Tags:Source Title</small>
+                    <small class="pull-right"><i class="icon-user"></i>&nbsp;{$vo.user_nickname}<i class="icon-tags"></i>&nbsp;Source Title</small>
                 </div>
                 <div class="dc-content">
                     {$vo.article_content}
@@ -14,15 +14,7 @@
         </volist>
     </div>
     <div class="span3">
-        <div class="input-append">
-            <input class="span2" name="keyword" placeholder="请输入关键词" id="appendedInputButton" type="text">
-            <button class="btn" name="search" type="button">Go!</button>
-        </div>
-        <ul class="nav nav-tabs nav-stacked dc-list">
-            <volist name="hot" id="vo">
-                <li><a href="{:U('read',array('aid'=>$vo['article_id']))}" title="{$vo.article_title}"><small class="pull-right">{$vo.article_view}</small>{$vo.article_title|cn_substr=21}</a></li>
-            </volist>
-        </ul>
+        <include file="Article:right" />
     </div>
 </div>
 <div class="page">{$page}</div>
