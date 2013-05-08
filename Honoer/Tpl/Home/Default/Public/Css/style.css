@@ -1,0 +1,39 @@
+body {background:#FCFCFC;}
+
+.dc-box {
+    position: relative;
+    margin-bottom: 20px;
+    border: 1px solid #CCC;
+    background-color: #FFF;
+    border-radius: 5px;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+}
+.dc-tit {
+    height: 60px;
+    line-height: 60px;
+    background: #F2F2F2;
+    border-radius: 5px 5px 0 0;
+    border-bottom:1px solid #CCC;
+    padding-left: 74px;
+}
+.dc-content {
+    padding: 10px;
+}
+.dc-tit > span {
+    position: absolute;
+    top:-10px;
+    left: 4px;
+    height: 64px;
+    width: 64px;
+    line-height: 76px;
+    background: url('../Images/time.png') left center no-repeat;
+}
+.dc-tit > h4{
+    float: left;
+    margin-top: 0;
+    line-height: 60px;
+}
+.dc-tit > small {
+    line-height: 90px;
+    margin-right: 10px;
+}
