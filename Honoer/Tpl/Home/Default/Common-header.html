@@ -3,9 +3,20 @@
         <a class="brand" href="#"><h3></h3></a>
     </div>
     <div class="span9">
-        <ul class="nav nav-pills pull-right dc-nav">
+        <ul class="dc-top-nav">
             <volist name="topnav" id="vo">
-                <li <if condition="MODULE_NAME eq $vo['class_module']">class="active"</if>><a href="{:U($vo['class_module'].'/index')}">{$vo.class_name}</a></li>
+                <li>
+                    <a  <if condition="MODULE_NAME eq $vo['class_module']">class="active"</if> href="{:U($vo['class_module'].'/index')}">{$vo.class_name}</a>
+                <notempty name="vo['_child']">
+                    <ol>
+                        <volist name="vo['_child']" id="child">
+                            <li>
+                                <a <if condition="MODULE_NAME eq $vo['class_module']">class="active"</if> href="{:U($vo['class_module'].'/index',array('cid'=>$child['class_id']))}">{$child.class_name}</a>
+                            </li>
+                        </volist>
+                    </ol>
+                </notempty>
+                </li>
             </volist>
         </ul>
     </div>

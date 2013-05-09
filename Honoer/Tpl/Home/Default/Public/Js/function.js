@@ -9,4 +9,10 @@ $(function(){
         },300);
     });
     
+    $(".dc-top-nav li").hover(function(){
+        $(this).find("ol").show();
+    },function(){
+        $(this).find("ol").hide();
+    });
+    
 })

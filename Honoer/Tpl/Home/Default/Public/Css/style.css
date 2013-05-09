@@ -1,23 +1,17 @@
+* {margin: 0;padding: 0;list-style: none;}
 body {background:#FFF;}
 
-.dc-404{
-    width: 511px;
-    margin: 100px auto;
-    height:200px;
-    background:url(../Images/404.jpg) no-repeat;
-}
-.dc-404 > p{
-    padding: 100px 0 0 200px;
-}
+.dc-404{width: 511px;margin: 100px auto;height:200px;background:url(../Images/404.jpg) no-repeat;}
+.dc-404 > p{padding: 100px 0 0 200px;}
 
 #header {
-    height:80px;
+    height:60px;
     margin-bottom: 20px;
-    background:#EFF6FC;
-    background: -webkit-gradient(linear,0 0,0 100%,from(#FFFFFF),to(#EFEFEF),color-stop(0.4,#FFFFFF));
-    background-image: -moz-linear-gradient(top,#FFFFFF,#EFEFEF);
-    border-bottom: 1px solid #DADADA;
-    box-shadow: 0 1px 0 #FFFFFF inset, 0 1px 5px rgba(0, 0, 0, 0.1);
+    background:#F9F9F9;
+    border-bottom: 1px solid #D6D6D6;
+}
+#header .container {
+    position: relative;
 }
 #footer{
     height:60px;
@@ -33,14 +27,58 @@ body {background:#FFF;}
 
 }
 
-ul.dc-nav{
-    margin-top:20px;
+ul.dc-top-nav{
+    position: absolute;
+    top: 19px;
+    right: 0;
 }
-.dc-nav li a{
-    width: 70px;
+ul.dc-top-nav > li{
+    width: 90px;
+    height:40px;
+    line-height: 40px;
+    margin-left: 10px;
+    float:left;
+    position: relative;
+    z-index: 999;
+    list-style: none;
+}
+ul.dc-top-nav > li > a{
+    border-width: 1px 1px 0;
+    border-color: #F9F9F9 #F9F9F9;
+    border-style: solid;
     text-align: center;
-    margin: 0 10px;
+    display: block;
+
 }
+ul.dc-top-nav > li >a:hover,ul.dc-top-nav > li >a:active,ul.dc-top-nav > li.active >a{
+    background: #FFF;
+    border-width: 1px;
+    border-color: #D6D6D6 #D6D6D6 #FFF;
+    border-style: solid;
+    border-radius: 5px 5px 0 0;
+    display: block;
+}
+
+ul.dc-top-nav ol{
+    display: none;
+    width: 200px;
+    padding: 20px;
+    background: #FFF;
+    box-shadow: 0 1px 5px #DDDDDD;
+    border: 1px solid #D6D6D6;
+    border-radius: 0 0 5px 5px;
+    margin-top: -1px;
+    position: absolute;
+    right: 0;
+}
+ul.dc-top-nav ol li{
+    border-bottom: 1px solid #D6D6D6;
+}
+ul.dc-top-nav ol li a{
+    display: block;
+    padding:8px 0;
+}
+
 
 
 
