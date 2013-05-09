@@ -19,6 +19,13 @@ class ArticleModel extends RelationModel {
             'foreign_key' => 'user_id',
             'as_fields' => 'user_nickname',
         ),
+        'Class' => array(
+            'mapping_type' => BELONGS_TO,
+            'mapping_name' => '_class',
+            'class_name' => '_class',
+            'foreign_key' => 'class_id',
+            'as_fields' => 'class_name',
+        ),
     );
 
     public function getList($where = null, &$pages = false) {
@@ -36,6 +43,8 @@ class ArticleModel extends RelationModel {
     }
 
     function getDetail($where) {
+        if ($where === null)
+            return false;
         is_numeric($where) && $where = array('article_id' => $where);
         return $this->field(true)
                         ->where($where)
@@ -56,6 +65,19 @@ class ArticleModel extends RelationModel {
                 break;
         }
         return $this->getList();
+    }
+
+    public function saveArticel($args) {
+        $args['create_time'] = date('Y-m-d H:i:s', time());
+        $args['user_id'] = 1;
+        if ($this->create($args)) {
+            $result = (isset($args['article_id']) && !empty($args['article_id'])) ? $this->save() : $this->add();
+            if ($result) {
+                return true;
+            } else {
+                return $this->getError();
+            }
+        }
     }
 
 }

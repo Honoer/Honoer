@@ -1,0 +1,59 @@
+<form class="form-horizontal">
+    <input type="hidden" name="article_id" value="{$data.article_id}" />
+    <fieldset>
+        <legend>Reply:</legend>
+        <div class="control-group">
+            <label class="control-label" for="article_title">标题:</label>
+            <div class="controls">
+                <input class="span6" type="text" name="article_title" value="{$data.article_title}">
+            </div>
+        </div>
+
+        <div class="control-group">
+            <label class="control-label" for="class_id">分类:</label>
+            <div class="controls">
+                <select name="class_id">
+                    <volist name="class" id="vo">
+                        <option <if condition="$vo['class_id'] eq $data['class_id']">selected</if> value="{$vo.class_id}">{$vo.class_name}</option>
+                    </volist>
+                </select>
+            </div>
+        </div>
+
+        <div class="control-group">
+            <label class="control-label" for="article_title">创建时间:</label>
+            <div class="controls">
+                <input disabled type="text" name="create_time" value="{$data.create_time}">
+            </div>
+        </div>
+
+        <div class="control-group">
+            <label class="control-label" for="article_content">内容:</label>
+            <div class="controls">
+                <textarea id="editor" name="article_content">{$data.article_content}</textarea>
+            </div>
+        </div>
+
+        <div class="control-group">
+            <label class="control-label" for="article_content"></label>
+            <div class="controls">
+                <button type="submit" class="btn btn-primary">Save</button>
+            </div>
+        </div>
+
+</form>
+
+<script>
+    var editor;
+    KindEditor.ready(function(K) {
+        editor = K.create("#editor",{
+            afterBlur: function(){this.sync();}
+        })
+    });
+    $(function(){
+        $("form").submit(function(){
+            dcSubmit();
+            return false;
+        });
+    })
+</script>

@@ -1,4 +1,12 @@
+/*http://1.gravatar.com/avatar/3dfa11043e2e49acf54b036757922939?s=60*/
+
 body {background:#FFF;}
+
+#editor {
+    width:100%;
+    min-height: 300px;
+    visibility:hidden;
+}
 
 .dc-404{
     width: 511px;
