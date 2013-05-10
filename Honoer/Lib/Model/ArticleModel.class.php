@@ -42,10 +42,11 @@ class ArticleModel extends RelationModel {
                         ->select();
     }
 
-    function getDetail($where) {
+    function getDetail($where, $order = null) {
         if ($where === null)
             return false;
         is_numeric($where) && $where = array('article_id' => $where);
+        $order !== null && $this->order($order);
         return $this->field(true)
                         ->where($where)
                         ->find();

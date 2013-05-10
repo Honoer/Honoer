@@ -3,7 +3,9 @@
 class ArticleAction extends CommonAction {
 
     public function index() {
-        $data = D('Article')->getList(null, $pages);
+        $cid = $_GET['cid'];
+        !empty($cid) && $where = array('class_id' => $cid);
+        $data = D('Article')->getList($where, $pages);
         $data = sub_content($data, 'article_content', 120);
         $this->assign('data', $data);
         $this->assign('page', $pages);
@@ -16,7 +18,7 @@ class ArticleAction extends CommonAction {
     }
 
     public function read() {
-        $aid = $this->_get('aid');
+        $aid = $_GET['aid'];
         $data = D('Article')->relation(true)->getDetail($aid);
         $prev = D('Article')->getDetail(array('article_id' => array('lt', $aid)), array('article_id' => 'DESC'));
         $next = D('Article')->getDetail(array('article_id' => array('gt', $aid)), array('article_id' => 'ASC'));

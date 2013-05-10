@@ -5,16 +5,18 @@
     <div class="span9">
         <ul class="dc-top-nav">
             <volist name="topnav" id="vo">
-                <li>
-                    <a  <if condition="MODULE_NAME eq $vo['class_module']">class="active"</if> href="{:U($vo['class_module'].'/index')}">{$vo.class_name}</a>
+                <li <if condition="MODULE_NAME eq $vo['class_module']">class="active"</if>>
                 <notempty name="vo['_child']">
-                    <ol>
+                    <a class="dc-top-nav-child" href="{:U($vo['class_module'].'/index')}">{$vo.class_name}</a>
+                    <dl>
                         <volist name="vo['_child']" id="child">
-                            <li>
-                                <a <if condition="MODULE_NAME eq $vo['class_module']">class="active"</if> href="{:U($vo['class_module'].'/index',array('cid'=>$child['class_id']))}">{$child.class_name}</a>
-                            </li>
+                            <dd <if condition="$_GET['cid'] eq $child['class_id']">class="active"</if>>
+                            <a href="{:U($vo['class_module'].'/index',array('cid'=>$child['class_id']))}">{$child.class_name}</a>
+                            </dd>
                         </volist>
-                    </ol>
+                    </dl>
+                    <else />
+                    <a href="{:U($vo['class_module'].'/index')}">{$vo.class_name}</a>
                 </notempty>
                 </li>
             </volist>

@@ -9,10 +9,10 @@ $(function(){
         },300);
     });
     
-    $(".dc-top-nav li").hover(function(){
-        $(this).find("ol").show();
+    $(".dc-top-nav-child").parent("li").hover(function(){
+        $(this).addClass("active").find("dl").show();
     },function(){
-        $(this).find("ol").hide();
+        $(this).removeClass("active").find("dl").hide();
     });
     
 })

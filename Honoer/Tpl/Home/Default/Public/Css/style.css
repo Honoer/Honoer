@@ -32,25 +32,32 @@ ul.dc-top-nav{
     top: 19px;
     right: 0;
 }
-ul.dc-top-nav > li{
-    width: 90px;
-    height:40px;
-    line-height: 40px;
+ul.dc-top-nav li{
     margin-left: 10px;
     float:left;
     position: relative;
-    z-index: 999;
     list-style: none;
 }
-ul.dc-top-nav > li > a{
+ul.dc-top-nav li > a{
+    width: 90px;
+    height:40px;
+    color:#004B73;
+    font: 14px '微软雅黑',Arial;
+    line-height: 40px;
     border-width: 1px 1px 0;
     border-color: #F9F9F9 #F9F9F9;
     border-style: solid;
     text-align: center;
     display: block;
-
 }
-ul.dc-top-nav > li >a:hover,ul.dc-top-nav > li >a:active,ul.dc-top-nav > li.active >a{
+
+ul.dc-top-nav li > a.dc-top-nav-child{
+    position: relative;
+    z-index: 990;
+}
+ul.dc-top-nav li > a:hover,ul.dc-top-nav li.active > a{
+    text-decoration: none;
+    color: #333;
     background: #FFF;
     border-width: 1px;
     border-color: #D6D6D6 #D6D6D6 #FFF;
@@ -59,7 +66,7 @@ ul.dc-top-nav > li >a:hover,ul.dc-top-nav > li >a:active,ul.dc-top-nav > li.acti
     display: block;
 }
 
-ul.dc-top-nav ol{
+ul.dc-top-nav dl{
     display: none;
     width: 200px;
     padding: 20px;
@@ -67,16 +74,17 @@ ul.dc-top-nav ol{
     box-shadow: 0 1px 5px #DDDDDD;
     border: 1px solid #D6D6D6;
     border-radius: 0 0 5px 5px;
-    margin-top: -1px;
     position: absolute;
+    z-index: 900;
+    margin-top: -1px;
     right: 0;
 }
-ul.dc-top-nav ol li{
-    border-bottom: 1px solid #D6D6D6;
+ul.dc-top-nav dl dd{
+    border-bottom: 1px dashed #D6D6D6;
 }
-ul.dc-top-nav ol li a{
+ul.dc-top-nav dl dd a{
     display: block;
-    padding:8px 0;
+    padding:5px 0;
 }
 
 
