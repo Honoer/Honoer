@@ -1,12 +1,14 @@
-<div class="input-append">
-    <input class="span2" name="keyword" placeholder="请输入关键词" id="appendedInputButton" type="text">
-    <button class="btn" name="search" type="button">Go!</button>
-</div>
+<form class="dc-search" action="{:U('Article/index')}" method="get">
+    <div class="input-append">
+        <input class="span2" name="keyword" placeholder="请输入关键词" type="text" value="{$_GET['keyword']}">
+        <button class="btn" name="search" type="submit">Go!</button>
+    </div>
+</form>
 
-<div class="tabbable"> <!-- Only required for left/right tabs -->
+<div class="tabbable">
     <ul class="nav nav-tabs dc-tab">
-        <li class="active"><a href="#hot" data-toggle="tab">Section 1</a></li>
-        <li><a href="#new" data-toggle="tab">Section 2</a></li>
+        <li class="active"><a href="#hot" data-toggle="tab">热门文章</a></li>
+        <li><a href="#new" data-toggle="tab">最新文章</a></li>
     </ul>
     <div class="tab-content">
         <div class="tab-pane active fade in" id="hot">

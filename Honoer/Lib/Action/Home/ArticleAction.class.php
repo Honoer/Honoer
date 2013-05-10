@@ -4,6 +4,14 @@ class ArticleAction extends CommonAction {
 
     public function index() {
         $cid = $_GET['cid'];
+        $keyword = $_GET['keyword'];
+        if (isset($keyword) && !empty($keyword)) {
+            $where = array(
+                'article_title' => array('like', "%{$keyword}%"),
+                'article_content' => array('like', "%{$keyword}%"),
+                '_logic' => 'OR',
+            );
+        }
         !empty($cid) && $where = array('class_id' => $cid);
         $data = D('Article')->getList($where, $pages);
         $data = sub_content($data, 'article_content', 120);
@@ -26,6 +34,19 @@ class ArticleAction extends CommonAction {
         $this->assign('next', $next);
         $this->assign('data', $data);
         $this->display();
+    }
+
+    public function search() {
+        $keyword = $_GET['keyword'];
+        $where = array(
+            'article_title' => array('like', "%{$keyword}%"),
+            'article_content' => array('like', "%{$keyword}%"),
+            '_logic' => 'OR',
+        );
+        $data = D('Article')->getList($where, $pages);
+        $this->assign('data', $data);
+        $this->assign('page', $pages);
+        $this->display('index');
     }
 
 }

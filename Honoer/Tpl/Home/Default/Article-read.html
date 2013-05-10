@@ -3,8 +3,8 @@
 <div class="dc-box">
     <div class="dc-tit">
         <span class="pull-left text-center">{$data.create_time|timer=5,5}</span>
-        <h4>{$data.article_title}</h4>
-        <small class="pull-right">Author:{$data.user_nickname}&nbsp;Tags:Source Title</small>
+        {$data.article_title}
+        <small class="pull-right"><i class="icon-user"></i>&nbsp;{$data.user_nickname}&nbsp;&nbsp;<i class="icon-tags"></i>&nbsp;Source Title</small>
     </div>
     <div class="dc-content">
         {$data.article_content}

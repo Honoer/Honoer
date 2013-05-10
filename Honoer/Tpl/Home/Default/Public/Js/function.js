@@ -10,9 +10,9 @@ $(function(){
     });
     
     $(".dc-top-nav-child").parent("li").hover(function(){
-        $(this).addClass("active").find("dl").show();
+        $(this).addClass("this").find("dl").show();
     },function(){
-        $(this).removeClass("active").find("dl").hide();
+        $(this).removeClass("this").find("dl").hide();
     });
     
 })

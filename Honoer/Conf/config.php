@@ -16,7 +16,7 @@ $app_config = array(
 //    'TMPL_ACTION_ERROR' => TMPL_PATH . 'dispatch_jump.html',
 //    'TMPL_ACTION_SUCCESS' => TMPL_PATH . 'dispatch_jump.html',
 //    'TMPL_EXCEPTION_FILE' => TMPL_PATH . '404.html',
-    'SHOW_PAGE_TRACE' => true,
+    //'SHOW_PAGE_TRACE' => true,
 //    'SHOW_ERROR_MSG' => true,
 );
 

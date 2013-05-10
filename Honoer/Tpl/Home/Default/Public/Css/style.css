@@ -36,6 +36,7 @@ ul.dc-top-nav li{
     margin-left: 10px;
     float:left;
     position: relative;
+    z-index: 1000;
     list-style: none;
 }
 ul.dc-top-nav li > a{
@@ -55,7 +56,7 @@ ul.dc-top-nav li > a.dc-top-nav-child{
     position: relative;
     z-index: 990;
 }
-ul.dc-top-nav li > a:hover,ul.dc-top-nav li.active > a{
+ul.dc-top-nav li > a:hover,ul.dc-top-nav li.active > a,ul.dc-top-nav li.this > a{
     text-decoration: none;
     color: #333;
     background: #FFF;
@@ -75,7 +76,6 @@ ul.dc-top-nav dl{
     border: 1px solid #D6D6D6;
     border-radius: 0 0 5px 5px;
     position: absolute;
-    z-index: 900;
     margin-top: -1px;
     right: 0;
 }
@@ -87,6 +87,13 @@ ul.dc-top-nav dl dd a{
     padding:5px 0;
 }
 
+.dc-search{
+    margin:0;
+}
+.dc-search input[name='keyword']{
+    width: auto;
+}
+
 
 
 
@@ -94,7 +101,7 @@ ul.dc-top-nav dl dd a{
 .dc-box {
     position: relative;
     margin-bottom: 20px;
-    border: 1px solid #CCC;
+    border: 1px solid #D6D6D6;
     background-color: #FFF;
     border-radius: 5px;
     box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
@@ -102,13 +109,21 @@ ul.dc-top-nav dl dd a{
 .dc-tit {
     height: 60px;
     line-height: 60px;
-    background: #F2F2F2;
+    background: #F9F9F9;
     border-radius: 5px 5px 0 0;
     border-bottom:1px solid #CCC;
     padding-left: 74px;
 }
 .dc-content {
     padding: 10px;
+}
+.dc-content:after{
+    clear: both;
+}
+.dc-content:before,.dc-content:after{
+    content: "";
+    display: table;
+    line-height: 0;
 }
 .dc-tit > span {
     position: absolute;
@@ -119,10 +134,9 @@ ul.dc-top-nav dl dd a{
     line-height: 76px;
     background: url('../Images/time.png') left center no-repeat;
 }
-.dc-tit > h4{
+.dc-tit > a{
     float: left;
     margin: 0;
-    line-height: 60px;
 }
 .dc-tit > small {
     line-height: 90px;
@@ -142,10 +156,17 @@ ul.dc-top-nav dl dd a{
     margin-bottom: 0;
     border:none;
 }
+.nav-tabs li.active a{
+    border-top: 3px solid #72B939; 
+}
 .dc-tab li a{
     padding:5px 20px;
 }
 
 .dc-list{
     background: #FFF;
+}
+
+.nav-tabs.nav-stacked > li:first-child > a{
+    border-top-left-radius:0;
 }

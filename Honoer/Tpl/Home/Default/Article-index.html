@@ -1,17 +1,25 @@
 <div class="row">
     <div class="span9">
-        <volist name="data" id="vo">
-            <div class="dc-box">
-                <div class="dc-tit">
-                    <span class="pull-left text-center">{$vo.create_time|timer=5,5}</span>
-                    <h4><a href="{:U('read',array('aid'=>$vo['article_id']))}" title="{$vo.article_title}">{$vo.article_title}</a></h4>
-                    <small class="pull-right"><i class="icon-user"></i>&nbsp;{$vo.user_nickname}<i class="icon-tags"></i>&nbsp;Source Title</small>
+        <notempty name="data">
+            <volist name="data" id="vo">
+                <div class="dc-box">
+                    <div class="dc-tit">
+                        <span class="pull-left text-center">{$vo.create_time|timer=5,5}</span>
+                        <a href="{:U('read',array('aid'=>$vo['article_id']))}" title="{$vo.article_title}">{$vo.article_title}</a>
+                        <small class="pull-right"><i class="icon-user"></i>&nbsp;{$vo.user_nickname}&nbsp;&nbsp;<i class="icon-tags"></i>&nbsp;Source Title</small>
+                    </div>
+                    <div class="dc-content">
+                        {$vo.article_content}
+                    </div>
                 </div>
+            </volist>
+            <else />
+            <div class="dc-box">
                 <div class="dc-content">
-                    {$vo.article_content}
+                    亲~ 找不到你要的内容！
                 </div>
             </div>
-        </volist>
+        </notempty>
     </div>
     <div class="span3">
         <include file="Article:right" />
