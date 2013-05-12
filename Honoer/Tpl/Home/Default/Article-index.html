@@ -1,28 +1,30 @@
-<div class="row">
-    <div class="span9">
+<div class="left">
+    <div class="item-box box-shadow">
         <notempty name="data">
-            <volist name="data" id="vo">
-                <div class="dc-box">
-                    <div class="dc-tit">
-                        <span class="pull-left text-center">{$vo.create_time|timer=5,5}</span>
-                        <a href="{:U('read',array('aid'=>$vo['article_id']))}" title="{$vo.article_title}">{$vo.article_title}</a>
-                        <small class="pull-right"><i class="icon-user"></i>&nbsp;{$vo.user_nickname}&nbsp;&nbsp;<i class="icon-tags"></i>&nbsp;Source Title</small>
-                    </div>
-                    <div class="dc-content">
-                        {$vo.article_content}
-                    </div>
-                </div>
-            </volist>
+            <ul class="item-info">
+                <volist name="data" id="vo">
+                    <li class="cl">
+                        <a class="thumbnail" href="{:U('read',array('aid'=>$vo['article_id']))}" title="{$vo.article_title}">
+                            <img src="../Public/Images/no-pic.png" data-original="http://img.baidu.com/hi/r/image/2012-02-10/5cd9b1b85518db186ad7d84257f4ac08.jpg" width="200" height="130" />
+                        </a>
+                        <div class="info-txt">
+                            <h4 class="tit"><a href="{:U('read',array('aid'=>$vo['article_id']))}" title="{$vo.article_title}">{$vo.article_title}</a></h4>
+                            <div class="tags"><span>Tags:{$vo.class_name}</span><span>Reply:{$vo.article_view}</span><span>Time:{$vo.create_time|timer=0,10}</span><span>Author:{$vo.user_nickname}</span></div>
+                            <div class="intro">{$vo.article_content}</div>
+                        </div>
+                    </li>
+                </volist>
+            </ul>
             <else />
-            <div class="dc-box">
-                <div class="dc-content">
-                    亲~ 找不到你要的内容！
-                </div>
+            <div class="dc-content">
+                亲~ 找不到你要的内容！
             </div>
         </notempty>
     </div>
-    <div class="span3">
-        <include file="Article:right" />
-    </div>
+    <div class="clearfix"></div>
+    <div class="itme-page">{$page}</div>
 </div>
-<div class="page">{$page}</div>
+<div class="right">
+    <include file="Article:right" />
+</div>
+

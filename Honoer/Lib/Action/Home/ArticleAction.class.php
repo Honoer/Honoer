@@ -14,7 +14,7 @@ class ArticleAction extends CommonAction {
         }
         !empty($cid) && $where = array('class_id' => $cid);
         $data = D('Article')->getList($where, $pages);
-        $data = sub_content($data, 'article_content', 120);
+        $data = sub_content($data, 'article_content', 100);
         $this->assign('data', $data);
         $this->assign('page', $pages);
         //热门文章 根据点击次数去7条

@@ -1,25 +1,19 @@
-<div class="row">
-    <div class="span3">
-        <a class="brand" href="#"><h3></h3></a>
-    </div>
-    <div class="span9">
-        <ul class="dc-top-nav">
-            <volist name="topnav" id="vo">
-                <li <if condition="MODULE_NAME eq $vo['class_module']">class="active"</if>>
-                <notempty name="vo['_child']">
-                    <a class="dc-top-nav-child" href="{:U($vo['class_module'].'/index')}">{$vo.class_name}</a>
-                    <dl>
-                        <volist name="vo['_child']" id="child">
-                            <dd <if condition="$_GET['cid'] eq $child['class_id']">class="active"</if>>
-                            <a href="{:U($vo['class_module'].'/index',array('cid'=>$child['class_id']))}">{$child.class_name}</a>
-                            </dd>
-                        </volist>
-                    </dl>
-                    <else />
-                    <a href="{:U($vo['class_module'].'/index')}">{$vo.class_name}</a>
-                </notempty>
-                </li>
-            </volist>
-        </ul>
-    </div>
-</div>
+<div class="itme-logo"><img src="http://home.baidu.com/resource/r/home/img/logo-yy.gif" /></div>
+<ul class="top-nav">
+    <volist name="topnav" id="vo">
+        <li <if condition="MODULE_NAME eq $vo['class_module']">class="active"</if>>
+        <notempty name="vo['_child']">
+            <a class="nav-child" href="{:U($vo['class_module'].'/index')}">{$vo.class_name}</a>
+            <dl>
+                <volist name="vo['_child']" id="child">
+                    <dd <if condition="$_GET['cid'] eq $child['class_id']">class="active"</if>>
+                    <a href="{:U($vo['class_module'].'/index',array('cid'=>$child['class_id']))}">{$child.class_name}</a>
+                    </dd>
+                </volist>
+            </dl>
+            <else />
+            <a href="{:U($vo['class_module'].'/index')}">{$vo.class_name}</a>
+        </notempty>
+        </li>
+    </volist>
+</ul>

@@ -52,7 +52,7 @@ class ArticleModel extends RelationModel {
                         ->find();
     }
 
-    public function getSeven($type, $num = 7) {
+    public function getSeven($type, $num = 8) {
         switch ($type) {
             case 'top':
                 $this->order(array('article_view' => 'DESC'));

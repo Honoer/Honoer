@@ -1,27 +1,33 @@
-<form class="dc-search" action="{:U('Article/index')}" method="get">
-    <div class="input-append">
-        <input class="span2" name="keyword" placeholder="请输入关键词" type="text" value="{$_GET['keyword']}">
-        <button class="btn" name="search" type="submit">Go!</button>
-    </div>
+<form class="item-form" action="{:U('Article/index')}" method="get">
+    <input name="keyword" placeholder="请输入关键词" type="text" value="{$_GET['keyword']}">
+    <button class="btn" name="search" type="submit">Go!</button>
 </form>
 
-<div class="tabbable">
-    <ul class="nav nav-tabs dc-tab">
-        <li class="active"><a href="#hot" data-toggle="tab">热门文章</a></li>
-        <li><a href="#new" data-toggle="tab">最新文章</a></li>
-    </ul>
+<div class="item-tabs box-shadow">
+    <div class="tab-title">
+        <ul>
+            <li class="active"><a href="javascript:;" data-toggle="#hot">热门文章</a></li>
+            <li><a href="javascript:;" data-toggle="#new">最新文章</a></li>
+        </ul>
+    </div>
     <div class="tab-content">
-        <div class="tab-pane active fade in" id="hot">
-            <ul class="nav nav-tabs nav-stacked dc-list">
+        <div id="hot" class="item-list">
+            <ul>
                 <volist name="hot" id="vo">
-                    <li><a href="{:U('read',array('aid'=>$vo['article_id']))}" title="{$vo.article_title}"><small class="pull-right">{$vo.article_view}</small>{$vo.article_title|cn_substr=21}</a></li>
+                    <li>
+                        <small>{$vo.article_view}</small>
+                        <a href="{:U('read',array('aid'=>$vo['article_id']))}" title="{$vo.article_title}">{$vo.article_title|cn_substr=28}</a>
+                    </li>
                 </volist>
             </ul>
         </div>
-        <div class="tab-pane fade" id="new">
-            <ul class="nav nav-tabs nav-stacked dc-list">
+        <div id="new" class="item-list" style="display: none;">
+            <ul>
                 <volist name="new" id="vo">
-                    <li><a href="{:U('read',array('aid'=>$vo['article_id']))}" title="{$vo.article_title}"><small class="pull-right">{$vo.article_view}</small>{$vo.article_title|cn_substr=21}</a></li>
+                    <li>
+                        <small>{$vo.article_view}</small>
+                        <a href="{:U('read',array('aid'=>$vo['article_id']))}" title="{$vo.article_title}">{$vo.article_title|cn_substr=28}</a>
+                    </li>
                 </volist>
             </ul>
         </div>
