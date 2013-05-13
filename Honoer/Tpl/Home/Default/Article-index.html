@@ -5,12 +5,12 @@
                 <volist name="data" id="vo">
                     <li class="cl">
                         <a class="thumbnail" href="{:U('read',array('aid'=>$vo['article_id']))}" title="{$vo.article_title}">
-                            <img src="../Public/Images/no-pic.png" data-original="{$vo.article_pic}" width="200" height="130" />
+                            <img src="../Public/Images/no-pic.png" data-original="{$vo.article_pic}" width="140" height="98" />
                         </a>
                         <div class="info-txt">
                             <h3 class="tit"><a href="{:U('read',array('aid'=>$vo['article_id']))}" title="{$vo.article_title}">{$vo.article_title}</a></h3>
                             <div class="tags"><span>Tags:{$vo.class_name}</span><span>Reply:{$vo.article_view}</span><span>Time:{$vo.create_time|timer=0,10}</span><span>Author:{$vo.user_nickname}</span></div>
-                            <div class="intro">{$vo.article_content}</div>
+                            <div class="intro">{$vo.article_intro|cn_substr=120}</div>
                         </div>
                     </li>
                 </volist>

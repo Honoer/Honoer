@@ -2,7 +2,7 @@
 
 class ArticleModel extends RelationModel {
 
-    protected $fields = array('article_id', 'class_id', 'article_title', 'article_content', 'user_id', 'create_time', 'article_view', 'article_comment',
+    protected $fields = array('article_id', 'class_id', 'article_title', 'article_intro', 'article_content', 'user_id', 'create_time', 'article_view', 'article_comment',
         '_pk' => 'article_id', '_autoinc' => true);
     protected $_link = array(
         'Comment' => array(
