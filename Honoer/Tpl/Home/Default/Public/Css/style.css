@@ -3,8 +3,8 @@ html {font-size: 100%;*zoom: 1;}
 body {font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;font-size: 14px;line-height: 20px;color: #333333;background: #FFF;}
 .clearfix {*zoom: 1;}
 
-/*#72B939*/
-a {color: #0054A6;;text-decoration: none;}
+/*#72B939*#0054A6*/
+a {color: #444;text-decoration: none;}
 a:hover,
 a:focus {color: #093;text-decoration: underline;}
 img {vertical-align: middle;border: 0;-ms-interpolation-mode: bicubic;}
@@ -45,8 +45,13 @@ a.thumbnail:focus {border-color: #0088CC;box-shadow: 0 1px 4px rgba(0, 105, 214,
 .container .right {display: block;}
 
 
+.itme-logo {position: absolute;left: 0;top: 16px;}
+.top-search {position: absolute;left: 200px;top: 36px;}
+.top-search button {float:left;}
+.top-search input{float: left;}
 
-.itme-logo {float:left;margin-top: 16px;}
+
+
 .top-nav {position: absolute;top: 39px;right: 0;}
 .top-nav > li {margin-left: 10px;float:left;position: relative;z-index: 1000;}
 .top-nav > li > a {display: block;width: 90px;height:40px;line-height:40px;text-decoration: none;color:#004B73;font-size: 14px;font-family: '微软雅黑',Arial;border-width: 1px 1px 0;border-color: #F8F8F8 #F8F8F8;border-style: solid;text-align: center;}
@@ -64,10 +69,6 @@ a.thumbnail:focus {border-color: #0088CC;box-shadow: 0 1px 4px rgba(0, 105, 214,
 
 
 .item-box {padding:20px 10px;border: 1px solid #CCC;}
-.item-form {}
-.top-search {float: left;margin: 45px 0  0 30px;}
-.top-search button {float:left;}
-.top-search input{float: left;}
 .box-shadow {background-color: #FFF;border-radius: 5px;box-shadow: 0 1px 5px rgba(0, 0, 0, 0.1);position: relative;}
 
 .item-tabs {border: 1px solid #CCC;}
@@ -82,7 +83,7 @@ a.thumbnail:focus {border-color: #0088CC;box-shadow: 0 1px 4px rgba(0, 105, 214,
 .item-tabs .item-list li {padding:5px 5px 5px 10px;border-bottom:1px dashed #CCC;}
 .item-tabs .item-list li:last-child {border-bottom:0 none;}
 .item-tabs .item-list li small {display:inline-block;float:right;}
-
+.item-form {}
 
 
 .item-list {}
@@ -96,9 +97,7 @@ a.thumbnail:focus {border-color: #0088CC;box-shadow: 0 1px 4px rgba(0, 105, 214,
 .item-info .tags span {margin-right: 10px;}
 .item-info .intro {font-size: 12px;color: #666;}
 
-
 .itme-page {margin: 10px 0;text-align: right;}
-
 
 .tit a,.tab-title a{color: #444; }
 .tit a:hover,.tab-title li.active a {color:#093;}
