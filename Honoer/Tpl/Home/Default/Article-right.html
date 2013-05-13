@@ -1,17 +1,14 @@
-<div class="item-tabs box-shadow">
-    <div class="tab-title">
-        <ul>
-            <li class="active"><a href="javascript:;" data-toggle="#hot">热门文章</a></li>
-            <li><a href="javascript:;" data-toggle="#new">最新文章</a></li>
-        </ul>
-    </div>
-    <div class="tab-content">
+<div class="item-tabs">
+    <ul class="tab-title">
+        <li class="active"><a href="javascript:;" data-toggle="#hot">热门文章</a></li>
+        <li><a href="javascript:;" data-toggle="#new">最新文章</a></li>
+    </ul>
+    <div class="tab-content box-shadow">
         <div id="hot" class="item-list">
             <ul>
                 <volist name="hot" id="vo">
                     <li>
-                        <small>{$vo.article_view}</small>
-                        <a href="{:U('read',array('aid'=>$vo['article_id']))}" title="{$vo.article_title}">{$vo.article_title|cn_substr=28}</a>
+                        <a href="{:U('read',array('aid'=>$vo['article_id']))}" title="{$vo.article_title}"><small>{$vo.article_view}</small>{$vo.article_title|cn_substr=28}</a>
                     </li>
                 </volist>
             </ul>
@@ -20,7 +17,7 @@
             <ul>
                 <volist name="new" id="vo">
                     <li>
-                        <small>{$vo.article_view}</small>
+
                         <a href="{:U('read',array('aid'=>$vo['article_id']))}" title="{$vo.article_title}">{$vo.article_title|cn_substr=28}</a>
                     </li>
                 </volist>

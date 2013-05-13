@@ -8,7 +8,7 @@
                             <img src="../Public/Images/no-pic.png" data-original="{$vo.article_pic}" width="200" height="130" />
                         </a>
                         <div class="info-txt">
-                            <h4 class="tit"><a href="{:U('read',array('aid'=>$vo['article_id']))}" title="{$vo.article_title}">{$vo.article_title}</a></h4>
+                            <h3 class="tit"><a href="{:U('read',array('aid'=>$vo['article_id']))}" title="{$vo.article_title}">{$vo.article_title}</a></h3>
                             <div class="tags"><span>Tags:{$vo.class_name}</span><span>Reply:{$vo.article_view}</span><span>Time:{$vo.create_time|timer=0,10}</span><span>Author:{$vo.user_nickname}</span></div>
                             <div class="intro">{$vo.article_content}</div>
                         </div>
