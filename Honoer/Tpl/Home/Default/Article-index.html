@@ -5,7 +5,7 @@
                 <volist name="data" id="vo">
                     <li class="cl">
                         <a class="thumbnail" href="{:U('read',array('aid'=>$vo['article_id']))}" title="{$vo.article_title}">
-                            <img src="../Public/Images/no-pic.png" data-original="http://img.baidu.com/hi/r/image/2012-02-10/5cd9b1b85518db186ad7d84257f4ac08.jpg" width="200" height="130" />
+                            <img src="../Public/Images/no-pic.png" data-original="{$vo.article_pic}" width="200" height="130" />
                         </a>
                         <div class="info-txt">
                             <h4 class="tit"><a href="{:U('read',array('aid'=>$vo['article_id']))}" title="{$vo.article_title}">{$vo.article_title}</a></h4>
