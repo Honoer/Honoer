@@ -1,5 +1,5 @@
-<div class="item-box box-shadow">
-    <div class="item-info">
+<div class="con-list sd-box">
+    <div class="box-txt">
         <h4 class="tit">{$data.article_title}</h4>
         <hr>
         <div class="tags">
@@ -8,13 +8,13 @@
             <span>Time:{$data.create_time|timer=0,10}</span>
             <span>Author:{$data.user_nickname}</span>
         </div>
-        <div class="intro">{$data.article_content}</div>
+        <div class="box-con">{$data.article_content}</div>
     </div>
 </div>
 <div class="prev-next">
-        <span>上一篇：&nbsp;<empty name="prev">没有啦！<else /><a href="{:U('read',array('aid'=>$prev['article_id']))}" title="{$prev.article_title}">{$prev.article_title}</a></empty></span>
-        <span>下一篇：&nbsp;<empty name="next">没有啦！<else /><a href="{:U('read',array('aid'=>$next['article_id']))}" title="{$next.article_title}">{$next.article_title}</a></empty></span>
-    </div>
+    <span>上一篇：&nbsp;<empty name="prev">没有啦！<else /><a href="{:U('read',array('aid'=>$prev['article_id']))}" title="{$prev.article_title}">{$prev.article_title}</a></empty></span>
+    <span>下一篇：&nbsp;<empty name="next">没有啦！<else /><a href="{:U('read',array('aid'=>$next['article_id']))}" title="{$next.article_title}">{$next.article_title}</a></empty></span>
+</div>
 
 <!--include file="Article:reply" /-->
 <!--<div class="dc-box">-->
