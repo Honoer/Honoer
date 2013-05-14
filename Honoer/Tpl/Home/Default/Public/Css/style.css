@@ -1,12 +1,12 @@
 * {margin: 0;padding: 0;list-style: none;}
 html {font-size: 100%;*zoom: 1;}
-body {font-family: "Century Gothic","Microsoft yahei";font-size: 13px;line-height: 20px;color: #333;background: #FAFAFA;}
+body {font-family: "Century Gothic","Microsoft yahei";font-size: 13px;line-height: 20px;color: #333;background: #FFF;}
 .clearfix {*zoom: 1;}
 
-/*#72B939*#0054A6 #06C*/
+/*#72B939*#0054A6 #06C #08C #08D #093*/
 a {color: #333;text-decoration: none;}
 a:hover,
-a:focus {color: #093;text-decoration: underline;}
+a:focus {color: #08D;text-decoration: underline;}
 img {vertical-align: middle;border: 0;-ms-interpolation-mode: bicubic;}
 hr { margin: 10px 0;border: 0;border-top: 1px solid #DDD;border-bottom: 1px solid #FFF;}
 h3 {font-size: 13px;}
@@ -101,7 +101,7 @@ input[name="keyword"] {width: 300px;border-radius: 4px 0 0 4px;}
 
 /*左侧的列表*/
 .con-list {padding:10px;}
-.con-list li.cl{display: inline-block;border-bottom: 1px dashed #D4D4D4;margin-bottom: 15px;padding-bottom: 10px;}
+.con-list li.cl{display: inline-block;border-bottom: 1px dashed #08C;margin-bottom: 15px;padding-bottom: 10px;}
 .con-list .thumb {float: left;}
 .con-list .thumb > img {width: 140px;height:98px;}
 .con-list .cl .box-txt  {float: left;margin-left: 15px;width: 562px;}
