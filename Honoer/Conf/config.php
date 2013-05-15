@@ -4,7 +4,7 @@
 $web_config = require 'web.config.php';
 $db_config = require 'db.config.php';
 $app_config = array(
-    'URL_MODEL' => 1,
+    'URL_MODEL' => 2,
     'OUTPUT_ENCODE' => false, //页面压缩
     'APP_FILE_CASE' => true, //检查大小写
     'APP_GROUP_LIST' => 'Home,Admin', //分组名称
