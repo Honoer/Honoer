@@ -33,8 +33,8 @@
     <div class="box-con">
         <ul>
             <volist name="dataClass" id="vo">
-                <li>
-                    <a href="{:U('index',array('date'=>$vo['date']))}" title="{$vo.article_title}"><small>{$vo.total}</small>{$vo.date}</a>
+                <li <if condition="$vo['date'] eq $_GET['date']">class="active"</if>>
+                    <a href="{:U('index',array('date'=>$vo['date']))}" title="{$vo.date}"><small>{$vo.total}</small>{$vo.date}</a>
                 </li>
             </volist>
         </ul>

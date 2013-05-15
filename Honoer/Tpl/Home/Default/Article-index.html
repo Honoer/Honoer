@@ -10,13 +10,16 @@
                         <div class="box-txt">
                             <h3 class="tit"><a href="{:U('read',array('aid'=>$vo['article_id']))}" title="{$vo.article_title}">{$vo.article_title}</a></h3>
                             <div class="tags"><span>Tags:{$vo.class_name}</span><span>Reply:{$vo.article_view}</span><span>Time:{$vo.create_time|timer=0,10}</span><span>Author:{$vo.user_nickname}</span></div>
-                            <div class="intro">{$vo.article_intro|cn_substr=120}</div>
+                            <div class="intro">
+                                {$vo.article_intro|cn_substr=120}
+                                <a class="more" href="{:U('read',array('aid'=>$vo['article_id']))}" title="阅读全文">阅读全文</a>
+                            </div>
                         </div>
                     </li>
                 </volist>
             </ul>
             <else />
-                亲~ 找不到你要的内容！
+            亲~ 找不到你要的内容！
         </notempty>
     </div>
     <div class="clearfix"></div>

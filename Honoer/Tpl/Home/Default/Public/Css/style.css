@@ -101,22 +101,24 @@ input[name="keyword"] {width: 300px;border-radius: 4px 0 0 4px;}
 
 /*左侧的列表*/
 .con-list {padding:10px;}
-.con-list li.cl{display: inline-block;border-bottom: 1px dashed #39C;margin-bottom: 15px;padding-bottom: 10px;}
+.con-list li.cl{display: inline-block;border-bottom: 1px dashed #08D;margin-bottom: 15px;padding-bottom: 10px;}
 .con-list .thumb {float: left;}
 .con-list .thumb > img {width: 140px;height:98px;}
 .con-list .cl .box-txt  {float: left;margin-left: 15px;width: 562px;}
 .box-txt .tit {font-size: 15px;}
 .box-txt .tags {font-size: 12px;color: #999;margin: 8px 0;}
 .box-txt .tags span {margin-right: 10px;}
-.box-txt .intro {font-size: 12px;color: #999;}
+.box-txt .intro {font-size: 12px;color: #999;position: relative;}
+.box-txt .intro .more {color:#08D;position: absolute;bottom: -20px;right: 10px;}
 
 /*右侧的列表*/
 .item-box {margin-bottom: 20px;}
-.item-box .box-tit{color:#39C;border-bottom: 1px solid #CCC;}
+.item-box .box-tit{color:#08D;border-bottom: 1px solid #CCC;}
 .item-box .box-tit h3{display: inline-block;border-bottom:1px solid green;}
 .item-box .box-con {}
 .item-box .box-con li {height:30px;line-height: 30px;cursor:pointer;border-bottom: 1px dashed #CCC;}
-.item-box .box-con li:hover{background:#F8F8F8;border-bottom: 1px dashed #39C;}
+.item-box .box-con li:hover,
+.item-box .box-con li.active{background:#F8F8F8;border-bottom: 1px dashed #08D;}
 .item-box .box-con li a{display: block;}
 .item-box .box-con li a span,
 .item-box .box-con li a small{float:right;}
