@@ -33,9 +33,11 @@ class ArticleAction extends CommonAction {
 
     public function read() {
         $aid = $_GET['aid'];
+
         $data = D('Article')->relation(true)->getDetail($aid);
         $prev = D('Article')->getDetail(array('article_id' => array('lt', $aid)), array('article_id' => 'DESC'));
         $next = D('Article')->getDetail(array('article_id' => array('gt', $aid)), array('article_id' => 'ASC'));
+        D("Article")->where(array('article_id' => $aid))->setInc('article_view', 1);
         $this->assign('prev', $prev);
         $this->assign('next', $next);
         $this->assign('data', $data);
