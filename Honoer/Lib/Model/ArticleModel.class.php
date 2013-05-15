@@ -36,10 +36,7 @@ class ArticleModel extends RelationModel {
             $pages = $Page->show();
             $this->limit($Page->firstRow . ',' . $Page->listRows);
         }
-        return $this->field(true)
-                        ->relation(true)
-                        ->where($where)
-                        ->select();
+        return $this->relation(true)->where($where)->select();
     }
 
     function getDetail($where, $order = null) {
@@ -47,9 +44,7 @@ class ArticleModel extends RelationModel {
             return false;
         is_numeric($where) && $where = array('article_id' => $where);
         $order !== null && $this->order($order);
-        return $this->field(true)
-                        ->where($where)
-                        ->find();
+        return $this->relation(true)->where($where)->find();
     }
 
     public function getSeven($type, $num = 8) {
@@ -75,10 +70,17 @@ class ArticleModel extends RelationModel {
             $result = (isset($args['article_id']) && !empty($args['article_id'])) ? $this->save() : $this->add();
             if ($result) {
                 return true;
-            } else {
-                return $this->getError();
             }
         }
+        return $this->getError();
+    }
+
+    public function getClassByDate($format = '%Y-%m') {
+        $format = "DATE_FORMAT(`create_time`,'{$format}')";
+        $this->field(array("COUNT(*)" => 'total', $format => 'date'));
+        $this->where(array());
+        $this->group("date");
+        return $this->getList();
     }
 
 }
