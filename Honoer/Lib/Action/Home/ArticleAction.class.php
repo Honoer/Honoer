@@ -5,12 +5,16 @@ class ArticleAction extends CommonAction {
     public function index() {
         $cid = $_GET['cid'];
         $keyword = $_GET['keyword'];
+        $date = $_GET['date'];
         if (isset($keyword) && !empty($keyword)) {
             $where = array(
                 'article_title' => array('like', "%{$keyword}%"),
                 'article_content' => array('like', "%{$keyword}%"),
                 '_logic' => 'OR',
             );
+        }
+        if (isset($date) && !empty($date)) {
+            $where = array('create_time' => array('like', "%{$date}%"));
         }
         !empty($cid) && $where = array('class_id' => $cid);
         $data = D('Article')->getList($where, $pages);
