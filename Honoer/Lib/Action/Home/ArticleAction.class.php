@@ -28,8 +28,6 @@ class ArticleAction extends CommonAction {
         $new = D('Article')->getSeven('new');
         $this->assign('hot', $hot);
         $this->assign('new', $new);
-        //设置SEO信息
-        $this->assign('seo', setseo(C('Description'), C('Keyword')));
         $this->display();
     }
 
@@ -43,10 +41,10 @@ class ArticleAction extends CommonAction {
         $this->assign('next', $next);
         $this->assign('data', $data);
         //设置SEO信息
-        $this->assign('seo', setseo($data['article_title'], $data['article_description'], $data['article_keyword']));
+        $this->assign('seo', setseo(array($data['article_title'], $data['article_description'], $data['article_keyword'])));
         $this->display();
     }
-
+    
     public function search() {
         $keyword = $_GET['keyword'];
         $where = array(
@@ -57,7 +55,6 @@ class ArticleAction extends CommonAction {
         $data = D('Article')->getList($where, $pages);
         $this->assign('data', $data);
         $this->assign('page', $pages);
-        $this->assign('seo', setseo(C('Description'), C('Keyword')));
         $this->display('index');
     }
 
