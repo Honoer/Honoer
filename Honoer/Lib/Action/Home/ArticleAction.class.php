@@ -25,16 +25,9 @@ class ArticleAction extends CommonAction {
         }
         !empty($cid) && $where = array('class_id' => $cid);
         $data = $this->_model->getList($where, $pages);
-        $data = sub_content($data, 'article_content', 100);
-        $dataClass = D("Article")->getClassByDate();
         $this->assign('data', $data);
-        $this->assign('dataClass', $dataClass);
         $this->assign('page', $pages);
-        //热门文章 根据点击次数去7条
-        $hot = $this->_model->getSeven('top');
-        $new = $this->_model->getSeven('new');
-        $this->assign('hot', $hot);
-        $this->assign('new', $new);
+        $this->right();
         $this->display();
     }
 
@@ -49,7 +42,18 @@ class ArticleAction extends CommonAction {
         $this->assign('data', $data);
         //设置SEO信息
         $this->assign('seo', setseo(array($data['article_title'], $data['article_intro'], $data['article_keyword'])));
+        $this->right();
         $this->display();
+    }
+
+    public function right() {
+        //热门文章 根据点击次数去7条
+        $hot = $this->_model->getSeven('top');
+        $new = $this->_model->getSeven('new');
+        $dataClass = $this->_model->getClassByDate();
+        $this->assign('dataClass', $dataClass);
+        $this->assign('hot', $hot);
+        $this->assign('new', $new);
     }
 
     public function search() {
