@@ -36,7 +36,7 @@ class ArticleAction extends CommonAction {
         } else {
             $aid = $this->_get('aid');
             $data = D('Article')->relation(true)->getDetail($aid);
-            $class = D('Class')->getList(array('class_pid'=>5));
+            $class = D('Class')->getList(array('class_pid' => 5));
             $this->assign('data', $data);
             $this->assign('class', $class);
             $this->display();
