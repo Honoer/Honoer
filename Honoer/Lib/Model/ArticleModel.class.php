@@ -2,7 +2,8 @@
 
 class ArticleModel extends RelationModel {
 
-    protected $fields = array('article_id', 'class_id', 'article_title', 'article_intro', 'article_content', 'user_id', 'create_time', 'article_view', 'article_comment',
+    protected $fields = array('article_id', 'class_id', 'article_title', 'article_intro', 'article_content', 'user_id', 'create_time',
+        'article_view', 'article_comment', 'article_picpath', 'article_description', 'article_keywords',
         '_pk' => 'article_id', '_autoinc' => true);
     protected $_link = array(
         'Comment' => array(
@@ -64,8 +65,16 @@ class ArticleModel extends RelationModel {
     }
 
     public function saveArticel($args) {
+        unset($args['article_picpath']); //删除表单传过来的值
         $args['create_time'] = date('Y-m-d H:i:s', time());
         $args['user_id'] = 1;
+        $upload = new UploadAction();
+        $file = $upload->uploadFiles();
+        if ($file) {
+            $args['article_picpath'] = ltrim($file['savepath'], '.') . 'thumb_' . $file['savename'];
+        }
+        $args['article_title'] = strip_tags($args['article_title']);
+        empty($args['article_intro']) && $args['article_intro'] = cn_substr(preg_replace("/[^a-zA-Z][ ]+[^a-zA-Z]/", "", strip_tags($args['article_content'])), 230);
         if ($this->create($args)) {
             $result = (isset($args['article_id']) && !empty($args['article_id'])) ? $this->save() : $this->add();
             if ($result) {

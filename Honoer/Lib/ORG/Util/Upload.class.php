@@ -5,21 +5,10 @@ class Upload {
     public $save_path;
     public $save_url;
 
-    public function __get($name) {
-        if (isset($this->name)) {
-            return $this->name;
-        }
-        return null;
-    }
-
-    public function __set($name, $value) {
-        if (isset($this->name)) {
-            $this->name = $value;
-        }
-    }
-
-    public function __construct() {
-        require_once './Public/Js/kindeditor/php/JSON.php';
+    public function __construct($save_path, $save_url) {
+        $this->save_path = $save_path;
+        $this->save_url = $save_url;
+        require_once 'JSON.php';
     }
 
     public function upload_json() {
