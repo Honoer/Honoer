@@ -28,12 +28,13 @@ class ArticleAction extends CommonAction {
         $new = D('Article')->getSeven('new');
         $this->assign('hot', $hot);
         $this->assign('new', $new);
+        //设置SEO信息
+        $this->assign('seo', setseo(C('Description'), C('Keyword')));
         $this->display();
     }
 
     public function read() {
         $aid = $_GET['aid'];
-
         $data = D('Article')->relation(true)->getDetail($aid);
         $prev = D('Article')->getDetail(array('article_id' => array('lt', $aid)), array('article_id' => 'DESC'));
         $next = D('Article')->getDetail(array('article_id' => array('gt', $aid)), array('article_id' => 'ASC'));
@@ -41,6 +42,8 @@ class ArticleAction extends CommonAction {
         $this->assign('prev', $prev);
         $this->assign('next', $next);
         $this->assign('data', $data);
+        //设置SEO信息
+        $this->assign('seo', setseo($data['article_title'], $data['article_description'], $data['article_keyword']));
         $this->display();
     }
 
@@ -54,6 +57,7 @@ class ArticleAction extends CommonAction {
         $data = D('Article')->getList($where, $pages);
         $this->assign('data', $data);
         $this->assign('page', $pages);
+        $this->assign('seo', setseo(C('Description'), C('Keyword')));
         $this->display('index');
     }
 

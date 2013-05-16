@@ -2,6 +2,14 @@
 
 //公共函数文件
 
+function setseo($args) {
+    return array(
+        'title' => $args[0],
+        'Description' => $args[1],
+        'Keywords' => $args[2],
+    );
+}
+
 function timer($time, $start, $length) {
     return substr(is_numeric($time) ? date('Y-m-d H:i:s', $time) : $time, $start, $length);
 }
