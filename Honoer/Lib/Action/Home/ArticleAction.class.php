@@ -48,7 +48,7 @@ class ArticleAction extends CommonAction {
         $this->assign('next', $next);
         $this->assign('data', $data);
         //设置SEO信息
-        $this->assign('seo', setseo(array($data['article_title'], $data['article_description'], $data['article_keyword'])));
+        $this->assign('seo', setseo(array($data['article_title'], $data['article_intro'], $data['article_keyword'])));
         $this->display();
     }
 

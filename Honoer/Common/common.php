@@ -2,6 +2,17 @@
 
 //公共函数文件
 
+function del_html_tags($str) {
+    $str = trim($str);
+    $str = strip_tags($str, "");
+    $str = str_replace("\t", "", $str);
+    $str = str_replace("\r\n", "", $str);
+    $str = str_replace("\r", "", $str);
+    $str = str_replace("\n", "", $str);
+    $str = str_replace(" ", " ", $str);
+    return trim($str);
+}
+
 function setseo($args) {
     return array(
         'title' => $args[0],
