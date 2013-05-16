@@ -2,6 +2,13 @@
 
 class ArticleAction extends CommonAction {
 
+    private $_model = null;
+
+    public function __construct() {
+        parent::__construct();
+        $this->_model = D('Article');
+    }
+
     public function index() {
         $cid = $_GET['cid'];
         $keyword = $_GET['keyword'];
@@ -17,15 +24,15 @@ class ArticleAction extends CommonAction {
             $where = array('create_time' => array('like', "%{$date}%"));
         }
         !empty($cid) && $where = array('class_id' => $cid);
-        $data = D('Article')->getList($where, $pages);
+        $data = $this->_model->getList($where, $pages);
         $data = sub_content($data, 'article_content', 100);
         $dataClass = D("Article")->getClassByDate();
         $this->assign('data', $data);
         $this->assign('dataClass', $dataClass);
         $this->assign('page', $pages);
         //热门文章 根据点击次数去7条
-        $hot = D('Article')->getSeven('top');
-        $new = D('Article')->getSeven('new');
+        $hot = $this->_model->getSeven('top');
+        $new = $this->_model->getSeven('new');
         $this->assign('hot', $hot);
         $this->assign('new', $new);
         $this->display();
@@ -33,10 +40,10 @@ class ArticleAction extends CommonAction {
 
     public function read() {
         $aid = $_GET['aid'];
-        $data = D('Article')->relation(true)->getDetail($aid);
-        $prev = D('Article')->getDetail(array('article_id' => array('lt', $aid)), array('article_id' => 'DESC'));
-        $next = D('Article')->getDetail(array('article_id' => array('gt', $aid)), array('article_id' => 'ASC'));
-        D("Article")->where(array('article_id' => $aid))->setInc('article_view', 1);
+        $data = $this->_model->relation(true)->getDetail($aid);
+        $prev = $this->_model->getDetail(array('article_id' => array('lt', $aid)), array('article_id' => 'DESC'));
+        $next = $this->_model->getDetail(array('article_id' => array('gt', $aid)), array('article_id' => 'ASC'));
+        $this->_model->where(array('article_id' => $aid))->setInc('article_view', 1);
         $this->assign('prev', $prev);
         $this->assign('next', $next);
         $this->assign('data', $data);
@@ -44,7 +51,7 @@ class ArticleAction extends CommonAction {
         $this->assign('seo', setseo(array($data['article_title'], $data['article_description'], $data['article_keyword'])));
         $this->display();
     }
-    
+
     public function search() {
         $keyword = $_GET['keyword'];
         $where = array(
@@ -52,7 +59,7 @@ class ArticleAction extends CommonAction {
             'article_content' => array('like', "%{$keyword}%"),
             '_logic' => 'OR',
         );
-        $data = D('Article')->getList($where, $pages);
+        $data = $this->_model->getList($where, $pages);
         $this->assign('data', $data);
         $this->assign('page', $pages);
         $this->display('index');
