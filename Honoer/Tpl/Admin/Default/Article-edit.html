@@ -9,7 +9,7 @@
             </div>
         </div>
 
-        
+
         <div class="control-group">
             <label class="control-label" for="class_id">分类:</label>
             <div class="controls">
@@ -20,21 +20,21 @@
                 </select>
             </div>
         </div>
-        
-         <div class="control-group">
+
+        <div class="control-group">
             <label class="control-label" for="class_id">简介:</label>
             <div class="controls">
                 <textarea class="span6" name="article_intro" rows="4">{$data.article_intro}</textarea>
             </div>
         </div>
-        
+
         <div class="control-group">
             <label class="control-label" for="class_id">SEO关键词:</label>
             <div class="controls">
                 <input class="span6" type="text" name="article_keywords" value="{$data.article_keywords}">
             </div>
         </div>
-        
+
         <div class="control-group">
             <label class="control-label" for="class_id">文章图片:</label>
             <div class="controls">
@@ -44,18 +44,18 @@
                 <img src="{$data.article_picpath}" width="140" height="98">
             </div>
         </div>
-        
+
         <div class="control-group">
             <label class="control-label" for="article_title">创建时间:</label>
             <div class="controls">
-                <input disabled type="text" name="create_time" value="{$data.create_time}">
+                <input disabled type="text" name="create_time" value="<php>echo empty($data['create_time'])?date('Y-m-d H:i:s',time()):$data['create_time']</php>">
             </div>
         </div>
 
         <div class="control-group">
             <label class="control-label" for="article_content">内容:</label>
             <div class="controls">
-                <textarea id="editor" name="article_content">{$data.article_content}</textarea>
+                <script id="editor" name="article_content" type="text/plain" style="width: 700px;">{$data.article_content}</script>
             </div>
         </div>
 
@@ -68,17 +68,11 @@
 
 </form>
 
-<script>
-    var editor;
-    KindEditor.ready(function(K) {
-        editor = K.create("#editor",{
-            allowFileManager:true,
-            cssPath : ["../Public/syntaxhighlighter/styles/shCore.css","../Public/syntaxhighlighter/styles/shThemeDefault.css"],
-            uploadJson : "{:U('Upload/upload_json')}",
-            fileManagerJson : "{:U('Upload/file_manager_json')}",
-            afterBlur: function(){this.sync();}
-        })
-    });
+<script type="text/javascript">
+    //实例化编辑器
+    var ueditor = UE.getEditor('editor');
+    ueditor.addListener('ready',function(){this.focus();});
+    
     $(function(){
         $("form").submit(function(){
             dcSubmit();
