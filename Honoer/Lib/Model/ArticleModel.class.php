@@ -66,7 +66,9 @@ class ArticleModel extends RelationModel {
 
     public function saveArticel($args) {
         unset($args['article_picpath']); //删除表单传过来的值
-        $args['create_time'] = date('Y-m-d H:i:s', time());
+        if (empty($args['article_id'])) {
+            $args['create_time'] = date('Y-m-d H:i:s', time());
+        }
         $args['user_id'] = 1;
         $upload = new UploadAction();
         $file = $upload->uploadFiles();
