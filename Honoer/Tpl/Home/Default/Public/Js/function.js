@@ -6,6 +6,7 @@ $(function(){
         $(this).removeClass("this").find("dl").hide();
     });
     
+    
     $(".tab-title").find("a").hover(function(){
         var thisTab =$(this);
         t = setTimeout(function(){
