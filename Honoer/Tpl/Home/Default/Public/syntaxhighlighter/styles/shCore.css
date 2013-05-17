@@ -55,6 +55,8 @@
 	font-weight: normal !important;
 	font-style: normal !important;
 	font-size: 10pt !important;
+        white-space: normal;
+        word-break: break-all;
 	min-height: inherit !important; /* For IE8, FF & WebKit */
 	min-height: auto !important; /* For IE7 */
 }

@@ -1,26 +1,18 @@
 <?php
-$code = $_GET['code'];
 
+$name = $_GET['name'];
+$data = returnRes($name);
+exit($_GET['callback'] . '(' . json_encode($data) . ')');
 
-$data = returnData($code);
-
-exit($_GET['callback'].'('.json_encode($data).')'); 
-
-//echo json_encode(call());
-
-
-
-
-function returnData($code){
-	$data = $_SERVER;
-	$str = "你请求的地址是：".__FILE__.";CODE:".$code;
-	$_SESSION=array();
-	if($code ==='888'){
-		$_SESSION['name'] = $code;
-		$_SESSION['time'] = time();
-		$str = '你已在'.$data["HTTP_HOST"].'下登录成功！';
-	}
-	return $str;
-
+//这里定义一个函数处理内容让callback调用
+function returnRes($name) {
+    if ($name === 'honoer.com') {
+        $_SESSION['name'] = $name;
+        $_SESSION['time'] = time();
+        $str = '你已在' . $_SERVER["HTTP_HOST"] . '下登录成功！';
+    } else {
+        $str = '用户名错误！';
+    }
+    return $str;
 }
 ?>
