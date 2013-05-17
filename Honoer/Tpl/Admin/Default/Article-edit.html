@@ -55,7 +55,7 @@
         <div class="control-group">
             <label class="control-label" for="article_content">内容:</label>
             <div class="controls">
-                <script id="editor" name="article_content" type="text/plain" style="width: 700px;">{$data.article_content}</script>
+                <script id="editor" name="article_content" type="text/plain">{$data.article_content}</script>
             </div>
         </div>
 
@@ -70,8 +70,13 @@
 
 <script type="text/javascript">
     //实例化编辑器
-    var ueditor = UE.getEditor('editor');
-    ueditor.addListener('ready',function(){this.focus();});
+    var options = {
+        initialFrameWidth:760,
+        initialFrameHeight:320,
+        autotypeset:{clearFontSize:true},
+        focus:true
+    };
+    var ueditor = UE.getEditor('editor',options);
     
     $(function(){
         $("form").submit(function(){
