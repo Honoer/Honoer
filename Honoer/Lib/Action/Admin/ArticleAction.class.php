@@ -28,10 +28,10 @@ class ArticleAction extends CommonAction {
 
     public function edit() {
         if (!empty($_POST)) {
-            if (D('Article')->saveArticel($_POST)) {
+            if ($result = D('Article')->saveArticel($_POST)) {
                 $this->ajaxReturn(null, '操作成功！', 1);
             } else {
-                $this->ajaxReturn(null, '操作失败！', 0);
+                $this->ajaxReturn(null, $result, 0);
             }
         } else {
             $aid = $this->_get('aid');

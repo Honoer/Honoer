@@ -67,20 +67,29 @@
         </div>
 
 </form>
-
+{$Think.config.upload_path}
 <script type="text/javascript">
     //实例化编辑器
     var options = {
+        imageUrl:"{:U('Upload/imageUp')}",
+        imagePath:"/",
+        fileUrl:"{:U('Upload/fileUp')}",
+        filePath:"/",
+        imageManagerUrl:"{:U('Upload/imageManager')}",
+        imageManagerPath:"/",
+        
         initialFrameWidth:760,
         initialFrameHeight:320,
         autotypeset:{clearFontSize:true},
         focus:true
     };
     var ueditor = UE.getEditor('editor',options);
-    
     $(function(){
         $("form").submit(function(){
-            dcSubmit();
+            if(ueditor.hasContents()){ 
+                ueditor.sync();   
+                dcSubmit();
+            }
             return false;
         });
     })

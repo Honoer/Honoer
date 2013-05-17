@@ -21,14 +21,13 @@
      */
     var URL;
     
-
     /**
      * 此处配置写法适用于UEditor小组成员开发使用，外部部署用户请按照上述说明方式配置即可，建议保留下面两行，以兼容可在具体每个页面配置window.UEDITOR_HOME_URL的功能。
      */
     var tmp = location.protocol.indexOf("file")==-1 ? location.pathname : location.href;
-    URL = window.UEDITOR_HOME_URL||tmp.substr(0,tmp.lastIndexOf("\/")+1).replace("_examples/","").replace("website/","");//这里你可以配置成ueditor目录在您网站的相对路径或者绝对路径（指以http开头的绝对路径）
+    //URL = window.UEDITOR_HOME_URL||tmp.substr(0,tmp.lastIndexOf("\/")+1).replace("_examples/","").replace("website/","");//这里你可以配置成ueditor目录在您网站的相对路径或者绝对路径（指以http开头的绝对路径）
+    
     URL= window.UEDITOR_HOME_URL||"/Public/Plugins/UEditor/";
-
     /**
      * 配置项主体。注意，此处所有涉及到路径的配置别遗漏URL变量。
      */
@@ -36,7 +35,6 @@
 
         //为编辑器实例添加一个路径，这个不能被注释
         UEDITOR_HOME_URL : URL
-
         //图片上传配置区
         ,imageUrl:URL+"php/imageUp.php"             //图片上传提交地址
         ,imagePath:URL + "php/"                     //图片修正地址，引用了fixedImagePath,如有特殊需求，可自行配置
