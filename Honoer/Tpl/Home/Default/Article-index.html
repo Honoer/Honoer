@@ -12,9 +12,9 @@
                             <div class="tags"><span>Tags:{$vo.class_name}</span><span>Reply:{$vo.article_view}</span><span>Time:{$vo.create_time|timer=0,10}</span><span>Author:{$vo.user_nickname}</span></div>
                             <div class="intro">
                                 {$vo.article_intro}
-                                <a class="more" href="{:U('read',array('aid'=>$vo['article_id']))}" title="阅读全文">阅读全文</a>
                             </div>
                         </div>
+                        <a class="more" href="{:U('read',array('aid'=>$vo['article_id']))}" title="阅读全文">阅读全文</a>
                     </li>
                 </volist>
             </ul>

@@ -76,7 +76,7 @@ class ArticleModel extends RelationModel {
             $args['article_picpath'] = ltrim($file['savepath'], '.') . 'thumb_' . $file['savename'];
         }
         $args['article_title'] = strip_tags($args['article_title']);
-        empty($args['article_intro']) && $args['article_intro'] = cn_substr(del_html_tags($args['article_content']), 230);
+        empty($args['article_intro']) && $args['article_intro'] = cn_substr(del_html_tags($args['article_content']), 180);
         if ($this->create($args)) {
             $result = (isset($args['article_id']) && !empty($args['article_id'])) ? $this->save() : $this->add();
             if ($result) {

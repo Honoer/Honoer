@@ -102,16 +102,16 @@ input[name="keyword"] {width: 300px;border-radius: 4px 0 0 4px;}
 
 /*左侧的列表*/
 .con-list {padding:10px;}
-.con-list li.cl{display: inline-block;border-bottom: 1px dashed #08C;margin-bottom: 15px;padding-bottom: 10px;}
+.con-list li.cl{display: inline-block;position: relative;border-bottom: 1px dashed #08C;margin-bottom: 15px;padding-bottom: 10px;}
 .con-list .thumb {float: left;}
 .con-list .thumb > img {width: 140px;height:98px;}
 .con-list .cl .box-txt  {float: left;margin-left: 15px;width: 562px;}
+.con-list .cl .more {color:#08C;position: absolute;bottom: 5px;right: 10px;}
 .box-txt h3.tit {font-size: 15px;}
 .box-txt h2.tit {font-size: 18px;}
 .box-txt .tags {font-size: 12px;color: #999;margin: 8px 0;}
 .box-txt .tags span {margin-right: 10px;}
-.box-txt .intro {font-size: 12px;color: #666;position: relative;}
-.box-txt .intro .more {color:#08C;position: absolute;bottom: -5px;right: 10px;}
+.box-txt .intro {font-size: 12px;color: #666;}
 
 /*右侧的列表*/
 .item-box {margin-bottom: 20px;}
