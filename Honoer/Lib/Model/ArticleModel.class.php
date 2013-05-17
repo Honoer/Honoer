@@ -92,6 +92,7 @@ class ArticleModel extends RelationModel {
         $format = "DATE_FORMAT(`create_time`,'{$format}')";
         $this->field(array("COUNT(*)" => 'total', $format => 'date'));
         $this->where(array());
+        $this->order(array('date'=>'DESC'));
         $this->group("date");
         return $this->getList();
     }
