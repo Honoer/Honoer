@@ -12,9 +12,9 @@ MySQL - 5.5.8-log : Database - h.me
 /*!40014 SET @OLD_FOREIGN_KEY_CHECKS=@@FOREIGN_KEY_CHECKS, FOREIGN_KEY_CHECKS=0 */;
 /*!40101 SET @OLD_SQL_MODE=@@SQL_MODE, SQL_MODE='NO_AUTO_VALUE_ON_ZERO' */;
 /*!40111 SET @OLD_SQL_NOTES=@@SQL_NOTES, SQL_NOTES=0 */;
-CREATE DATABASE /*!32312 IF NOT EXISTS*/`mfzemgrh3e_bolg` /*!40100 DEFAULT CHARACTER SET latin1 */;
+CREATE DATABASE /*!32312 IF NOT EXISTS*/`h.me` /*!40100 DEFAULT CHARACTER SET latin1 */;
 
-USE `mfzemgrh3e_bolg`;
+USE `h.me`;
 
 /*Table structure for table `tp_article` */
 
@@ -52,12 +52,14 @@ CREATE TABLE `tp_class` (
   `create_time` timestamp NOT NULL DEFAULT '0000-00-00 00:00:00',
   `class_path` varchar(255) NOT NULL DEFAULT '0',
   `class_module` varchar(20) NOT NULL DEFAULT '',
+  `class_action` varchar(20) NOT NULL DEFAULT '',
+  `class_group` varchar(20) NOT NULL DEFAULT '',
   PRIMARY KEY (`class_id`)
-) ENGINE=MyISAM AUTO_INCREMENT=8 DEFAULT CHARSET=utf8;
+) ENGINE=MyISAM AUTO_INCREMENT=15 DEFAULT CHARSET=utf8;
 
 /*Data for the table `tp_class` */
 
-insert  into `tp_class`(`class_id`,`class_pid`,`class_name`,`class_using`,`create_time`,`class_path`,`class_module`) values (1,5,'PHP',1,'0000-00-00 00:00:00','0-5',''),(2,5,'HTML',1,'0000-00-00 00:00:00','0-5',''),(3,5,'JS',1,'0000-00-00 00:00:00','0-5',''),(4,0,'首页',1,'0000-00-00 00:00:00','0','Index'),(5,0,'文章',1,'0000-00-00 00:00:00','0','Article'),(6,0,'关于Me',1,'0000-00-00 00:00:00','0','About');
+insert  into `tp_class`(`class_id`,`class_pid`,`class_name`,`class_using`,`create_time`,`class_path`,`class_module`,`class_action`,`class_group`) values (1,5,'PHP',1,'0000-00-00 00:00:00','0-5','','','home'),(2,5,'HTML',1,'0000-00-00 00:00:00','0-5','','','home'),(3,5,'JS',1,'0000-00-00 00:00:00','0-5','','','home'),(4,0,'首页',1,'0000-00-00 00:00:00','0','Index','','home'),(5,0,'文章',1,'0000-00-00 00:00:00','0','Article','','home'),(6,0,'关于Me',1,'0000-00-00 00:00:00','0','About','','home'),(8,0,'系统设置',1,'0000-00-00 00:00:00','0','Index','','admin'),(9,0,'文章管理',1,'0000-00-00 00:00:00','0','Article','','admin'),(10,8,'系统信息',1,'0000-00-00 00:00:00','0-8','','index','admin'),(11,8,'网站设置',1,'0000-00-00 00:00:00','0-8','','seting','admin'),(12,9,'文章列表',1,'0000-00-00 00:00:00','0-9','','index','admin'),(13,9,'添加文章',1,'0000-00-00 00:00:00','0-9','','add','admin'),(14,9,'编辑文章',1,'0000-00-00 00:00:00','0-9','','edit','admin');
 
 /*Table structure for table `tp_comment` */
 
