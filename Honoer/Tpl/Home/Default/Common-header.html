@@ -7,7 +7,7 @@
     <volist name="topnav" id="vo">
         <li <if condition="MODULE_NAME eq $vo['class_module']">class="active"</if>>
         <notempty name="vo['_child']">
-            <a class="nav-child" href="{:U($vo['class_module'].'/index')}">{$vo.class_name}</a>
+            <a class="nav-child" href="{:U($vo['class_module'].'/index')}">{$vo.class_name}<i class="caret"></i></a>
             <dl>
                 <volist name="vo['_child']" id="child">
                     <dd <if condition="$_GET['cid'] eq $child['class_id']">class="active"</if>>
