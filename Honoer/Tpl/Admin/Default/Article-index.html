@@ -7,9 +7,9 @@
             <volist name="data" id="vo">
                 <tr>
                     <td>{$i}</td>
-                    <td><a href="{:U('edit',array('aid'=>$vo['article_id']))}" title="{$vo.article_title}">{$vo.article_title}</a></td>
+                    <td><a href="{:U('edit',array('aid'=>$vo['article_id']))}" title="{$vo.article_title}">{$vo.article_title|cn_substr=48}</a></td>
                     <td>{$vo.class_name}</td>
-                    <td>{$vo.create_time}</td>
+                    <td>{$vo.create_time|timer}</td>
                     <td>{$vo.user_nickname}</td>
                     <td><a href="{:U('edit',array('aid'=>$vo['article_id']))}" title="{$vo.article_title}">Edit</a>&nbsp;|&nbsp;<a href="{:U('del',array('aid'=>$vo['article_id']))}" title="{$vo.article_title}">Del</a></td>
                 </tr>

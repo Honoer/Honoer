@@ -1,6 +1,31 @@
 <?php
 
 //公共函数文件
+
+
+
+//更新缓存
+function updateCache() {
+        import("@.ORG.Dir");
+        $dir = new Dir;
+        @unlink(RUNTIME_PATH . '~runtime.php');
+        if (is_dir(RUNTIME_PATH . 'Cache')) {
+            $dir->delDir(RUNTIME_PATH . 'Cache');
+        }
+        if (is_dir(RUNTIME_PATH . 'Data')) {
+            $dir->delDir(RUNTIME_PATH . 'Data');
+        }
+        if (is_dir(RUNTIME_PATH . 'Logs')) {
+            $dir->delDir(RUNTIME_PATH . 'Logs');
+        }
+        if (is_dir(RUNTIME_PATH . 'Temp')) {
+            $dir->delDir(RUNTIME_PATH . 'Temp');
+        }
+        return true;
+    }
+
+
+
 // 数组保存到文件
 function arr2file($filename, $arr = '') {
     if (is_array($arr)) {

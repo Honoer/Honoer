@@ -1,4 +1,4 @@
-<form class="form-horizontal" enctype="multipart/form-data">
+<form class="form-horizontal" enctype="multipart/form-data" method="post">
     <input type="hidden" name="article_id" value="{$data.article_id}" />
     <fieldset>
         <legend>编辑文章:</legend>
@@ -86,7 +86,7 @@
         $("form").submit(function(){
             if(ueditor.hasContents()){ 
                 ueditor.sync();   
-                dcSubmit();
+                doSubmit();
             }
             return false;
         });

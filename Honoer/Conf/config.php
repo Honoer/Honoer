@@ -1,40 +1,27 @@
 <?php
-
-//数据库配置文件
-return array(
-    // +----------------------------------------------------------------------
-    // | 数据库配置
-    // +----------------------------------------------------------------------
-    'DB_TYPE' => 'mysql',
-    'DB_HOST' => 'localhost',
-    'DB_NAME' => 'h.me',
-    'DB_USER' => 'root',
-    'DB_PWD' => '',
-//    'DB_NAME' => 'mfzemgrh3e_bolg', 
-//    'DB_USER' => 'mfzemgrh3e_root', 
-//    'DB_PWD' => 'D1dLWGXh',
-    'DB_PORT' => '3306',
-    'DB_PREFIX' => 'tp_',
-    // +----------------------------------------------------------------------
-    // | 项目配置
-    // +----------------------------------------------------------------------
-    'OUTPUT_ENCODE' => false, //页面压缩
-    'APP_FILE_CASE' => true, //检查大小写
-    'APP_GROUP_LIST' => 'Home,Admin', //分组名称
-    'DEFAULT_GROUP' => 'Home', //默认分组
-    'DEFAULT_THEME' => 'Default', //默认模版
-    'DEFAULT_MODULE' => 'Article',
-    'LAYOUT_ON' => true, //开启layout
-    'VAR_PAGE' => 'p',
-    'TMPL_FILE_DEPR' => '-', //模版分割符
-    // +----------------------------------------------------------------------
-    // | 网站配置
-    // +----------------------------------------------------------------------
-    'WEB_NAME' => '『Honoer.com』Web技术',
-    'WEB_LOGO' => '',
-    'WEB_RECODE' => 'copyright ©2012 All Rights Reserved.',
-    'WEB_ICP' => '粤ICP备88888888号-1',
-    'WEB_STATISTIC' => '<script type="text/javascript">
+return array (
+  'DB_TYPE' => 'mysql',
+  'DB_HOST' => 'localhost',
+  'DB_NAME' => 'h.me',
+  'DB_USER' => 'root',
+  'DB_PWD' => '',
+  'DB_PORT' => '3306',
+  'DB_PREFIX' => 'tp_',
+  'OUTPUT_ENCODE' => false,
+  'APP_FILE_CASE' => true,
+  'APP_GROUP_LIST' => 'Home,Admin',
+  'DEFAULT_GROUP' => 'Home',
+  'DEFAULT_THEME' => 'Default',
+  'DEFAULT_MODULE' => 'Article',
+  'LAYOUT_ON' => true,
+  'VAR_PAGE' => 'p',
+  'TMPL_FILE_DEPR' => '-',
+  'URL_MODEL' => '2',
+  'WEB_NAME' => '『Honoer.com』Web技术',
+  'WEB_LOGO' => '111112323',
+  'WEB_RECODE' => '®copyright ©2012 All Rights Reserved.',
+  'WEB_ICP' => '粤ICP备12345678号-2',
+  'WEB_STATISTIC' => '<script type="text/javascript">
         var _hmt = _hmt || [];
         (function() {
             var hm = document.createElement("script");
@@ -43,5 +30,7 @@ return array(
             s.parentNode.insertBefore(hm, s);
         })();
     </script>',
+  'submit' => '',
+  '__hash__' => '26af7f0bb752e74cc6496783c779eaef_da99acf70328bac6d5c0ef9d44f3bfa4',
 );
 ?>
