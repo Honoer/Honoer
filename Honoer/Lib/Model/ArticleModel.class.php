@@ -31,7 +31,7 @@ class ArticleModel extends RelationModel {
 
     public function getList($where = null, &$pages = false) {
         if (false !== $pages) {
-            import('@.ORG.Util.Page');
+            import('@.ORG.Page');
             $count = $this->where($where)->count();
             $Page = new Page($count, C('PAGESIZE'));
             $pages = $Page->show();

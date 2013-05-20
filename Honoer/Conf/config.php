@@ -32,5 +32,16 @@ return array(
     // +----------------------------------------------------------------------
     'WEB_NAME' => '『Honoer.com』Web技术',
     'WEB_LOGO' => '',
+    'WEB_RECODE' => 'copyright ©2012 All Rights Reserved.',
+    'WEB_ICP' => '粤ICP备88888888号-1',
+    'WEB_STATISTIC' => '<script type="text/javascript">
+        var _hmt = _hmt || [];
+        (function() {
+            var hm = document.createElement("script");
+            hm.src = "//hm.baidu.com/hm.js?45b34fa03392243e4038fd601390f9dc";
+            var s = document.getElementsByTagName("script")[0]; 
+            s.parentNode.insertBefore(hm, s);
+        })();
+    </script>',
 );
 ?>
