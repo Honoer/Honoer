@@ -6,7 +6,7 @@
         <ul>
             <volist name="new" id="vo">
                 <li>
-                    <a href="{:U('read',array('aid'=>$vo['article_id']))}" title="{$vo.article_title}"><small>{$vo.create_time|strtotime|date="m/d",###}</small>{$vo.article_title|cn_substr=28}</a>
+                    <a href="{:U('read',array('aid'=>$vo['article_id']))}" title="{$vo.article_title}"><small>{$vo.create_time|timer="m/d"}</small>{$vo.article_title|cn_substr=28}</a>
                 </li>
             </volist>
         </ul>

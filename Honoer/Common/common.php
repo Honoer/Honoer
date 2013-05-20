@@ -1,7 +1,23 @@
 <?php
 
 //公共函数文件
+// 数组保存到文件
+function arr2file($filename, $arr = '') {
+    if (is_array($arr)) {
+        $content = var_export($arr, true);
+    } else {
+        $content = $arr;
+    }
+    $content = "<?php\nreturn $content;\n?>"; //生成配置文件内容
 
+    $dir = dirname($filename);
+    if (!is_dir($dir)) {
+        mkdir($dir);
+    }
+    return @file_put_contents($filename, $content); //写入./config.php中
+}
+
+//删除空格
 function del_html_tags($str) {
     $str = trim($str);
     $str = strip_tags($str, "");
@@ -13,6 +29,7 @@ function del_html_tags($str) {
     return trim($str);
 }
 
+//设置SEO信息
 function setseo($args) {
     return array(
         'title' => $args[0],
@@ -21,8 +38,14 @@ function setseo($args) {
     );
 }
 
-function timer($time, $start, $length) {
-    return substr(is_numeric($time) ? date('Y-m-d H:i:s', $time) : $time, $start, $length);
+//格式化时间
+function timer($time, $format = 'Y-m-d') {
+    empty($time) && $time = time();
+    if (is_numeric($time)) {
+        return date($format, $time);
+    } else {
+        return date($format, strtotime($time));
+    }
 }
 
 function save_user($email) {

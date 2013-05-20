@@ -3,7 +3,7 @@
         <volist name="data" id="vo">
             <div class="ho-docs-box">
                 <div class="ho-docs-title">
-                    <span class="pull-left">{$vo.create_time|timer=5,5}</span>
+                    <span class="pull-left">{$vo.create_time|timer='Y-m-d'}</span>
                     <h4><a href="{:U('read',array('aid'=>$vo['article_id']))}" title="{$vo.article_title}">{$vo.article_title}</a></h4>
                     <small>Author:{$vo.user_nickname} &nbsp; &nbsp; Tags:Source Title</small>
                 </div>
