@@ -37,7 +37,7 @@ class ArticleModel extends RelationModel {
             $pages = $Page->show();
             $this->limit($Page->firstRow . ',' . $Page->listRows);
         }
-        return $this->relation(true)->where($where)->select();
+        return $this->relation(true)->where($where)->order(array('create_time' => 'DESC'))->select();
     }
 
     function getDetail($where, $order = null) {
@@ -61,7 +61,7 @@ class ArticleModel extends RelationModel {
             default :
                 break;
         }
-        return $this->getList();
+        return $this->relation(true)->select();
     }
 
     public function saveArticel($args) {
@@ -92,7 +92,7 @@ class ArticleModel extends RelationModel {
         $format = "DATE_FORMAT(`create_time`,'{$format}')";
         $this->field(array("COUNT(*)" => 'total', $format => 'date'));
         $this->where(array());
-        $this->order(array('date'=>'DESC'));
+        $this->order(array('date' => 'DESC'));
         $this->group("date");
         return $this->getList();
     }
