@@ -26,21 +26,34 @@ class ArticleAction extends CommonAction {
         $this->display();
     }
 
+    public function add() {
+
+        self::category();
+        $this->display('Article:edit');
+    }
+
     public function edit() {
+        $aid = $this->_get('aid');
+        $data = D('Article')->relation(true)->getDetail($aid);
+        $this->assign('data', $data);
+        self::category();
+        $this->display();
+    }
+
+    private function category() {
+        $class = D('Class')->getList(array('class_pid' => 5, 'class_group' => 'home'));
+        $this->assign('class', $class);
+    }
+
+    public function addsave() {
         if (!empty($_POST)) {
             if ($result = D('Article')->saveArticel($_POST)) {
                 $this->ajaxReturn(null, '操作成功！', 1);
             } else {
                 $this->ajaxReturn(null, $result, 0);
             }
-        } else {
-            $aid = $this->_get('aid');
-            $data = D('Article')->relation(true)->getDetail($aid);
-            $class = D('Class')->getList(array('class_pid' => 5,'class_group'=>'home'));
-            $this->assign('data', $data);
-            $this->assign('class', $class);
-            $this->display();
         }
+        return false;
     }
 
 }
