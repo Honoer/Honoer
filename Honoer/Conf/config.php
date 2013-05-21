@@ -18,7 +18,7 @@ return array (
   'TMPL_FILE_DEPR' => '-',
   'URL_MODEL' => '2',
   'WEB_NAME' => '『Honoer.com』Web技术',
-  'WEB_LOGO' => '111112323',
+  'WEB_LOGO' => '',
   'WEB_RECODE' => '®copyright ©2012 All Rights Reserved.',
   'WEB_ICP' => '粤ICP备12345678号-2',
   'WEB_STATISTIC' => '<script type="text/javascript">
@@ -31,6 +31,6 @@ return array (
         })();
     </script>',
   'submit' => '',
-  '__hash__' => '26af7f0bb752e74cc6496783c779eaef_7df000ed77482ff1b124a20900f94d50',
+  '__hash__' => '26af7f0bb752e74cc6496783c779eaef_6e912cd3aef753bb7c0591945415735b',
 );
 ?>
