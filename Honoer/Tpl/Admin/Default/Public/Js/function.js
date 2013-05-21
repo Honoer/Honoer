@@ -7,6 +7,7 @@ function doSubmit(url,formObj){
     if(!formObj||formObj==''){
         var formObj="form";
     }
+    url = $(formObj).attr("action");
     if(!url||url==''){
         var url=document.URL;
     }

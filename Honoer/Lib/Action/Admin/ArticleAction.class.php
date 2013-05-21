@@ -56,4 +56,15 @@ class ArticleAction extends CommonAction {
         return false;
     }
 
+    public function del(){
+	$aid = $this->_get('aid');
+	if($result = M('Article')->where(array('article_id'=>$aid))->delete()){
+		$this->ajaxReturn(null, '操作成功！', 1);
+	}else{
+		$this->ajaxReturn(null, $result, 0);
+	}
+
+
+    }
+
 }
