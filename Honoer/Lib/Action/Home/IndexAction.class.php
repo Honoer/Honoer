@@ -3,6 +3,7 @@
 class IndexAction extends CommonAction {
 
     public function index() {
+        dump($_SESSION);
         $this->display();
     }
 

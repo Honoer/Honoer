@@ -1,6 +1,12 @@
 <div class="row">
     <div class="span3">
-
+        <div class="Q-login">
+            <notempty name="get_user_info">
+                <img src="{$get_user_info.figureurl_1}" alt="{$get_user_info.nickname}">&nbsp;<span class="blue">{$get_user_info.nickname}</span>&nbsp;({$get_user_info.gender})&nbsp;&nbsp;<a href="__APP__/Public/logout" title="Exit">Exit</a>
+                <else />
+                <a href="{:U('Login/qq_login')}"><img src="../Public/Images/qq_login.png"></a>
+            </notempty>	
+        </div>
     </div>
     <div class="span9 text-right">
         {$Think.config.WEB_RECODE}
