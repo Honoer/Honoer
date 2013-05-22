@@ -27,6 +27,9 @@
                                 <option value="3" <if condition="C('URL_MODEL') eq 3">selected</if>>兼容模式/3</option>
                             </select>
                         </td></tr>
+                    <tr><td>分页数量：</td><td><input type="text" name="PAGESIZE" value="{$Think.config.PAGESIZE}"></td></tr>
+                    <tr><td>网站关键词：</td><td><input class="span6" type="text" name="KEYWORDS" value="{$Think.config.KEYWORDS}"></td></tr>
+                    <tr><td>网站描述：</td><td><textarea class="span12" rows="6" name="DESCRIPTION">{$Think.config.DESCRIPTION}</textarea></td></tr>
                 </tbody>
             </table>
             <button class="btn" type="submit" name="submit">保存</button>

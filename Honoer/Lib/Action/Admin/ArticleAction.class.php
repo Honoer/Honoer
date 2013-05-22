@@ -3,6 +3,7 @@
 class ArticleAction extends CommonAction {
 
     public function index() {
+        C('PAGESIZE',20);
         $data = D('Article')->getList(null, $pages);
         $data = sub_content($data, 'article_content', 120);
         $this->assign('data', $data);
@@ -15,19 +16,7 @@ class ArticleAction extends CommonAction {
         $this->display();
     }
 
-    public function read() {
-        $aid = $this->_get('aid');
-        $data = D('Article')->relation(true)->getDetail($aid);
-        $prev = D('Article')->getDetail(array('article_id' => array('lt', $aid)), array('article_id' => 'DESC'));
-        $next = D('Article')->getDetail(array('article_id' => array('gt', $aid)), array('article_id' => 'ASC'));
-        $this->assign('prev', $prev);
-        $this->assign('next', $next);
-        $this->assign('data', $data);
-        $this->display();
-    }
-
     public function add() {
-
         self::category();
         $this->display('Article:edit');
     }

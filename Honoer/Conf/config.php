@@ -1,27 +1,22 @@
 <?php
-return array (
-  'DB_TYPE' => 'mysql',
-  'DB_HOST' => 'localhost',
-  'DB_NAME' => 'h.me',
-  'DB_USER' => 'root',
-  'DB_PWD' => '',
-  'DB_PORT' => '3306',
-  'DB_PREFIX' => 'tp_',
-  'OUTPUT_ENCODE' => false,
-  'APP_FILE_CASE' => true,
-  'APP_GROUP_LIST' => 'Home,Admin',
-  'DEFAULT_GROUP' => 'Home',
-  'DEFAULT_THEME' => 'Default',
-  'DEFAULT_MODULE' => 'Article',
-  'LAYOUT_ON' => true,
-  'VAR_PAGE' => 'p',
-  'TMPL_FILE_DEPR' => '-',
-  'URL_MODEL' => '2',
-  'WEB_NAME' => '『Honoer.com』Web技术',
-  'WEB_LOGO' => '',
-  'WEB_RECODE' => '®copyright ©2012 All Rights Reserved.',
-  'WEB_ICP' => '粤ICP备12345678号-2',
-  'WEB_STATISTIC' => '<script type="text/javascript">
+
+return array(
+    'LOAD_EXT_CONFIG' => 'db.config', // 加载扩展配置文件
+    'OUTPUT_ENCODE' => false,
+    'APP_FILE_CASE' => true,
+    'APP_GROUP_LIST' => 'Home,Admin',
+    'DEFAULT_GROUP' => 'Home',
+    'DEFAULT_THEME' => 'Default',
+    'DEFAULT_MODULE' => 'Article',
+    'LAYOUT_ON' => true,
+    'VAR_PAGE' => 'p',
+    'TMPL_FILE_DEPR' => '-',
+    'URL_MODEL' => '2',
+    'WEB_NAME' => '『Honoer.com』Web技术',
+    'WEB_LOGO' => '',
+    'WEB_RECODE' => '®copyright ©2012 All Rights Reserved.',
+    'WEB_ICP' => '粤ICP备12345678号-2',
+    'WEB_STATISTIC' => '<script type="text/javascript">
         var _hmt = _hmt || [];
         (function() {
             var hm = document.createElement("script");
@@ -30,7 +25,10 @@ return array (
             s.parentNode.insertBefore(hm, s);
         })();
     </script>',
-  'submit' => '',
-  '__hash__' => '26af7f0bb752e74cc6496783c779eaef_6e912cd3aef753bb7c0591945415735b',
+    'PAGESIZE' => '5',
+    'DESCRIPTION' => 'web技术分享平台，技术的沉淀',
+    'KEYWORDS' => 'web技术，PHP，JS',
+    'submit' => '',
+    '__hash__' => '26af7f0bb752e74cc6496783c779eaef_77d8b26955e32cc1379ab81d498d0aaf',
 );
 ?>

@@ -1,24 +1,24 @@
 <!DOCTYPE html>
 <html lang="en">
     <head>    
-        <title>{$Think.config.web_name}-<notempty name="seo['title']">{$seo.title}<else />首页</notempty></title>
+        <title>{$Think.config.web_name}<php>echo !empty($seo['title'])?'-'.$seo['title']:'-web技术分享平台'</php></title>
         <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-    <meta name="Description" content=<notempty name="seo['Description']">"{$seo.Description}"<else />"{$Think.config.description}"</notempty> />
-    <meta name="Keywords" content=<notempty name="seo['Keywords']">"{$seo.Keywords}"<else />"{$Think.config.keywords}"</notempty> />
-    <link type="text/css" rel="stylesheet" href="../Public/Css/style.css"/>
-    <link type="text/css" rel="stylesheet" href="__PUBLIC__/Plugins/syntaxhighlighter/styles/shCore.css"/>
-    <link type="text/css" rel="stylesheet" href="__PUBLIC__/Plugins/syntaxhighlighter/styles/shThemeDefault.css"/>
-    {$Think.config.web_statistic}
-    <script type='text/javascript'>
-        <!--	
-        var URL='__URL__';
-        var ROOT='__ROOT__';
-        var PUBLIC='__PUBLIC__';
-        var _Public='../Public';
-        //-->
-    </script>
-</head>  
-<body>
+        <meta name="Description" content="<php>echo !empty($seo['Description'])?$seo['Description']:C('DESCRIPTION');</php>" />
+        <meta name="Keywords" content="<php>echo !empty($seo['Keywords'])?$seo['Description']:C('KEYWORDS');</php>" />
+        <link type="text/css" rel="stylesheet" href="../Public/Css/style.css"/>
+        <link type="text/css" rel="stylesheet" href="__PUBLIC__/Plugins/syntaxhighlighter/styles/shCore.css"/>
+        <link type="text/css" rel="stylesheet" href="__PUBLIC__/Plugins/syntaxhighlighter/styles/shThemeDefault.css"/>
+        {$Think.config.web_statistic}
+        <script type='text/javascript'>
+            <!--	
+            var URL='__URL__';
+            var ROOT='__ROOT__';
+            var PUBLIC='__PUBLIC__';
+            var _Public='../Public';
+            //-->
+        </script>
+    </head>  
+    <body>
     <div class="header">
         <div class="container">
             <include file="Common:header" />

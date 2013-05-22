@@ -26,9 +26,13 @@ class IndexAction extends CommonAction {
             'MYSQL版本' => mysql_get_server_info(),
             '北京时间' => gmdate("Y年n月j日 H:i:s", time() + 8 * 3600),
             '采集函数检测' => ini_get('allow_url_fopen') ? '支持' : '不支持',
+            'CURL扩展' => function_exists('curl_init') ? '支持' : '不支持',
             'register_globals' => get_cfg_var("register_globals") == "1" ? "ON" : "OFF",
             'magic_quotes_gpc' => (1 === get_magic_quotes_gpc()) ? 'YES' : 'NO',
             'magic_quotes_runtime' => (1 === get_magic_quotes_runtime()) ? 'YES' : 'NO',
+            'Runtime目录是否可写' => is_writable(RUNTIME_PATH) ? '支持' : '不支持',
+            '配置文件是否可写' => is_writable(CONF_PATH) ? '支持' : '不支持',
+            '上传目录是否可写' => is_writable(UPLOAD_PATH) ? '支持' : '不支持',
         );
         $this->assign('webinfo', $webinfo);
         $this->display();
