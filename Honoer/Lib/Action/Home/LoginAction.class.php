@@ -77,6 +77,12 @@ class LoginAction extends CommonAction {
         $this->redirect('Index/index');
     }
 
+    public function logout() {
+        session_destroy();
+        $_SESSION = array();
+        $this->redirect(C('DEFAULT_MODULE'));
+    }
+
 }
 
 ?>
