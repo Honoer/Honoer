@@ -28,6 +28,7 @@ return array(
     'PAGESIZE' => '5',
     'DESCRIPTION' => 'web技术分享平台，技术的沉淀',
     'KEYWORDS' => 'web技术，PHP，JS',
+    'WEB_SHARE' => '',
     'submit' => '',
     '__hash__' => '26af7f0bb752e74cc6496783c779eaef_77d8b26955e32cc1379ab81d498d0aaf',
 );
