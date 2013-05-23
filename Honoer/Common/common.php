@@ -1,6 +1,13 @@
 <?php
 
 //公共函数文件
+function saveUserInfo($args){
+    if(is_array($args)){
+        foreach($args as $key=>$value){
+            $_SESSION[$key]=$value;
+        }
+    }
+}
 //更新缓存
 function updateCache() {
     import("@.ORG.Dir");

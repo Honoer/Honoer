@@ -53,26 +53,26 @@ class LoginAction extends CommonAction {
         $token_url.=join('&', $QQarray);
         $response = get_url_contents($token_url);
 
-        //if (strpos($response, "callback") !== false){
-        //
-			//}		这一步不知道是什么情况
+        if (strpos($response, "callback") !== false) {
+            //TODO
+        }
         $params = array();
         parse_str($response, $params);
-        //获取到用户登录状态 保存到SESSION
-        $_SESSION['access_token'] = $params['access_token'];
-        $this->get_openid();
+        $this->get_openid($params['access_token']);
     }
 
-    public function get_openid() {
+    public function get_openid($access_token) {
         //获取用户openid
-        $graph_url = "https://graph.qq.com/oauth2.0/me?access_token=" . $_SESSION['access_token'];
+        $graph_url = "https://graph.qq.com/oauth2.0/me?access_token=" . $access_token;
         $str = get_url_contents($graph_url);
         if (strpos($str, 'callback') !== false) {
             $l = strpos($str, '(');
             $r = strpos($str, ')');
             $str = substr($str, $l + 1, $r - $l - 1);
             $user = json_decode($str);
-            $_SESSION["openid"] = $user->openid;
+            $session["openid"] = $user->openid;
+            $session["access_token"] = $access_token;
+            saveUserInfo($session);
         }
         $this->redirect('Index/index');
     }
@@ -80,7 +80,7 @@ class LoginAction extends CommonAction {
     public function logout() {
         session_destroy();
         $_SESSION = array();
-        $this->redirect(C('DEFAULT_MODULE').'/index');
+        $this->redirect(C('DEFAULT_MODULE') . '/index');
     }
 
 }

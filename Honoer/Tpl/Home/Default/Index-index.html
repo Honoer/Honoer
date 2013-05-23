@@ -1,1 +1,8 @@
-index
+<div class="Q-login">
+    <notempty name="get_user_info">
+        <img src="{$get_user_info.figureurl_2}" alt="{$get_user_info.nickname}">
+        <p>
+            <span class="blue">{$get_user_info.nickname}</span>&nbsp;({$get_user_info.gender})&nbsp;&nbsp;<a href="{:U('Login/logout')}" title="退出">退出</a>
+        </p>
+    </notempty>	
+</div>

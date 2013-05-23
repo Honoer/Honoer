@@ -13,7 +13,6 @@ class BasicAction extends Action {
         if (isset($_SESSION['access_token']) && !empty($_SESSION['access_token'])) {
             $get_user_info = get_user_info();
             $get_info = get_info();
-
             $this->assign('get_user_info', $get_user_info);
             $this->assign('get_info', $get_info);
         }
