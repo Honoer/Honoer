@@ -25,11 +25,11 @@ function doSubmit(url,formObj){
                 alert(data.info);
                 setTimeout(function(){
                     //
-                },2000);
+                    },2000);
             }
         },
         error:function(){
-          alert('Ajax error!');
+            alert('Ajax error!');
         }
     });
     return false;

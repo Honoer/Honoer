@@ -5,8 +5,8 @@ class CommonAction extends BasicAction {
     public function _initialize() {
         parent::_initialize();
         if (empty($_SESSION) || $_SESSION['openid'] !== '8216C195661B8430C4403182DC954D82') {
-            $this->redirect('Home/' . C('DEFAULT_MODULE') . '/index', 3, '您没有登录！');
-            exit;
+//            $this->redirect('Home/' . C('DEFAULT_MODULE') . '/index', 3, '您没有登录！');
+//            exit;
         }
         $topnav = D('Class')->getList(array('class_pid' => 0, 'class_group' => 'admin'));
         $this->assign('topnav', $topnav);
