@@ -29,6 +29,7 @@ return array(
     'PAGESIZE' => '5',
     'DESCRIPTION' => 'web技术分享平台，技术的沉淀',
     'KEYWORDS' => 'web技术，PHP，JS',
+    'IMAGE_PATTERN'=>'/(?:http?|https?):\/\/(?:[^\.\/\(\)\?]+)\.(?:[^\.\/]+)\.(?:com|cn|net|org)\/(?:[^\.:\"\'\(\)\?]+)\.(jpg|png|gif)/i',
     'WEB_SHARE' => '',
     'QQ_APPID' => '100283906',
     'QQ_KEY' => 'da0e6e842fe7846fda8e0c63622b943c',
