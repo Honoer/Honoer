@@ -1,6 +1,6 @@
 <?php
 
-class IndexAction extends CommonAction {
+class BelleAction extends CommonAction {
 
     //系统环境信息
     public function index() {
@@ -12,7 +12,8 @@ class IndexAction extends CommonAction {
     public function belle() {
 
         $urls = array(
-            'http://pic.sogou.com/d?query=%C3%C0%C5%AE&mood=0&md5group=F755CA727BC344FC98E6306D3F1BD9F2&did=1&p=99530502#did8_0',
+            'http://pic.sogou.com/d?query=%C3%C0%C5%AE&mood=0&picformat=0&mode=1&di=2&p=50040513&dp=1&w=05009900&dr=1&did=69',
+            'http://pic.sogou.com/d?query=%C3%C0%C5%AE&mood=0&picformat=0&mode=1&di=2&p=50040513&dp=1&w=05009900&dr=1&did=151',
         );
         $Belle = D('Belle');
 

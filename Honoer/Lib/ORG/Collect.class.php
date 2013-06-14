@@ -94,7 +94,7 @@ class Collect {
                         $basename = time() . "_" . $rand . "." . $matches[$key][1][$k]; //保存为jpg格式的文件
                         $filename = $this->savepath . "/" . $path . "/" . "$basename";
                         file_put_contents($filename, $val);
-                        $result[] = $path;
+                        $result[] = $path . "/" . "$basename";
                     } else {
                         unset($k, $val);
                     }

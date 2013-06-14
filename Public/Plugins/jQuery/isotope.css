@@ -4,6 +4,7 @@
 }
 #container-images .item { 
     width: 230px;
+    height: auto;
     float: left; 
 }
 #container-images .item img {width: 100%;margin: 10px;}

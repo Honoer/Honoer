@@ -6,7 +6,7 @@ header('Content-Type:text/html;charset=utf-8');
 define('THINK_PATH', './ThinkPHP3.0/');
 define('APP_NAME', 'Honoer');
 define('APP_PATH', './Honoer/');
-define('APP_DEBUG', false);
+define('APP_DEBUG', true);
 define('UPLOAD_PATH', 'Public/Upload/'); //路径前面不能加./
 define('HTML_PATH', './Public/Html/');
 
