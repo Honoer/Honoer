@@ -32,16 +32,19 @@ class BelleModel extends Model {
         import("@.ORG.Collect");
         $collect = new Collect();
         $files = $collect->getImages($urls);
-        $create_time = date('Y-m-d H:i:s', time());
+	$create_time = date('Y-m-d H:i:s', time());
+	$total =0;
         foreach ($files as $value) {
             $arr = explode('/', $value);
             $name = array_pop($arr);
-            $values .= '(" ","' . $name . '","' . $value . '","' . $create_time . '"),';
+	    $values .= '(" ","' . $name . '","' . $value . '","' . $create_time . '"),';
+	    $total+=1;
         }
         $str = rtrim($values, ',');
         $sql = "INSERT INTO " . C('DB_PREFIX') . "belle VALUES" . $str . ";";
         $model = new Model();
-        return $model->execute($sql);
+	$model->execute($sql);
+	return $total;
     }
 
 }
