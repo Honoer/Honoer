@@ -6,3 +6,54 @@
         </p>
     </notempty>	
 </div>
+
+<div id="container-images" class="photos clearfix">
+    <volist name="data" id="vo">
+        <div class="photo">
+            <a href="__PUBLIC__/Collect/{$vo.belle_path}">
+                <img src="__PUBLIC__/Collect/{$vo.belle_path}" data-original="__PUBLIC__/Collect/{$vo.belle_path}" width="100%"/>
+            </a>
+        </div>
+    </volist>
+</div>
+
+
+<nav id="page_nav">
+    <a href="{:U('Index/read',array('page'=>2))}"></a>
+</nav>
+
+
+<script>
+    $(function(){
+
+        var $container = $('#container-images');
+    
+        $container.imagesLoaded( function(){
+            $container.isotope({
+                itemSelector : '.photo'
+            });
+        });
+      
+        $container.infinitescroll({
+            navSelector  : '#page_nav',    // selector for the paged navigation 
+            nextSelector : '#page_nav a',  // selector for the NEXT link (to page 2)
+            itemSelector : '.photo',     // selector for all items you'll retrieve
+            loading: {
+                finishedMsg: 'No more pages to load.',
+                img: 'http://i.imgur.com/qkKy8.gif'
+            }
+        },
+        // call Isotope as a callback
+        function( newElements ) {
+            $container.isotope( 'appended', $( newElements ) ); 
+        }
+    );
+    
+      
+    
+    });
+</script>
+
+
+
+
