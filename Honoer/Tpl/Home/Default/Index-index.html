@@ -13,12 +13,11 @@
     <volist name="data" id="vo">
         <div class="photo">
             <a href="__PUBLIC__/Collect/{$vo.belle_path}">
-                <img src="__PUBLIC__/Collect/{$vo.belle_path}" data-original="__PUBLIC__/Collect/{$vo.belle_path}" width="100%"/>
+                <img src="{:U('img')}?src=Public/Collect/{$vo.belle_path}&w=200"/>
             </a>
         </div>
     </volist>
 </div>
-
 
 <nav id="page_nav">
     <a href="{:U('Index/read',array('page'=>2))}"></a>

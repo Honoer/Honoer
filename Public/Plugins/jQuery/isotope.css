@@ -332,7 +332,7 @@ body {
 /**** Photo demo ****/
 
 .photos .photo {
-    width: 320px;
+    width: 230px;
     margin: 5px;
     float: left;
 }

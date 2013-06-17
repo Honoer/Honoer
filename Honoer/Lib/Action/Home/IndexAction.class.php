@@ -4,7 +4,7 @@ class IndexAction extends CommonAction {
 
     public function index() {
         $Belle = D('Belle');
-
+        C('PAGESIZE',10);
         $data = $Belle->getList($where, $pages);
         $this->assign('data', $data);
         //$this->assign('page', $pages);

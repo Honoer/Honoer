@@ -18,6 +18,10 @@ class BasicAction extends Action {
         }
     }
 
+    public function img() {
+        import('@.ORG.Timthumb');
+    }
+
 }
 
 ?>

@@ -2,7 +2,7 @@
     <volist name="data" id="vo">
         <div class="photo">
             <a href="__PUBLIC__/Collect/{$vo.belle_path}">
-                <img src="__PUBLIC__/Collect/{$vo.belle_path}" data-original="__PUBLIC__/Collect/{$vo.belle_path}"/>
+                <img src="{:U(img)}?Public/Collect/{$vo.belle_path}&w=200"/>
             </a>
         </div>
     </volist>
