@@ -19,7 +19,11 @@ class BasicAction extends Action {
     }
 
     public function img() {
-        import('@.ORG.Timthumb');
+        $filename =  $_GET['src'];
+        if(file_exists($filename)){
+            import('@.ORG.Timthumb');
+            return;
+        }
     }
 
 }
