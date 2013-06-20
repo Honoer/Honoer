@@ -140,6 +140,13 @@ input[name="keyword"] {width: 300px;border-radius: 4px 0 0 4px;}
 .ico-totop, .ico-torespond {cursor: pointer;display: block;height: 32px;margin-top: 2px;opacity: 0.8;width: 32px;}
 
 
+.comments{}
+.comments ul li{margin: 10px 0;padding: 10px 0;border-bottom: 1px dashed #AAA;}
+.comments .avatar {float:left;margin: 5px;}
+.comments .comment {text-indent: 24px;}
+
+
+
 
 .photos{width: 100%;}
 .photos .photo { 
