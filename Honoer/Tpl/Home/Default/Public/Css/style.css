@@ -20,6 +20,8 @@ input[type="text"],
 input[type="button"],
 input[type="submit"]{display: inline-block;height: 20px;padding: 4px 6px;margin-bottom: 10px;color: #333;vertical-align: middle;border-radius: 4px;border: 1px solid #AAA;
                      box-shadow: inset 0 1px 1px rgba(0, 0, 0, 0.075);}
+textarea{display: inline-block;padding: 4px 6px;margin-bottom: 10px;color: #333;vertical-align: middle;border-radius: 4px;border: 1px solid #AAA;
+         box-shadow: inset 0 1px 1px rgba(0, 0, 0, 0.075);}
 code,
 pre {padding: 0 3px 2px;font-family: Monaco, Menlo, Consolas, "Courier New", monospace;font-size: 12px;color: #333;border-radius: 3px;}
 code {padding: 2px 4px;color: #D14;white-space: nowrap;background-color: #f7f7f9;border: 1px solid #e1e1e8;}
@@ -29,7 +31,7 @@ pre {display: block;padding: 9.5px;margin: 0 0 10px;font-size: 12px;line-height:
       vertical-align: middle;cursor: pointer;background-color: #f5f5f5;*background-color: #e6e6e6;background-image: -moz-linear-gradient(top, #ffffff, #e6e6e6);background-image: -webkit-gradient(linear, 0 0, 0 100%, from(#ffffff), to(#e6e6e6));background-image: -webkit-linear-gradient(top, #ffffff, #e6e6e6);
       background-image: -o-linear-gradient(top, #ffffff, #e6e6e6);background-image: linear-gradient(to bottom, #ffffff, #e6e6e6);background-repeat: repeat-x;border: 1px solid #AAA;*border: 0;
       border-color: #e6e6e6 #e6e6e6 #bfbfbf;border-color: rgba(0, 0, 0, 0.1) rgba(0, 0, 0, 0.1) rgba(0, 0, 0, 0.25);border-bottom-color: #b3b3b3;-webkit-border-radius: 4px;-moz-border-radius: 4px;
-      border-radius: 0 4px 4px 0;filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#ffffffff', endColorstr='#ffe6e6e6', GradientType=0);filter: progid:DXImageTransform.Microsoft.gradient(enabled=false);
+      border-radius: 4px;filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#ffffffff', endColorstr='#ffe6e6e6', GradientType=0);filter: progid:DXImageTransform.Microsoft.gradient(enabled=false);
       *zoom: 1;-webkit-box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.2), 0 1px 2px rgba(0, 0, 0, 0.05);-moz-box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.2), 0 1px 2px rgba(0, 0, 0, 0.05);box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.2), 0 1px 2px rgba(0, 0, 0, 0.05);}
 
 .btn:hover,
@@ -145,6 +147,16 @@ input[name="keyword"] {width: 300px;border-radius: 4px 0 0 4px;}
 .comments .avatar {float:left;margin: 5px;}
 .comments .comment {text-indent: 24px;}
 
+.form li .k, form li .v {display: inline-block;}
+.form li .k {text-align: right;width: 100px;}
+.form input[name='email']{width: 230px;}
+.k em {font: 400 12px 宋体,tahoma,arial;margin-left: 5px;font-style:normal;font-weight: normal; color: #FF8502;padding-right: 2px;}
+
+fieldset {padding: 20px;}
+
+
+
+
 
 
 
@@ -162,28 +174,28 @@ input[name="keyword"] {width: 300px;border-radius: 4px 0 0 4px;}
 
 .isotope,
 .isotope .isotope-item {
-  /* change duration value to whatever you like */
-  -webkit-transition-duration: 0.8s;
-     -moz-transition-duration: 0.8s;
-      -ms-transition-duration: 0.8s;
-       -o-transition-duration: 0.8s;
-          transition-duration: 0.8s;
+    /* change duration value to whatever you like */
+    -webkit-transition-duration: 0.8s;
+    -moz-transition-duration: 0.8s;
+    -ms-transition-duration: 0.8s;
+    -o-transition-duration: 0.8s;
+    transition-duration: 0.8s;
 }
 
 .isotope {
-  -webkit-transition-property: height, width;
-     -moz-transition-property: height, width;
-      -ms-transition-property: height, width;
-       -o-transition-property: height, width;
-          transition-property: height, width;
+    -webkit-transition-property: height, width;
+    -moz-transition-property: height, width;
+    -ms-transition-property: height, width;
+    -o-transition-property: height, width;
+    transition-property: height, width;
 }
 
 .isotope .isotope-item {
-  -webkit-transition-property: -webkit-transform, opacity;
-     -moz-transition-property:    -moz-transform, opacity;
-      -ms-transition-property:     -ms-transform, opacity;
-       -o-transition-property:      -o-transform, opacity;
-          transition-property:         transform, opacity;
+    -webkit-transition-property: -webkit-transform, opacity;
+    -moz-transition-property:    -moz-transform, opacity;
+    -ms-transition-property:     -ms-transform, opacity;
+    -o-transition-property:      -o-transform, opacity;
+    transition-property:         transform, opacity;
 }
 
 /**** disabling Isotope CSS3 transitions ****/
@@ -191,10 +203,10 @@ input[name="keyword"] {width: 300px;border-radius: 4px 0 0 4px;}
 .isotope.no-transition,
 .isotope.no-transition .isotope-item,
 .isotope .isotope-item.no-transition {
-  -webkit-transition-duration: 0s;
-     -moz-transition-duration: 0s;
-      -ms-transition-duration: 0s;
-       -o-transition-duration: 0s;
-          transition-duration: 0s;
+    -webkit-transition-duration: 0s;
+    -moz-transition-duration: 0s;
+    -ms-transition-duration: 0s;
+    -o-transition-duration: 0s;
+    transition-duration: 0s;
 }
 
