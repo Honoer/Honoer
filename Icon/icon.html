@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+        <title>Icon样式Demo</title>
+        <link rel="stylesheet" href="./Css/icon.css" />
+        <script type=text/javascript src="http://ajax.googleapis.com/ajax/libs/jquery/1.2.6/jquery.min.js"></script> 
+    </head>
+    <body>
+	    <div class="header"></div>
+	    <br>
+	    <nav></nav>
+	    <br>
+        <div class="hd-main"></div>
+	    <br>
+        <div class="box-shadow">
+            <a title="" href="http://www.baidu.com/">
+                <img alt="" src="./Images/pic-1.jpg" width="170" height="120">
+            </a>
+        </div>
+
+	    <br>
+
+        <!-- html5 --> 
+        <input type="text" name="search" placeholder="请输入要搜索的关键字" value="" />
+
+        <script type="text/javascript">
+            // jQuery code 
+            // Only bind if placeholder isn't natively supported by the browser
+            var i = document.createElement("input");
+            if (!("placeholder" in i)) {     
+                $("input[placeholder]").each(function () {         
+                    var self = $(this);         
+                    self.val(self.attr("placeholder")).bind({             
+                        focus: function () {                 
+                            if (self.val() === self.attr("placeholder")) {                     
+                                self.val("");                 
+                            }             
+                        },             
+                        blur: function () {                 
+                            var label = self.attr("placeholder");                 
+                            if (label && self.val() === "") {                     
+                                self.val(label);                 
+                            }             
+                        }         
+                    });     
+                }); 
+            } 
+            
+        </script>
+    </body>
+</html>
+
