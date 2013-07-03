@@ -68,9 +68,9 @@ a.thumb > img {display: block;}
 .dc-404{width: 511px;margin: 100px auto;height:200px;background:url("../Images/404.jpg") no-repeat;}
 .dc-404 > p{padding: 100px 0 0 200px;}
 
-.header {width: 100%;height:80px;margin-bottom: 20px;background:#F8F8F8 url('../Images/bg_pattern_white.png') repeat;border-bottom: 1px solid #AAA;}
-.footer {height:60px;margin-top: 20px;background:#F8F8F8;border-top: 1px solid #AAA;}
-.wrap {}
+.header {width: 100%;height:80px;background:#F8F8F8 url('../Images/bg_pattern_white.png') repeat;border-bottom: 1px solid #AAA;}
+.footer {height:60px;padding-top:10px;background:#F8F8F8;border-top: 1px solid #AAA;}
+.wrap {padding: 20px 0;background: #F8F8F8;}
 .container {width: 1002px; margin: 0 auto;position: relative;*zoom: 1;}
 
 .container .left{width: 750px;float: left;}
@@ -114,7 +114,7 @@ input[name="keyword"] {width: 300px;border-radius: 4px 0 0 4px;}
 .box-txt h2.tit {font-size: 18px;}
 .box-txt .tags {font-size: 12px;color: #999;margin: 8px 0;}
 .box-txt .tags span {margin-right: 10px;}
-.box-txt .intro {font-size: 12px;color: #666;}
+.box-txt .intro {font-size: 12px;}
 
 /*右侧的列表*/
 .item-box {margin-bottom: 20px;}
