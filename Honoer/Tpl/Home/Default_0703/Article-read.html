@@ -1,17 +1,17 @@
-<div class="left">
-
-    <div class="con-list sd-box">
+<div class="span9">
+    <article class="clearfix box">
         <notempty name="data">
-            <div class="box-txt">
-                <h2 class="tit">{$data.article_title}</h2>
-                <hr>
-                <div class="tags">
+            <div class="item-box">
+                <span class="item-tit">
+                    <h2>{$data.article_title}</h2>
+                </span>
+                <div class="item-tags">
                     <span>Tags:{$data.class_name}</span>
                     <span>Reply:{$data.article_view}</span>
                     <span>Time:{$data.create_time|timer}</span>
                     <span>Author:{$data.user_nickname}</span>
                 </div>
-                <div class="box-con">{$data.article_content}</div>
+                <div class="item-intro">{$data.article_content}</div>
             </div>
             <div class="prev-next">
                 <span>上一篇：&nbsp;<empty name="prev">没有啦！<else /><a href="{:U('read',array('aid'=>$prev['article_id']))}" title="{$prev.article_title}">{$prev.article_title|cn_substr=28}</a></empty></span>
@@ -20,7 +20,7 @@
             <else />
             亲~ 找不到你要的内容！
         </notempty> 
-    </div>
+    </article>
     <div class="comments">
         <include file="Article:comments" />
     </div>
@@ -28,6 +28,6 @@
         <include file="Article:form" />
     </div>
 </div>
-<div class="right">
+<div class="span3">
     <include file="Article:right" />
 </div>

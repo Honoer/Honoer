@@ -13,10 +13,11 @@ body {font: 12px/1.8 'Microsoft YaHei',Tahoma,Verdana,'Simsun';line-height: 22px
 a {color:#333;text-decoration: none;}
 a:focus {outline: thin dotted #333;outline: 5px auto -webkit-focus-ring-color;outline-offset: -2px;}
 a:hover,
-a:active {outline: 0;color: #08C;text-decoration: underline;}
-img {width: auto\9;height: auto;max-width: 100%;vertical-align: middle;border: 0;-ms-interpolation-mode: bicubic;}
+a:active {color: #08C;text-decoration: underline;}
+img {width: auto\9;height: auto;vertical-align: middle;border: 0;-ms-interpolation-mode: bicubic;}
 h1 {font-size: 38.5px;}
-h3 {font-size: 12px;}
+h2 {font-size: 16px;}
+h3 {font-size: 13px;}
 
 
 /**
@@ -30,16 +31,21 @@ header,footer{height:80px;line-height: 80px;}
 
 footer .user-login {float: left;}
 footer .copyright {float: right;}
+footer .user-login a {display: table;}
 
 /*头部导航*/
-header nav{float:left;}
+header nav{float:left;z-index: 1;}
 header nav ul{height:35px;line-height: 35px;position: absolute;top:30px;left:200px;}
 header nav li{float:left;text-align: center;margin: 0 10px;border:1px dashed #1E71B1;}
 header nav li:hover,
-header nav li.active,header nav li.this{display: block;border:1px solid #FFF;border-radius: 5px;background: #F2F2F2;box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);}
+header nav li.active,header nav li.this{position: relative;z-index: 1;display: block;border:1px solid #FFF;border-radius: 5px;background: #F2F2F2;box-shadow: 0 3px 6px #333333;}
 header nav li.active a{color: #333;}
-header nav li > dl{display: none;}
+header nav li > dl{display: none;z-index: 1;}
+header nav li > dl dd:hover{background: #1E71B1;transition: all 0.5s linear 0s;}
+header nav li > dl dd:last-child:hover{border-radius: 0 0 5px 5px;}
+header nav li > dl dd.active{background: #E8E8E8;}
 header nav li a {font-size: 14px;color:white;display: block;width: 90px;}
+
 
 /*头部导航*/
 .header hgroup {float: left;}
@@ -61,23 +67,27 @@ header .search .btn{border-radius: 0 4px 4px 0;}
 
 
 
-/*section.box:hover {background: #F8F8F8;transition: all 0.5s linear 0s;}*/
-section.box {display: block;padding:20px 10px;position: relative; margin-left: -10px;border-bottom: 1px dotted #417EB7;transition: all 0.5s linear 0s;}
-section.box .item-box{margin-bottom: 10px;}
-section.box .item-box .item-tit {font-size: 14px;margin-left: 15px;}
-section.box .item-box .item-tit a{color: #666;}
-section.box .item-box .item-tags {color: #666;margin: 3px 0;}
-section.box .item-box .item-tags span{margin-right: 10px;}
-section.box .thumb {float: left;display: block;padding:5px;border:1px solid #CCC;border-radius: 5px;margin: 5px 10px 0 0;}
-section.box .thumb:hover{border:1px solid #08C;transition: all 0.5s linear 0s;}
-section.box .thumb img {width: 140px;height:98px;}
-section.box  .more {color:#08C;position: absolute;bottom: 5px;right: 10px;}
+/*.box:hover {background: #F8F8F8;transition: all 0.5s linear 0s;}*/
+.box {display: block;position: relative; transition: all 0.5s linear 0s;}
+section.box{padding:20px 10px;margin-left: -10px;border-bottom: 1px dotted #417EB7;}
+article.box{}
+.item-box{margin-bottom: 10px;}
+.item-box .item-tit {font-size: 14px;margin-left: 15px;}
+.item-box .item-tit a{color: #08C;transition: all 0.5s linear 0s;}
+.item-box .item-tit a:hover{color: #205A8E;}
+.item-box .item-tags {color: #666;margin: 3px 0;}
+.item-box .item-tags span{margin-right: 10px;}
+.thumb {float: left;display: block;padding:5px;border:1px solid #CCC;border-radius: 5px;margin: 5px 10px 0 0;}
+.thumb a{}
+.thumb:hover{border:1px solid #08C;transition: all 0.5s linear 0s;}
+.thumb img {width: 140px;height:98px;}
+.more {position: absolute;bottom: 5px;right: 10px;}
+.more a{color:#390;}
 li small{float:right;color: #390;}
 
 
 .tabs{margin-bottom: 20px;}
-.tabs .tabs-tit{color:#124BB5;}
-
+.tabs .tabs-tit{color:#205A8E;}
 .tabs .tabs-box{}
 .tabs .tabs-box li{padding:3px 0;border-bottom:1px dotted #CCC;}
 
@@ -86,11 +96,15 @@ li small{float:right;color: #390;}
 
 
 
+/*返回顶部*/
+.rollto {bottom: 62px;display: none;font-family: simsun;position: fixed;right: 60px;width: 32px;z-index: 999;}
+.ico{background-image: url("../Images/sprite.png");background-repeat: no-repeat;}
+.ico-totop {background-position: 0 0;}
+.ico-totop, .ico-torespond {cursor: pointer;display: block;height: 32px;margin-top: 2px;opacity: 0.8;width: 32px;}
 
 
-
-
-
+/*Icon Css*/
+i.icon-caret {border-left: 4px solid transparent;border-right: 4px solid transparent;border-top: 4px solid #000000;content: "";display: inline-block;height: 0;vertical-align: top;width: 0;margin: 18px 0 0 6px;}
 
 
 

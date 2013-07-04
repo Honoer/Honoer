@@ -16,15 +16,15 @@ $(document).ready(function(){
     },function(){
         $(this).removeClass("this").find("dl").slideUp();
     });
-//    $(".tab-title").find("a").hover(function(){
-//        var thisTab =$(this);
-//        t = setTimeout(function(){
-//            thisTab.parent("li").addClass("active").siblings("li").removeClass("active");
-//            $(thisTab.attr("data-toggle")).fadeIn().siblings("div").hide();
-//        },300);
-//    },function(){
-//        clearTimeout(t);
-//    });
+    //    $(".tab-title").find("a").hover(function(){
+    //        var thisTab =$(this);
+    //        t = setTimeout(function(){
+    //            thisTab.parent("li").addClass("active").siblings("li").removeClass("active");
+    //            $(thisTab.attr("data-toggle")).fadeIn().siblings("div").hide();
+    //        },300);
+    //    },function(){
+    //        clearTimeout(t);
+    //    });
     
     /** 返回顶部 **/
     $(window).scroll(function(){
