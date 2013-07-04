@@ -113,9 +113,26 @@ li small{float:right;color: #390;}
 i.icon-caret {border-left: 4px solid transparent;border-right: 4px solid transparent;border-top: 4px solid #000000;content: "";display: inline-block;height: 0;vertical-align: top;width: 0;margin: 18px 0 0 6px;}
 
 
+.page{}
+.page span{width: 50%;display: inline-block;float: left;text-align: center;}
+
+/*hd-*/
+.hd-msg {margin: 10px 0;}
+.hd-msg ul > li{padding: 10px;}
+.hd-msg ul > li.even{background: #F8F8F8;}
+.hd-msg .avatar{float: left;margin-right: 10px;}
+.hd-msg .info{border-bottom: 1px dotted #CCC;margin-bottom: 10px;}
+.hd-msg .info dl{float: left;margin-right: 10px;}
+.hd-msg .comment {text-indent: 2em;}
 
 
+.k,.v {display: inline-block;}
+.k {text-align: right;width: 80px;}
+.k em {font: 400 12px 宋体,tahoma,arial;margin-left: 5px;font-style:normal;font-weight: normal; color: #FF8502;padding-right: 2px;}
 
+.hd-form {margin-bottom: 10px;}
+.hd-form fieldset{border:1px solid #CCC;border-radius: 5px;padding:20px;}
+.hd-form fieldset legend {}
 
 
 

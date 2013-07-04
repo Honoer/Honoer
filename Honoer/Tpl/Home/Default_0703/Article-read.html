@@ -13,7 +13,7 @@
                 </div>
                 <div class="item-intro">{$data.article_content}</div>
             </div>
-            <div class="prev-next">
+            <div class="page">
                 <span>上一篇：&nbsp;<empty name="prev">没有啦！<else /><a href="{:U('read',array('aid'=>$prev['article_id']))}" title="{$prev.article_title}">{$prev.article_title|cn_substr=28}</a></empty></span>
                 <span>下一篇：&nbsp;<empty name="next">没有啦！<else /><a href="{:U('read',array('aid'=>$next['article_id']))}" title="{$next.article_title}">{$next.article_title|cn_substr=28}</a></empty></span>
             </div>
@@ -21,12 +21,12 @@
             亲~ 找不到你要的内容！
         </notempty> 
     </article>
-    <div class="comments">
+    <section class="hd-msg">
         <include file="Article:comments" />
-    </div>
-    <div class="comment-form">
+    </section>
+    <section class="hd-form">
         <include file="Article:form" />
-    </div>
+    </section>
 </div>
 <div class="span3">
     <include file="Article:right" />
