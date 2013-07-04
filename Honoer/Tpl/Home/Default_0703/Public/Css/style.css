@@ -3,7 +3,7 @@ base Css
 */
 * {margin: 0;padding: 0;list-style: none;}
 html {font-size: 100%;*zoom: 1;}
-body {font: 12px/1.8 'Microsoft YaHei',Tahoma,Verdana,'Simsun';line-height: 22px;color: #333;background: #FFF url('../Images/header-shadow.png') 0 -11px repeat-x;;}
+body {font: 12px/1.8 'Microsoft YaHei',Tahoma,Verdana,'Simsun';line-height: 22px;color: #333;background: #F2F2F2 url('../Images/header-shadow.png') 0 -11px repeat-x;;}
 .clearfix {*zoom: 1;}
 
 .clearfix:before,
@@ -27,7 +27,7 @@ layout Css
 .footer {background: #F2F2F2 url('../Images/header-shadow.png') 0 -94px repeat-x;}
 header,footer,.wrap{width: 1002px;margin: 0 auto;position: relative;}
 header,footer{height:80px;line-height: 80px;}
-.wrap {margin: 20px auto;border:1px solid #CCC;border-radius: 5px;padding:10px 0;box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);}
+.wrap {margin: 20px auto;background: #FFF;border:1px solid #CCC;border-radius: 5px;padding:10px 0;box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);}
 
 footer .user-login {float: left;}
 footer .copyright {float: right;}
