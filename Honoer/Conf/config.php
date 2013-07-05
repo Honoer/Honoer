@@ -15,6 +15,7 @@ return array(
     'WEB_NAME' => '『Honoer.com』Web技术',
     'WEB_URL' => 'http://www.honoer.com',
     'WEB_LOGO' => '../Public/Images/logo.gif',
+    'WEB_EMAIL' => 'bily@honoer.com',
     'WEB_RECODE' => '®copyright ©2012 All Rights Reserved.',
     'WEB_ICP' => '粤ICP备12345678号-2',
     'WEB_STATISTIC' => '<script type="text/javascript">
