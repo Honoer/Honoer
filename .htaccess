@@ -5,7 +5,7 @@ ErrorDocument 404 http://www.honoer.com/Error.html
 
 <IfModule mod_rewrite.c>
 RewriteEngine on
-RewriteRule ^(.*)$ http://honoer.com/$1 [R=301,L]
+#RewriteRule ^(.*)$ http://honoer.com/$1 [R=301,L]
 RewriteCond %{REQUEST_FILENAME} !-d
 RewriteCond %{REQUEST_FILENAME} !-f
 RewriteRule ^(.*)$ index.php/$1 [QSA,PT,L]
