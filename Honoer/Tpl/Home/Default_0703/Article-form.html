@@ -1,3 +1,4 @@
+<script type='text/javascript' src="__PUBLIC__/Plugins/jQuery/Validform_v5.3.2_min.js"></script>
 <fieldset>
     <legend>我来说一说</legend>
     <form class="form" action="{:U('reply',array('aid'=>$data['article_id']))}" method="post" role="validationFrom">
@@ -5,7 +6,7 @@
             <li>
                 <label class="k"><em>*</em>Email:</label>
                 <span class="v"><input type="text" name="comment_email" value="" datatype="e" errormsg="邮箱格式不正确！" ></span>
-                <span class="Validform_checktip"></span>
+                <span class="Validform_checktip">邮箱不会公开~</span>
             </li>
             <li>
                 <label class="k"><em>*</em>Content:</label>
@@ -19,31 +20,3 @@
         </ul>
     </form>
 </fieldset>
-<script type='text/javascript' src="__PUBLIC__/Plugins/jQuery/Validform_v5.3.2_min.js"></script>
-
-<script type='text/javascript'>
-    $("form[role='validationFrom']").on('submit',function(){
-        $(this).Validform({
-            tiptype:2, 
-            ajaxPost:true,
-            
-            callback:function(data){
-                
-                if(data.status){
-                    
-                }
-                //返回数据data是json对象，{"info":"demo info","status":"y"}
-                //info: 输出提示信息;
-                //status: 返回提交数据的状态,是否提交成功。如可以用"y"表示提交成功，"n"表示提交失败，在ajax_post.php文件返回数据里自定字符，主要用在callback函数里根据该值执行相应的回调操作;
-                //你也可以在ajax_post.php文件返回更多信息在这里获取，进行相应操作；
-                //ajax遇到服务端错误时也会执行回调，这时的data是{ status:**, statusText:**, readyState:**, responseText:** }；
- 
-                //这里执行回调操作;
-                //注意：如果不是ajax方式提交表单，传入callback，这时data参数是当前表单对象，回调函数会在表单验证全部通过后执行，然后判断是否提交表单，如果callback里明确return false，则表单不会提交，如果return true或没有return，则会提交表单。
-            }
-            
-        }); 
-        return false;
-    }); 
-
-</script>

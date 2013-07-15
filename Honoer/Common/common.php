@@ -78,6 +78,13 @@ function timer($time, $format = 'Y-m-d') {
     }
 }
 
+//email转成usernick
+function emailToNick($email){
+    return substr($email,0,strpos($email,"@"));
+}
+
+
+
 function save_user($email) {
     return strstr($email, '@', true);
 }

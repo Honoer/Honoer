@@ -5,7 +5,7 @@
             <ol class="info clearfix">
                 <dl>
                     <label class="k">昵称：</label>
-                    <span class="v">{$vo.create_email|strstr="@",###}</span>
+                    <span class="v">{$vo.comment_email|emailToNick}</span>
                 </dl>
                 <dl>
                     <label class="k">时间：</label>
@@ -22,4 +22,3 @@
         </volist>
     </ul>
 </notempty>
-

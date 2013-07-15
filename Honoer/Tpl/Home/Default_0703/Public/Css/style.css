@@ -122,7 +122,8 @@ i.icon-caret {border-left: 4px solid transparent;border-right: 4px solid transpa
 .hd-msg ul > li.even{background: #F8F8F8;}
 .hd-msg .avatar{float: left;margin-right: 10px;}
 .hd-msg .info{border-bottom: 1px dotted #CCC;margin-bottom: 10px;}
-.hd-msg .info dl{float: left;margin-right: 10px;}
+.hd-msg .info dl{float: left;}
+.hd-msg .info dl:last-child{float: right;margin-right: 10px;}
 .hd-msg .comment {text-indent: 2em;}
 
 

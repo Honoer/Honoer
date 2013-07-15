@@ -29,7 +29,7 @@ class CommentModel extends RelationModel {
         $args['create_ip'] = get_client_ip();
         $args['create_time'] = timer();
         if ($this->create($args)) {
-            if ($this->add()) {
+            if ($this->filter('htmlspecialchars')->add()) {
                 return true;
             } else {
                 return $this->getError();

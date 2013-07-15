@@ -1,3 +1,5 @@
+
+
 $(document).ready(function(){
     var t;
     /** 图片异步 **/
@@ -50,5 +52,23 @@ $(document).ready(function(){
                 scrollTop: ID.offset().top-10
             },600);
     }
+    
+    
+    
+    
+    /**
+     * 
+     */
+    $("form[role='validationFrom']").Validform({
+        tiptype:2, 
+        ajaxPost:true,
+        callback:function(data){
+            if(data.status){
+               //location.reload();
+            }
+            return false;
+        }
+            
+    }); 
     
 })
