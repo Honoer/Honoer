@@ -13,14 +13,7 @@ body {
    background:url('../Images/body.jpg') repeat; 
 }
 
-.dialog {
-	width:400px;
-	height:180px;
-	background: #EAEAEA;
-    	border: 1px solid #AAA;
-    	border-radius: 5px;
-    	box-shadow: 0 0 8px rgba(0, 0, 0, 0.2);
-}
+
 nav {height:60px;line-height:60px;background:url('../Images/nav_bg.png') repeat-x;}
 
 .header {height:70px;line-height:70px;background:url('../Images/bg_header.jpg') repeat-x;}
