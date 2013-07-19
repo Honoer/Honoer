@@ -29,24 +29,24 @@ h3 {font-size: 13px;}
 /**
 layout Css
 */
-.header {background: #1E71B1;}
+.header {background: #1E71B1;z-index: 9999;}
 .footer {background: #F2F2F2 url('../Images/header-shadow.png') 0 -94px repeat-x;}
 header,footer,.wrap{width: 1002px;margin: 0 auto;position: relative;}
 header,footer{height:80px;line-height: 80px;}
-.wrap {margin: 20px auto;background: #FFF;border:1px solid #9FA8B3;border-radius: 5px;padding:10px 0;box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);}
+.wrap {z-index:-1;margin: 20px auto;background: #FFF;border:1px solid #9FA8B3;border-radius: 5px;padding:10px 0;box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);}
 
 footer .user-login {float: left;}
 footer .copyright {float: right;}
 footer .user-login a {display: table;}
 
 /*头部导航*/
-header nav{float:left;z-index: 1;}
+header nav{float:left;}
 header nav ul{height:35px;line-height: 35px;position: absolute;top:30px;left:200px;}
 header nav li{float:left;text-align: center;margin: 0 10px;border:1px dashed #1E71B1;}
 header nav li:hover,
-header nav li.active,header nav li.this{position: relative;z-index: 1;display: block;border:1px solid #FFF;border-radius: 5px;background: #F2F2F2;box-shadow: 0 3px 6px #333333;}
+header nav li.active,header nav li.this{position: relative;display: block;border:1px solid #FFF;border-radius: 5px;background: #F2F2F2;box-shadow: 0 3px 6px #333333;}
 header nav li.active a{color: #333;}
-header nav li > dl{display: none;z-index: 1;}
+header nav li > dl{display: none;}
 header nav li > dl dd:hover{background: #1E71B1;transition: all 0.5s linear 0s;}
 header nav li > dl dd:last-child:hover{border-radius: 0 0 5px 5px;}
 header nav li > dl dd.active{background: #E8E8E8;}
