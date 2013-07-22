@@ -1,3 +1,7 @@
+<link rel="stylesheet" href="__PUBLIC__/Plugins/kindeditor-4.1.6/themes/default/default.css" />
+<script charset="utf-8" src="__PUBLIC__/Plugins/kindeditor-4.1.6/kindeditor-all.js"></script>
+<script charset="utf-8" src="__PUBLIC__/Plugins/kindeditor-4.1.6/lang/zh_CN.js"></script>
+
 <div class="row-fluid">
     <div class="span2">
         <include file="Common:left" />
@@ -59,7 +63,8 @@
                 <div class="control-group">
                     <label class="control-label" for="article_content">内容:</label>
                     <div class="controls">
-                        <script id="editor" name="article_content" type="text/plain">{$data.article_content}</script>
+                        <textarea id="editor" name="article_content" style="width:800px;height:400px;visibility:hidden;">{$data.article_content}</textarea>
+                        <!--                        <script id="editor" name="article_content" type="text/plain">{$data.article_content}</script>-->
                     </div>
                 </div>
 
@@ -72,29 +77,40 @@
         </form>
     </div>
 </div>
+
+
 <script type="text/javascript">
-    //实例化编辑器
-    var options = {
-        imageUrl:"{:U('Upload/imageUp')}",
-        imagePath:"/",
-        fileUrl:"{:U('Upload/fileUp')}",
-        filePath:"/",
-        imageManagerUrl:"{:U('Upload/imageManager')}",
-        imageManagerPath:"/",
-        
-        initialFrameWidth:760,
-        initialFrameHeight:320,
-        autotypeset:{clearFontSize:true},
-        focus:true
-    };
-    var ueditor = UE.getEditor('editor',options);
-    $(function(){
-        $("form").submit(function(){
-            if(ueditor.hasContents()){ 
-                ueditor.sync();   
-                doSubmit();
-            }
-            return false;
+    var editor;
+    KindEditor.ready(function(K) {
+        editor = K.create('textarea[name="article_content"]', {
+            allowFileManager : true
         });
-    })
+    });
+</script>
+
+<script type="text/javascript">
+        //实例化编辑器
+        var options = {
+            imageUrl:"{:U('Upload/imageUp')}",
+            imagePath:"/",
+            fileUrl:"{:U('Upload/fileUp')}",
+            filePath:"/",
+            imageManagerUrl:"{:U('Upload/imageManager')}",
+            imageManagerPath:"/",
+        
+            initialFrameWidth:760,
+            initialFrameHeight:320,
+            autotypeset:{clearFontSize:true},
+            focus:true
+        };
+        //    var ueditor = UE.getEditor('editor',options);
+        //    $(function(){
+        //        $("form").submit(function(){
+        //            if(ueditor.hasContents()){ 
+        //                ueditor.sync();   
+        //                doSubmit();
+        //            }
+        //            return false;
+        //        });
+        //    })
 </script>

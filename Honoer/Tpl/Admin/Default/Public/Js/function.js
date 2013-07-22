@@ -1,3 +1,9 @@
+$(document).ready(function(){
+    $("form").submit(function(){
+        doSubmit();
+        return false;
+    });
+})
 /**
  * 通用AJAX提交
  * @param  {string} url    表单提交地址

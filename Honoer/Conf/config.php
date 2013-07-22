@@ -6,7 +6,7 @@ return array(
     'APP_FILE_CASE' => true,
     'APP_GROUP_LIST' => 'Home,Admin',
     'DEFAULT_GROUP' => 'Home',
-    'DEFAULT_THEME' => 'Default_0703',
+    'DEFAULT_THEME' => 'Default',
     'DEFAULT_MODULE' => 'Article',
     'LAYOUT_ON' => true,
     'VAR_PAGE' => 'p',

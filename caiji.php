@@ -59,7 +59,7 @@ function Curl_http($array, $timeout = '15') {
 //url ='http://image.baidu.com/i?tn=listjson&word=liulan&oe=utf-8&ie=utf8&tag1=%E6%91%84%E5%BD%B1&tag2=%E5%85%A8%E9%83%A8&sorttype=0&pn='+str(p*i)+'&rn=60&requestType=1&'+str(random.random())
 //搜狗美女
 $urlarray = array(
-    'http://pic.sogou.com/d?query=%C3%C0%C5%AE&mood=0&md5group=F755CA727BC344FC98E6306D3F1BD9F2&did=1&p=99530502#did8_0',
+    'http://www.xuany.cn/a/hot/20124778_7.html',
 );
 $data = Curl_http($urlarray, '100'); //列表数据
 if (!file_exists('./img/')) {
