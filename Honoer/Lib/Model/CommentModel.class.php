@@ -26,10 +26,11 @@ class CommentModel extends RelationModel {
     }
 
     public function addComment($args) {
+        $args['comment_content']= htmlspecialchars($args['comment_content']);
         $args['create_ip'] = get_client_ip();
         $args['create_time'] = timer();
         if ($this->create($args)) {
-            if ($this->filter('htmlspecialchars')->add()) {
+            if ($this->add()) {
                 return true;
             } else {
                 return $this->getError();

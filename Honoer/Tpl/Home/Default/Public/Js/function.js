@@ -14,7 +14,7 @@ $(document).ready(function(){
     
     /** 顶部导航 **/
     $("header > nav").find("li").hover(function(){
-        $(this).addClass("this").find("dl").slideDown();
+        $(this).addClass("this").find("dl").slideDown().css({"z-index":9999});
     },function(){
         $(this).removeClass("this").find("dl").slideUp();
     });
@@ -61,10 +61,11 @@ $(document).ready(function(){
      */
     $("form[role='validationFrom']").Validform({
         tiptype:2, 
+        postonce:true,//禁止2次提交
         ajaxPost:true,
         callback:function(data){
             if(data.status){
-               //location.reload();
+               location.reload();
             }
             return false;
         }

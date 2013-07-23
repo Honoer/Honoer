@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang="en">
     <head>    
-        <title>{$Think.config.web_name}<php>echo !empty($seo['title'])?'-'.$seo['title']:'-Web技术分享平台'</php></title>
+        <title><php>echo !empty($seo['title'])?$seo['title']:'Web技术分享平台'</php>-{$Think.config.web_name}</title>
         <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
         <meta name="Description" content="<php>echo !empty($seo['Description'])?$seo['Description']:C('DESCRIPTION');</php>" />
         <meta name="Keywords" content="<php>echo !empty($seo['Keywords'])?$seo['Description']:C('KEYWORDS');</php>" />
@@ -18,7 +18,7 @@
             var URL='__URL__';
             var ROOT='__ROOT__';
             var PUBLIC='__PUBLIC__';
-            var _Public='../Public';
+            var Public='../Public';
             //-->
         </script>
     </head>  

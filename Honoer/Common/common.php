@@ -1,13 +1,29 @@
 <?php
 
+function editor($name, $width, $height, $content) {
+    $editor = "<script charset=\"utf-8\" src=\"" . __ROOT__ . "/Public/Plugins/kindeditor-4.1.6/kindeditor-all.js\"></script>\n";
+    $editor.="<script charset=\"utf-8\" src=\"" . __ROOT__ . "/Public/Plugins/kindeditor-4.1.6/lang/zh_CN.js\"></script>\n";
+    $editor.="<script type=\"text/javascript\">\n";
+    $editor.="var editor;
+    KindEditor.ready(function(K) {
+        editor = K.create(\"textarea[name='{$name}']\", {
+            allowFileManager : true
+        });
+    });\n";
+    $editor.="</script>\n";
+    $editor.="<textarea name=\"" . $name . "\" style=\"width:" . $width . "px;height:" . $height . "px;visibility:hidden;\">" . $content . "</textarea>";
+    return $editor;
+}
+
 //公共函数文件
-function saveUserInfo($args){
-    if(is_array($args)){
-        foreach($args as $key=>$value){
-            $_SESSION[$key]=$value;
+function saveUserInfo($args) {
+    if (is_array($args)) {
+        foreach ($args as $key => $value) {
+            $_SESSION[$key] = $value;
         }
     }
 }
+
 //更新缓存
 function updateCache() {
     import("@.ORG.Dir");
@@ -79,11 +95,9 @@ function timer($time, $format = 'Y-m-d') {
 }
 
 //email转成usernick
-function emailToNick($email){
-    return substr($email,0,strpos($email,"@"));
+function emailToNick($email) {
+    return substr($email, 0, strpos($email, "@"));
 }
-
-
 
 function save_user($email) {
     return strstr($email, '@', true);
