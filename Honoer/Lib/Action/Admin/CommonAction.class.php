@@ -4,7 +4,7 @@ class CommonAction extends BasicAction {
 
     public function _initialize() {
         parent::_initialize();
-        //$this->checkLogin();
+        $this->checkLogin();
         $topnav = D('Class')->getList(array('class_pid' => 0, 'class_group' => 'admin'));
         $this->assign('topnav', $topnav);
         self::left();

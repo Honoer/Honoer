@@ -5,6 +5,6 @@
     </empty>	
 </div>
 <div class="copyright">
-    <a href="{:U('Admin/Index/index')}" title="管理后台">管理后台</a>
+    <notempty name="get_user_info"><a href="{:U('Admin/Index/index')}" target="_blank" title="管理后台">管理后台</a></notempty>
     {$Think.config.WEB_RECODE}&nbsp;&nbsp;友情链接请E-mail：{$Think.config.WEB_EMAIL}
 </div>
