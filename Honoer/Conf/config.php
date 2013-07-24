@@ -12,6 +12,7 @@ return array(
     'VAR_PAGE' => 'p',
     'TMPL_FILE_DEPR' => '-',
     'URL_MODEL' => '2',
+    'URL_HTML_SUFFIX'=>'html',
     'WEB_NAME' => '『Honoer.com』Web技术',
     'WEB_URL' => 'http://www.honoer.com',
     'WEB_LOGO' => '../Public/Images/logo.gif',

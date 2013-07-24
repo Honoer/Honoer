@@ -1,5 +1,7 @@
 <?php
 
+
+//KindEditor编辑器
 function editor($name, $width, $height, $content) {
     $editor = "<script charset=\"utf-8\" src=\"" . __ROOT__ . "/Public/Plugins/kindeditor-4.1.6/kindeditor-all.js\"></script>\n";
     $editor.="<script charset=\"utf-8\" src=\"" . __ROOT__ . "/Public/Plugins/kindeditor-4.1.6/lang/zh_CN.js\"></script>\n";
