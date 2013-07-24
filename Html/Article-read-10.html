@@ -1,0 +1,229 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>    
+        <title>jQuery.lazyload 图片延时加载 详解-『Honoer.com』Web技术</title>
+        <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+        <meta name="Description" content="web技术分享平台，技术的沉淀" />
+        <meta name="Keywords" content="web技术，PHP，JS" />
+        <meta property="qc:admins" content="514175567760767526375" />
+        <link type="text/css" rel="stylesheet" href="/Honoer/Tpl/Home/Default/Public/Css/style.css"/>
+
+        <!--[if lt IE 9]><script src="http://html5shim.googlecode.com/svn/trunk/html5.js"></script><![endif]-->
+        <link type="text/css" rel="stylesheet" href="/Public/Plugins/syntaxhighlighter/styles/shCore.css"/>
+        <link type="text/css" rel="stylesheet" href="/Public/Plugins/syntaxhighlighter/styles/shThemeDefault.css"/>
+        <script type='text/javascript' src="/Public/Plugins/jQuery/jquery-1.7.1.min.js"></script> 
+        <script type="text/javascript">
+        var _hmt = _hmt || [];
+        (function() {
+            var hm = document.createElement("script");
+            hm.src = "//hm.baidu.com/hm.js?45b34fa03392243e4038fd601390f9dc";
+            var s = document.getElementsByTagName("script")[0]; 
+            s.parentNode.insertBefore(hm, s);
+        })();
+    </script>        <script type='text/javascript'>
+            <!--	
+            var URL='/Article';
+            var ROOT='';
+            var PUBLIC='/Public';
+            var Public='/Honoer/Tpl/Home/Default/Public';
+            //-->
+        </script>
+    </head>  
+    <body>
+        <div class="header">
+            <header class="clearfix">
+                <hgroup>
+    <a href="http://www.honoer.com" title="『Honoer.com』Web技术">
+        <img alt="『Honoer.com』Web技术" src="/Honoer/Tpl/Home/Default/Public/Images/logo.gif">
+    </a>
+</hgroup>
+
+
+
+<nav>
+    <ul>
+        <li >
+                            <a href="/Index/index">首页</a>            </li><li class="active">
+            <a class="nav-child" href="/Article/index">文章<i class="icon-caret"></i></a>
+                <dl>
+                    <dd >
+                        <a href="/Article/index/cid/1">PHP</a>
+                        </dd><dd >
+                        <a href="/Article/index/cid/2">HTML</a>
+                        </dd><dd >
+                        <a href="/Article/index/cid/3">JS</a>
+                        </dd>                </dl>
+                            </li><li >
+                            <a href="/About/index">关于Me</a>            </li>    </ul>
+</nav>
+
+
+<form class="search" action="/Article/index" method="get">
+    <input name="keyword" placeholder="请输入关键词" type="text" value="">
+    <button class="btn" name="search" value="Go!" type="submit">Go!</button>
+<input type="hidden" name="__hash__" value="36ac414ce6b56c89dfa565ab447c11b8_e8470e9622827b8df25c258d6e3ed122" /></form>
+            </header>
+        </div>
+        <div class="wrap clearfix">
+            <div class="span9">
+    <article class="clearfix box">
+        <div class="item-box">
+                <span class="item-tit">
+                    <h2>jQuery.lazyload 图片延时加载 详解</h2>
+                </span>
+                <div class="item-tags">
+                    <span>Tags:JS</span>
+                    <span>Reply:74</span>
+                    <span>Time:2012-07-11</span>
+                    <span>Author:admin</span>
+                </div>
+                <div class="item-intro"><p><strong>jQuery.lazyload 图片延时加载</strong>：</p><p><br /></p><p>在线压缩js http://closure-compiler.appspot.com/home <br />虽然是很牛X的特效,不过用JQuery插件只需要短短几句代码,使用过程如下: <br /><br /><strong>1.导入JS插件</strong></p><pre class="brush:js;">&lt;script src="jquery.js" type="text/javascript"&gt;&lt;/script&gt; 
+&lt;script src="jquery.lazyload.js" type="text/javascript"&gt;&lt;/script&gt;</pre><p><br /></p><p><strong>2.在你的页面中加入如下的javascript：</strong><br /></p><pre class="brush:js;">$("img").lazyload();</pre><p><span style="color:#00b050">这将会使所有的图片都延迟加载。</span></p><p><br /></p><p>当然插件还有几个配置项可供设置。</p><p><strong>1.改变threshold </strong><br /></p><pre class="brush:js;">$(“img”).lazyload({ threshold : 200 });</pre><p><span style="color:#00b050">把阀值设置成200 意思就是当图片没有看到之前先load 200像素。</span></p><p><br /></p><p><strong>2.当然了你也可以通过设置占位符图片和自定事件来触发加载图片事件</strong></p><pre class="brush:js;">$("img").lazyload({ 
+placeholder : "img/grey.gif", 
+event : "click"
+});</pre><p><strong>3.可以通过定义effect 参数来定义一些图片显示效果</strong></p><pre class="brush:js;">$("img").lazyload({ 
+placeholder : "img/grey.gif", 
+effect : "fadeIn"
+});</pre><p>LazyLoad(延迟加载)技术不仅仅用在对网页中图片的延迟加载，对数据同样可以，Google Reader和Bing图片搜索就把 <br />LazyLoad技术运用的淋漓尽致； </p><p><br /><strong>缺陷：</strong> <br />1.与Ajax技术的冲突； <br />2.图片的延迟加载，遇到高度特别高的图片，会出现停止加载的问题； <br />3.写代码不规范的同学要注意了，不管由于什么原因，如果您的页面中，img标签的height属性未定义，那么我建议您最好不要使用ImageLazyLoad</p><p><br /></p><p>大家可以直接采用淘宝的延迟加载技术:(2kb大小) <br /><a title="http://a.tbcdn.cn/kissy/1.0.0/build/imglazyload/imglazyload-min.js" target="_self" href="http://a.tbcdn.cn/kissy/1.0.0/build/imglazyload/imglazyload-min.js">http://a.tbcdn.cn/kissy/1.0.0/build/imglazyload/imglazyload-min.js </a><br />调用方法也是很简单的： </p><pre class="brush:js;">&lt;script  src="http://a.tbcdn.cn/kissy/1.0.0/build/imglazyload/imglazyload-min.js"
+type="text/javascript"&gt;&lt;/script&gt; 
+&lt;script type="text/javascript"&gt;
+// &lt;![CDATA[KISSY.ImageLazyload();// ]]&gt;
+&lt;/script&gt;</pre><p><br /></p><p><br /></p><p><strong>注：</strong>该脚本依赖 yahoo-dom-event, 页面中需要加载 yui 2.x,你也可以直接引用下面的地址: <br /></p><pre class="brush:js;">&lt;script src="http://kissy.googlecode.com/svn/trunk/third-party/yui2/yahoo-dom-event/yahoo-dom-event.js" type="text/javascript"&gt;
+ 
+&lt;/script&gt;</pre><p>配置参数如下：</p><pre class="brush:js;">&lt;script type="text/javascript"&gt; 
+KISSY.ImageLazyload({ 
+mod: "manual", // 延迟模式。默认为 auto 
+diff: 200 // 当前屏幕下多远处的图片开始延迟加载。默认两屏外的图片才延迟加载 
+}); 
+&lt;/script&gt;</pre><p>manual 模式时，需要手动将页面中需要延迟加载的图片的 src 属性名更改为 data-lazyload-src. 比如 SRP 页面，宝贝列表的后20个图片延迟加载。 输出时，html 代码为：<br /></p><pre class="brush:html;">&lt;img data-lazy-src="path/to/img" alt="something" /&gt;</pre><p>如果您是Jquery，Prototype等这些JS框架的粉丝，他们都有定制的LazyLoad Plugin提供；<br /><br />可查看<a title="http://www.appelsiini.net/projects/lazyload" target="_self" href="http://www.appelsiini.net/projects/lazyload">http://www.appelsiini.net/projects/lazyload</a><br /><br />LazyLoad(延迟加载)技术不仅仅用在对网页中图片的延迟加载，对数据同样可以，Google Reader和Bing图片搜索就把<br />LazyLoad技术运用的淋漓尽致；<br /><br /></p></div>
+            </div>
+            <div class="pager">
+                <span>上一篇：&nbsp;<a href="/Article/read/aid/9" title="非常方便的点击展开/关闭效果">非常方便的点击展开/关闭效果</a></span>
+                <span>下一篇：&nbsp;<a href="/Article/read/aid/11" title="jQuery 点击空白地方关闭弹出层">jQuery 点击空白地方关闭弹...</a></span>
+            </div>
+             
+    </article>
+    <section class="hd-msg">
+            </section>
+    <section class="hd-form">
+        
+<fieldset>
+    <legend>我来说一说</legend>
+    <form class="form" action="/Article/reply/aid/10" method="post" role="validationFrom">
+        <ul>
+            <li>
+                <label class="k"><em>*</em>Email:</label>
+                <span class="v"><input type="text" name="comment_email" value="" datatype="e" errormsg="邮箱格式不正确！" ></span>
+                <span class="Validform_checktip">邮箱不会公开~</span>
+            </li>
+            <li>
+                <label class="k"><em>*</em>Content:</label>
+                <span class="v"><textarea rows="4" cols="50" name="comment_content" datatype="*6-255"></textarea></span>
+                <span class="Validform_checktip"></span>
+            </li>
+            <li>
+                <label class="k">&nbsp;</label>
+                <span class="v"><button type="submit" class="btn">留言</button></span>
+            </li>
+        </ul>
+    <input type="hidden" name="__hash__" value="36ac414ce6b56c89dfa565ab447c11b8_e8470e9622827b8df25c258d6e3ed122" /></form>
+</fieldset>
+    </section>
+</div>
+<div class="span3">
+    <div class="tabs">
+    <div class="tabs-tit">
+        <h3>最新文章</h3>
+    </div>
+    <div class="tabs-box">
+        <ul>
+            <li>
+                    <a href="/Article/read/aid/50" title="222222222"><small>07/23</small>222222222</a>
+                </li><li>
+                    <a href="/Article/read/aid/48" title="12312312"><small>05/24</small>12312312</a>
+                </li><li>
+                    <a href="/Article/read/aid/46" title="JSONP跨域实例"><small>05/16</small>JSONP跨域实例</a>
+                </li><li>
+                    <a href="/Article/read/aid/45" title="jQuery 点击空白地方便的点击展开/关闭效果非常方便的点击展开/关闭效果"><small>05/16</small>jQuery 点击空白地方便的点击展...</a>
+                </li><li>
+                    <a href="/Article/read/aid/44" title="专业的身份证验证，不用正则验证身份证"><small>04/29</small>专业的身份证验证，不用正则验证...</a>
+                </li><li>
+                    <a href="/Article/read/aid/43" title="用php实现Google /Baidu Ping服务快速收录"><small>04/13</small>用php实现Google /Baidu Ping服...</a>
+                </li><li>
+                    <a href="/Article/read/aid/42" title="计算两个日期相差 年 月 日"><small>04/13</small>计算两个日期相差 年 月 日</a>
+                </li><li>
+                    <a href="/Article/read/aid/41" title="PHP字符串截取，支持gb2312和UTF-8编码。"><small>04/13</small>PHP字符串截取，支持gb2312和UT...</a>
+                </li>        </ul>
+    </div>
+</div>
+<div class="tabs">
+    <div class="tabs-tit">
+        <h3>热门文章</h3>
+    </div>
+    <div class="tabs-box">
+        <ul>
+            <li>
+                    <a href="/Article/read/aid/20" title="clearfix清除浮动闭合容器之:after与:before"><small>3088</small>clearfix清除浮动闭合容器之:af...</a>
+                </li><li>
+                    <a href="/Article/read/aid/1" title="iframe自动适应高度1"><small>213</small>iframe自动适应高度1</a>
+                </li><li>
+                    <a href="/Article/read/aid/2" title="图片水平垂直居中jquery-center-image"><small>147</small>图片水平垂直居中jquery-center...</a>
+                </li><li>
+                    <a href="/Article/read/aid/5" title="jQuery返回顶部代码"><small>125</small>jQuery返回顶部代码</a>
+                </li><li>
+                    <a href="/Article/read/aid/46" title="JSONP跨域实例"><small>115</small>JSONP跨域实例</a>
+                </li><li>
+                    <a href="/Article/read/aid/17" title="jQuery 图片水平垂直居中 另一方法"><small>114</small>jQuery 图片水平垂直居中 另一方法</a>
+                </li><li>
+                    <a href="/Article/read/aid/18" title="jQuery常用技巧"><small>114</small>jQuery常用技巧</a>
+                </li><li>
+                    <a href="/Article/read/aid/22" title="弹出窗口插件colorbox "><small>114</small>弹出窗口插件colorbox </a>
+                </li>        </ul>
+    </div>
+</div>
+<div class="tabs">
+    <div class="tabs-tit">
+        <h3>文章分类</h3>
+    </div>
+    <div class="tabs-box">
+        <ul>
+            <li >
+                    <a href="/Article/index/date/2013-07" title="2013-07"><small>1</small>2013-07</a>
+                </li><li >
+                    <a href="/Article/index/date/2013-05" title="2013-05"><small>3</small>2013-05</a>
+                </li><li >
+                    <a href="/Article/index/date/2013-04" title="2013-04"><small>5</small>2013-04</a>
+                </li><li >
+                    <a href="/Article/index/date/2012-11" title="2012-11"><small>4</small>2012-11</a>
+                </li><li >
+                    <a href="/Article/index/date/2012-10" title="2012-10"><small>4</small>2012-10</a>
+                </li><li >
+                    <a href="/Article/index/date/2012-09" title="2012-09"><small>6</small>2012-09</a>
+                </li><li >
+                    <a href="/Article/index/date/2012-08" title="2012-08"><small>6</small>2012-08</a>
+                </li><li >
+                    <a href="/Article/index/date/2012-07" title="2012-07"><small>14</small>2012-07</a>
+                </li><li >
+                    <a href="/Article/index/date/2012-06" title="2012-06"><small>5</small>2012-06</a>
+                </li>        </ul>
+    </div>
+</div>
+</div>
+        </div>
+        <div class="footer">
+            <footer class="clearfix">
+                
+<div class="user-login">
+    <a href="/Login/qq_login"><img src="/Honoer/Tpl/Home/Default/Public/Images/qq_login.png"></a>	
+</div>
+<div class="copyright">
+        ®copyright ©2012 All Rights Reserved.&nbsp;&nbsp;友情链接请E-mail：bily@honoer.com</div>
+
+            </footer>
+        </div>
+        <script type='text/javascript' src="/Public/Plugins/jQuery/Validform_v5.3.2_min.js"></script>
+        <script type="text/javascript" src="/Public/Plugins/jQuery/jquery.lazyload.min.js"></script>
+        <script type="text/javascript" src="/Public/Plugins/syntaxhighlighter/scripts/brush.js"></script>
+        <script type="text/javascript" src="/Honoer/Tpl/Home/Default/Public/Js/function.js"></script>
+            </body>
+</html>

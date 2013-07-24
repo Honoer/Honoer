@@ -1,0 +1,211 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>    
+        <title>MySql命令和语句大全 (上)-『Honoer.com』Web技术</title>
+        <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+        <meta name="Description" content="web技术分享平台，技术的沉淀" />
+        <meta name="Keywords" content="web技术，PHP，JS" />
+        <meta property="qc:admins" content="514175567760767526375" />
+        <link type="text/css" rel="stylesheet" href="/Honoer/Tpl/Home/Default/Public/Css/style.css"/>
+
+        <!--[if lt IE 9]><script src="http://html5shim.googlecode.com/svn/trunk/html5.js"></script><![endif]-->
+        <link type="text/css" rel="stylesheet" href="/Public/Plugins/syntaxhighlighter/styles/shCore.css"/>
+        <link type="text/css" rel="stylesheet" href="/Public/Plugins/syntaxhighlighter/styles/shThemeDefault.css"/>
+        <script type='text/javascript' src="/Public/Plugins/jQuery/jquery-1.7.1.min.js"></script> 
+        <script type="text/javascript">
+        var _hmt = _hmt || [];
+        (function() {
+            var hm = document.createElement("script");
+            hm.src = "//hm.baidu.com/hm.js?45b34fa03392243e4038fd601390f9dc";
+            var s = document.getElementsByTagName("script")[0]; 
+            s.parentNode.insertBefore(hm, s);
+        })();
+    </script>        <script type='text/javascript'>
+            <!--	
+            var URL='/Article';
+            var ROOT='';
+            var PUBLIC='/Public';
+            var Public='/Honoer/Tpl/Home/Default/Public';
+            //-->
+        </script>
+    </head>  
+    <body>
+        <div class="header">
+            <header class="clearfix">
+                <hgroup>
+    <a href="http://www.honoer.com" title="『Honoer.com』Web技术">
+        <img alt="『Honoer.com』Web技术" src="/Honoer/Tpl/Home/Default/Public/Images/logo.gif">
+    </a>
+</hgroup>
+
+
+
+<nav>
+    <ul>
+        <li >
+                            <a href="/Index/index">首页</a>            </li><li class="active">
+            <a class="nav-child" href="/Article/index">文章<i class="icon-caret"></i></a>
+                <dl>
+                    <dd >
+                        <a href="/Article/index/cid/1">PHP</a>
+                        </dd><dd >
+                        <a href="/Article/index/cid/2">HTML</a>
+                        </dd><dd >
+                        <a href="/Article/index/cid/3">JS</a>
+                        </dd>                </dl>
+                            </li><li >
+                            <a href="/About/index">关于Me</a>            </li>    </ul>
+</nav>
+
+
+<form class="search" action="/Article/index" method="get">
+    <input name="keyword" placeholder="请输入关键词" type="text" value="">
+    <button class="btn" name="search" value="Go!" type="submit">Go!</button>
+<input type="hidden" name="__hash__" value="4f2bae4b85115b5125fe4b47e8771966_14fd2f101dc843f74deb18fa189f9e2c" /></form>
+            </header>
+        </div>
+        <div class="wrap clearfix">
+            <div class="span9">
+    <article class="clearfix box">
+        <div class="item-box">
+                <span class="item-tit">
+                    <h2>MySql命令和语句大全 (上)</h2>
+                </span>
+                <div class="item-tags">
+                    <span>Tags:PHP</span>
+                    <span>Reply:43</span>
+                    <span>Time:2012-09-30</span>
+                    <span>Author:admin</span>
+                </div>
+                <div class="item-intro"><p><strong>一、连接mysql。<br /></strong>格式： mysql -h主机地址 -u用户名 －p用户密码<br />1、连接到本机上的MYSQL。<br />首先打开DOS窗口，然后进入目录mysql\bin，再键入命令mysql -u root -p，回车后提示你输密码.注意用户名前可以有空格也可以没有空格，但是密码前必须没有空格，否则让你重新输入密码.<br />如果刚安装好MYSQL，超级用户root是没有密码的，故直接回车即可进入到MYSQL中了，MYSQL的提示符是： mysql&gt;<br />2、连接到远程主机上的MYSQL。假设远程主机的IP为：110.110.110.110，用户名为root,密码为abcd123。则键入以下命令：<br /> &nbsp; mysql -h110.110.110.110 -u root -p 123;（注:u与root之间可以不用加空格，其它也一样）<br />3、退出MYSQL命令： exit （回车）</p><p><strong>二、修改密码。<br /></strong>格式：mysqladmin -u用户名 -p旧密码 password 新密码<br />1、给root加个密码ab12。首先在DOS下进入目录mysql\bin，然后键入以下命令<br /> &nbsp; mysqladmin -u root -password ab12<br /> &nbsp; 注：因为开始时root没有密码，所以-p旧密码一项就可以省略了。<br />2、再将root的密码改为djg345。<br /> &nbsp; mysqladmin -u root -p ab12 password djg345<br /><strong>三、增加新用户</strong>。<br />（注意：和上面不同，下面的因为是MYSQL环境中的命令，所以后面都带一个分号作为命令结束符）<br />格式：grant select on 数据库.* to 用户名@登录主机 identified by &quot;密码&quot;<br />1、增加一个用户test1密码为abc，让他可以在任何主机上登录，并对所有数据库有查询、插入、修改、删除的权限。首先用root用户连入MYSQL，然后键入以下命令：<br /> &nbsp; grant select,insert,update,delete on *.* to test1@&quot;%&quot; Identified by &quot;abc&quot;;<br /> &nbsp; 但增加的用户是十分危险的，你想如某个人知道test1的密码，那么他就可以在internet上的任何一台电脑上登录你的mysql数据库并对你的数据可以为所欲为了，解决办法见2。<br />2、增加一个用户test2密码为abc,让他只可以在localhost上登录，并可以对数据库mydb进行查询、插入、修改、删除的操作（localhost指本地主机，即MYSQL数据库所在的那台主机），<br /> &nbsp; 这样用户即使用知道test2的密码，他也无法从internet上直接访问数据库，只能通过MYSQL主机上的web页来访问了。<br /> &nbsp; grant select,insert,update,delete on mydb.* to test2@localhost identified by &quot;abc&quot;;<br /> &nbsp; 如果你不想test2有密码，可以再打一个命令将密码消掉。<br /> &nbsp; grant select,insert,update,delete on mydb.* to test2@localhost identified by &quot;&quot;;</p><p><br /><strong>四、显示命令</strong> <br />mysql&gt; select version(); &nbsp; &nbsp; &nbsp; &nbsp;查看MySQL的版本号<br />mysql&gt; select current_date(); &nbsp; &nbsp; &nbsp; &nbsp;查看MySQL的当前日期<br />mysql&gt; select version(),current_date(); 同时查看MySQL的版本号和当前日期<br />mysql&gt; show databases; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;显示当前存在的数据库<br />mysql&gt; USE mysql &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;选择使用数据库(USE和QUIT命令不需要分号结束)<br />Database changed<br />mysql&gt; select database(); &nbsp; &nbsp; &nbsp; &nbsp;显示当前选择的数据库<br />mysql&gt; show tables; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;显示当前数据库中存在的表<br />mysql&gt; select * from db; &nbsp; &nbsp; &nbsp; &nbsp;显示表(db)的内容 &nbsp; &nbsp;<br />mysql&gt; describe mytable; &nbsp; &nbsp; &nbsp; &nbsp;显示表的结构</p><p>1、显示当前数据库服务器中的数据库列表：<br />mysql&gt; SHOW DATABASES;<br />注意：mysql库里面有MYSQL的系统信息，我们改密码和新增用户，实际上就是用这个库进行操作。<br />2、显示数据库中的数据表：<br />mysql&gt; USE 库名； <br />mysql&gt; SHOW TABLES;<br />3、显示数据表的结构：<br />mysql&gt; DESCRIBE 表名;<br />4、建立数据库：<br />mysql&gt; CREATE DATABASE 库名;<br />5、建立数据表：<br />mysql&gt; USE 库名;<br />mysql&gt; CREATE TABLE 表名 (字段名 VARCHAR(20), 字段名 CHAR(1));<br />6、删除数据库：<br />mysql&gt; DROP DATABASE 库名;<br />7、删除数据表：<br />mysql&gt; DROP TABLE 表名；<br />8、将表中记录清空：<br />mysql&gt; DELETE FROM 表名;<br />9、显示表中的记录：<br />mysql&gt; SELECT * FROM 表名;<br />10、往表中插入记录：<br />mysql&gt; INSERT INTO 表名 VALUES (&quot;hyq&quot;,&quot;M&quot;);<br />11、更新表中数据：<br />mysql-&gt; UPDATE 表名 SET 字段名1=&#39;a&#39;,字段名2=&#39;b&#39; WHERE 字段名3=&#39;c&#39;;<br />12、用文本方式将数据装入数据表中：<br />mysql&gt; LOAD DATA LOCAL INFILE &quot;D:/mysql.txt&quot; INTO TABLE 表名;<br />13、导入.sql文件命令：<br />mysql&gt; USE 数据库名;<br />mysql&gt; SOURCE d:/mysql.sql;<br />14、命令行修改root密码：<br />mysql&gt; UPDATE mysql.user SET password=PASSWORD(&#39;新密码&#39;) WHERE User=&#39;root&#39;;<br />mysql&gt; FLUSH PRIVILEGES;<br />注意用此种方法修改密码时别忘了 password=password(&#39;新密码&#39;) 如果直接用 password=&#39;新密码&#39;，下次登录时会出现问题以至于登录不进去，因为此密码没用经过password()函数处理，这样写入到user表中的密码系统不能识别就会显示用户名和密码错误的信息。<br />如果在修改密码的过程中出现问题以至于没有一个用户可以进入mysql则可以用以下的方法重新修改用户名和密码：<br />bin&gt;mysqld --skip-grant-tables;然后再在 另外一个bin&gt;mysql 便可直接进入mysql ,进入后便修改相关数据。<br />15、显示use的数据库名：<br />mysql&gt; SELECT DATABASE();<br />16、显示当前的user：<br />mysql&gt; SELECT USER();<br /><strong>五、一个建库和建表以及插入数据的实例<br /></strong>drop database if exists school; //如果存在SCHOOL则删除<br />create database school; //建立库SCHOOL<br />use school; //打开库SCHOOL<br />create table teacher //建立表TEACHER<br />(<br />id int(3) auto_increment not null primary key,<br />name char(10) not null,<br />address varchar(50) default &#39;深圳&#39;,<br />year date<br />); //建表结束<br />//以下为插入字段<br />insert into teacher values(&#39;&#39;,&#39;allen&#39;,&#39;大连一中&#39;,&#39;1976-10-10&#39;);<br />insert into teacher values(&#39;&#39;,&#39;jack&#39;,&#39;大连二中&#39;,&#39;1975-12-23&#39;);<br />如果你在mysql提示符键入上面的命令也可以，但不方便调试。<br />（1）你可以将以上命令原样写入一个文本文件中，假设为school.sql，然后复制到c:\\下，并在DOS状态进入目录，然后键入以下命令：<br /> &nbsp; &nbsp; mysql -uroot -p密码 &lt; c:\\school.sql<br /> &nbsp; &nbsp; 如果成功，空出一行无任何显示；如有错误，会有提示。（以上命令已经调试，你只要将//的注释去掉即可使用）。<br />（2）或者进入命令行后使用 mysql&gt; source c:\\school.sql; 也可以将school.sql文件导入数据库中。</p><p><strong>六、将文本数据转到数据库中<br /></strong>1、文本数据应符合的格式：字段数据之间用tab键隔开，null值用来代替.例：<br /> &nbsp; 3 rose 大连二中 1976-10-10<br /> &nbsp; 4 mike 大连一中 1975-12-23<br /> &nbsp; 假设你把这两组数据存为school.txt文件，放在c盘根目录下。<br />2、数据传入命令 load data local infile &quot;c:\\school.txt&quot; into table 表名;<br /> &nbsp; 注意：你最好将文件复制到目录下，并且要先用use命令打表所在的库。</p><p><strong>七、备份数据库：（</strong>命令在DOS的目录下执行）<br />1.导出整个数据库<br />导出文件默认是存在mysql\bin目录下<br />mysqldump -u 用户名 -p 数据库名 &gt; 导出的文件名<br />mysqldump -u user_name -p123456 database_name &gt; outfile_name.sql<br />2.导出一个表<br />mysqldump -u 用户名 -p 数据库名 表名&gt; 导出的文件名<br />mysqldump -u user_name -p database_name table_name &gt; outfile_name.sql<br />3.导出一个数据库结构<br />mysqldump -u user_name -p -d --add-drop-table database_name &gt; outfile_name.sql<br />-d 没有数据 --add-drop-table 在每个create语句之前增加一个drop table<br />4.带语言参数导出<br />mysqldump -uroot -p --default-character-set=latin1 --set-charset=gbk --skip-opt database_name &gt; outfile_name.sql<br /></p><p> </p></div>
+            </div>
+            <div class="pager">
+                <span>上一篇：&nbsp;<a href="/Article/read/aid/29" title="php二维数组的合并">php二维数组的合并</a></span>
+                <span>下一篇：&nbsp;<a href="/Article/read/aid/31" title="MySql命令和语句大全 (下)">MySql命令和语句大全 (下)</a></span>
+            </div>
+             
+    </article>
+    <section class="hd-msg">
+            </section>
+    <section class="hd-form">
+        
+<fieldset>
+    <legend>我来说一说</legend>
+    <form class="form" action="/Article/reply/aid/30" method="post" role="validationFrom">
+        <ul>
+            <li>
+                <label class="k"><em>*</em>Email:</label>
+                <span class="v"><input type="text" name="comment_email" value="" datatype="e" errormsg="邮箱格式不正确！" ></span>
+                <span class="Validform_checktip">邮箱不会公开~</span>
+            </li>
+            <li>
+                <label class="k"><em>*</em>Content:</label>
+                <span class="v"><textarea rows="4" cols="50" name="comment_content" datatype="*6-255"></textarea></span>
+                <span class="Validform_checktip"></span>
+            </li>
+            <li>
+                <label class="k">&nbsp;</label>
+                <span class="v"><button type="submit" class="btn">留言</button></span>
+            </li>
+        </ul>
+    <input type="hidden" name="__hash__" value="4f2bae4b85115b5125fe4b47e8771966_14fd2f101dc843f74deb18fa189f9e2c" /></form>
+</fieldset>
+    </section>
+</div>
+<div class="span3">
+    <div class="tabs">
+    <div class="tabs-tit">
+        <h3>最新文章</h3>
+    </div>
+    <div class="tabs-box">
+        <ul>
+            <li>
+                    <a href="/Article/read/aid/50" title="222222222"><small>07/23</small>222222222</a>
+                </li><li>
+                    <a href="/Article/read/aid/48" title="12312312"><small>05/24</small>12312312</a>
+                </li><li>
+                    <a href="/Article/read/aid/46" title="JSONP跨域实例"><small>05/16</small>JSONP跨域实例</a>
+                </li><li>
+                    <a href="/Article/read/aid/45" title="jQuery 点击空白地方便的点击展开/关闭效果非常方便的点击展开/关闭效果"><small>05/16</small>jQuery 点击空白地方便的点击展...</a>
+                </li><li>
+                    <a href="/Article/read/aid/44" title="专业的身份证验证，不用正则验证身份证"><small>04/29</small>专业的身份证验证，不用正则验证...</a>
+                </li><li>
+                    <a href="/Article/read/aid/43" title="用php实现Google /Baidu Ping服务快速收录"><small>04/13</small>用php实现Google /Baidu Ping服...</a>
+                </li><li>
+                    <a href="/Article/read/aid/42" title="计算两个日期相差 年 月 日"><small>04/13</small>计算两个日期相差 年 月 日</a>
+                </li><li>
+                    <a href="/Article/read/aid/41" title="PHP字符串截取，支持gb2312和UTF-8编码。"><small>04/13</small>PHP字符串截取，支持gb2312和UT...</a>
+                </li>        </ul>
+    </div>
+</div>
+<div class="tabs">
+    <div class="tabs-tit">
+        <h3>热门文章</h3>
+    </div>
+    <div class="tabs-box">
+        <ul>
+            <li>
+                    <a href="/Article/read/aid/20" title="clearfix清除浮动闭合容器之:after与:before"><small>3089</small>clearfix清除浮动闭合容器之:af...</a>
+                </li><li>
+                    <a href="/Article/read/aid/1" title="iframe自动适应高度1"><small>213</small>iframe自动适应高度1</a>
+                </li><li>
+                    <a href="/Article/read/aid/2" title="图片水平垂直居中jquery-center-image"><small>147</small>图片水平垂直居中jquery-center...</a>
+                </li><li>
+                    <a href="/Article/read/aid/5" title="jQuery返回顶部代码"><small>125</small>jQuery返回顶部代码</a>
+                </li><li>
+                    <a href="/Article/read/aid/17" title="jQuery 图片水平垂直居中 另一方法"><small>115</small>jQuery 图片水平垂直居中 另一方法</a>
+                </li><li>
+                    <a href="/Article/read/aid/18" title="jQuery常用技巧"><small>115</small>jQuery常用技巧</a>
+                </li><li>
+                    <a href="/Article/read/aid/22" title="弹出窗口插件colorbox "><small>115</small>弹出窗口插件colorbox </a>
+                </li><li>
+                    <a href="/Article/read/aid/46" title="JSONP跨域实例"><small>115</small>JSONP跨域实例</a>
+                </li>        </ul>
+    </div>
+</div>
+<div class="tabs">
+    <div class="tabs-tit">
+        <h3>文章分类</h3>
+    </div>
+    <div class="tabs-box">
+        <ul>
+            <li >
+                    <a href="/Article/index/date/2013-07" title="2013-07"><small>1</small>2013-07</a>
+                </li><li >
+                    <a href="/Article/index/date/2013-05" title="2013-05"><small>3</small>2013-05</a>
+                </li><li >
+                    <a href="/Article/index/date/2013-04" title="2013-04"><small>5</small>2013-04</a>
+                </li><li >
+                    <a href="/Article/index/date/2012-11" title="2012-11"><small>4</small>2012-11</a>
+                </li><li >
+                    <a href="/Article/index/date/2012-10" title="2012-10"><small>4</small>2012-10</a>
+                </li><li >
+                    <a href="/Article/index/date/2012-09" title="2012-09"><small>6</small>2012-09</a>
+                </li><li >
+                    <a href="/Article/index/date/2012-08" title="2012-08"><small>6</small>2012-08</a>
+                </li><li >
+                    <a href="/Article/index/date/2012-07" title="2012-07"><small>14</small>2012-07</a>
+                </li><li >
+                    <a href="/Article/index/date/2012-06" title="2012-06"><small>5</small>2012-06</a>
+                </li>        </ul>
+    </div>
+</div>
+</div>
+        </div>
+        <div class="footer">
+            <footer class="clearfix">
+                
+<div class="user-login">
+    <a href="/Login/qq_login"><img src="/Honoer/Tpl/Home/Default/Public/Images/qq_login.png"></a>	
+</div>
+<div class="copyright">
+        ®copyright ©2012 All Rights Reserved.&nbsp;&nbsp;友情链接请E-mail：bily@honoer.com</div>
+
+            </footer>
+        </div>
+        <script type='text/javascript' src="/Public/Plugins/jQuery/Validform_v5.3.2_min.js"></script>
+        <script type="text/javascript" src="/Public/Plugins/jQuery/jquery.lazyload.min.js"></script>
+        <script type="text/javascript" src="/Public/Plugins/syntaxhighlighter/scripts/brush.js"></script>
+        <script type="text/javascript" src="/Honoer/Tpl/Home/Default/Public/Js/function.js"></script>
+            </body>
+</html>

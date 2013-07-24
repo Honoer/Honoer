@@ -13,7 +13,6 @@ class HtmlAction extends CommonAction {
         ob_implicit_flush(true);
         echo '<span style="color:#0099CC;font-size:14px;line-height:20px;">开始生成</span><br />';
         $url = 'http://' . $_SERVER['HTTP_HOST'] . U('Home/Index/index');
-        dump($url);
         $content = file_get_contents($url);
         $htmlfile = $this->build('index', null, $content);
         $htmlfile = ltrim($htmlfile, './');
@@ -31,22 +30,23 @@ class HtmlAction extends CommonAction {
         echo '<span style="color:#0099CC;font-size:14px;line-height:20px;">开始生成</span><br />';
         $file = '<script>document.body.scrollTop = document.body.scrollHeight;</script>';
         $Article = M('Article');
-        $url = 'http://' . $_SERVER['HTTP_HOST'] . U('Home/Article/index');
-        $htmlfile = $this->gain_content($url, 0, C('TMPL_TEMPLATE_SUFFIX'), C('PAGESIZE'));
-        $htmlfile = str_replace('./' . C('home.url_dir_articleCate') . '/', '', $htmlfile);
-        echo '<span style="color:#0099CC;font-size:14px;line-height:20px;">生成文章分类页：' . $htmlfile . '</span><br />' . $file;
-        $result = $Article->field('article_id')->where()->select();
-        foreach ($result as $key => $val) {
-            $url = 'http://' . $_SERVER['HTTP_HOST'] . U('Home/Article/index', array('aid' => $val['article_id']));
-            $htmlfile = $this->gain_content($url, $val['id'], HTML_PATH.'/Article', C('PAGESIZE'));
-            $htmlfile = str_replace('./Article/', '', $htmlfile);
+//        $url = 'http://' . $_SERVER['HTTP_HOST'] . U('Home/Article/index');
+//        $htmlfile = $this->gain_content($url, 0, C('TMPL_TEMPLATE_SUFFIX'), C('PAGESIZE'));
+//        $htmlfile = str_replace('./' . C('home.url_dir_articleCate') . '/', '', $htmlfile);
+//        echo '<span style="color:#0099CC;font-size:14px;line-height:20px;">生成文章分类页：' . $htmlfile . '</span><br />' . $file;
+        $pages = $Article->field('article_id')->where()->count();
+        $num = ceil($pages / C('PAGESIZE'));
+        for ($p = 1; $p <= $num; $p++) {
+            $url = 'http://' . $_SERVER['HTTP_HOST'] . U('Home/Article/index', array('p' => $p));
+            $htmlfile = $this->gain_content($url, $p, HTML_PATH . 'Article', C('PAGESIZE'));
+            $htmlfile = str_replace('./Article', '', $htmlfile);
             echo '<span style="color:#0099CC;font-size:14px;line-height:20px;">生成文章分类页：' . $htmlfile . '</span><br />' . $file;
         }
         unset($result);
         $result = $Article->field('article_id')->where()->select();
         foreach ($result as $key => $val) {
             $url = 'http://' . $_SERVER['HTTP_HOST'] . U('Home/Article/read', array('aid' => $val['article_id']));
-            $htmlfile = $this->gain_content($url, $val['id'], HTML_PATH.'/Article/');
+            $htmlfile = $this->gain_content($url, $val['article_id'], HTML_PATH . 'Article-read');
             $htmlfile = str_replace('./Article/', '', $htmlfile);
             echo '<span style="color:#0099CC;font-size:14px;line-height:20px;">生成文章页：' . $htmlfile . '</span><br />' . $file;
         }
@@ -57,7 +57,7 @@ class HtmlAction extends CommonAction {
     //生成静态页类
     private function build($htmlfile = '', $htmlpath = '', $content) {
         $htmlpath = !empty($htmlpath) ? $htmlpath : HTML_PATH;
-        $htmlfile = $htmlpath . $htmlfile . C('TMPL_TEMPLATE_SUFFIX');
+        $htmlfile = $htmlpath . '-' . $htmlfile . C('TMPL_TEMPLATE_SUFFIX');
         if (!is_dir(dirname($htmlfile)))
         // 如果静态目录不存在 则创建
             mk_dir(dirname($htmlfile));
@@ -74,7 +74,7 @@ class HtmlAction extends CommonAction {
         $totalPages = $nums[3];
         //如果没有内容,直接生成
         if ($totalPages == '') {
-            return $this->build($id, './' . $dir . '/', $content);
+            return $this->build($id, './' . $dir, $content);
         }
         //引入自定义分页类
         import("@.ORG.Page");

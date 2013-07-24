@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>    
+        <title>Web技术分享平台-『Honoer.com』Web技术</title>
+        <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+        <meta name="Description" content="web技术分享平台，技术的沉淀" />
+        <meta name="Keywords" content="web技术，PHP，JS" />
+        <meta property="qc:admins" content="514175567760767526375" />
+        <link type="text/css" rel="stylesheet" href="/Honoer/Tpl/Home/Default/Public/Css/style.css"/>
+
+        <!--[if lt IE 9]><script src="http://html5shim.googlecode.com/svn/trunk/html5.js"></script><![endif]-->
+        <link type="text/css" rel="stylesheet" href="/Public/Plugins/syntaxhighlighter/styles/shCore.css"/>
+        <link type="text/css" rel="stylesheet" href="/Public/Plugins/syntaxhighlighter/styles/shThemeDefault.css"/>
+        <script type='text/javascript' src="/Public/Plugins/jQuery/jquery-1.7.1.min.js"></script> 
+        <script type="text/javascript">
+        var _hmt = _hmt || [];
+        (function() {
+            var hm = document.createElement("script");
+            hm.src = "//hm.baidu.com/hm.js?45b34fa03392243e4038fd601390f9dc";
+            var s = document.getElementsByTagName("script")[0]; 
+            s.parentNode.insertBefore(hm, s);
+        })();
+    </script>        <script type='text/javascript'>
+            <!--	
+            var URL='/Index';
+            var ROOT='';
+            var PUBLIC='/Public';
+            var Public='/Honoer/Tpl/Home/Default/Public';
+            //-->
+        </script>
+    </head>  
+    <body>
+        <div class="header">
+            <header class="clearfix">
+                <hgroup>
+    <a href="http://www.honoer.com" title="『Honoer.com』Web技术">
+        <img alt="『Honoer.com』Web技术" src="/Honoer/Tpl/Home/Default/Public/Images/logo.gif">
+    </a>
+</hgroup>
+
+
+
+<nav>
+    <ul>
+        <li class="active">
+                            <a href="/Index/index">首页</a>            </li><li >
+            <a class="nav-child" href="/Article/index">文章<i class="icon-caret"></i></a>
+                <dl>
+                    <dd >
+                        <a href="/Article/index/cid/1">PHP</a>
+                        </dd><dd >
+                        <a href="/Article/index/cid/2">HTML</a>
+                        </dd><dd >
+                        <a href="/Article/index/cid/3">JS</a>
+                        </dd>                </dl>
+                            </li><li >
+                            <a href="/About/index">关于Me</a>            </li>    </ul>
+</nav>
+
+
+<form class="search" action="/Article/index" method="get">
+    <input name="keyword" placeholder="请输入关键词" type="text" value="">
+    <button class="btn" name="search" value="Go!" type="submit">Go!</button>
+<input type="hidden" name="__hash__" value="799dc2cc81e3a3f8adfa597f01767e95_10beb3efaae21ac0a171d59ccef28d07" /></form>
+            </header>
+        </div>
+        <div class="wrap clearfix">
+            
+<div class="Q-login">
+    	
+</div>
+
+<script>
+    $(function(){
+
+        var $container = $('#photos');
+    
+        $container.imagesLoaded( function(){
+            $container.isotope({
+                itemSelector : '.photo'
+            });
+        });
+      
+        $container.infinitescroll({
+            navSelector  : '#page_nav',    // selector for the paged navigation 
+            nextSelector : '#page_nav a',  // selector for the NEXT link (to page 2)
+            itemSelector : '.photo',     // selector for all items you'll retrieve
+            loading: {
+                finishedMsg: 'No more pages to load.',
+                img: 'http://i.imgur.com/qkKy8.gif'
+            }
+        },
+        // call Isotope as a callback
+        function( newElements ) {
+            $container.isotope( 'appended', $( newElements ) ); 
+        }
+    );
+    
+      
+    
+    });
+</script>
+
+
+
+
+
+        </div>
+        <div class="footer">
+            <footer class="clearfix">
+                
+<div class="user-login">
+    <a href="/Login/qq_login"><img src="/Honoer/Tpl/Home/Default/Public/Images/qq_login.png"></a>	
+</div>
+<div class="copyright">
+        ®copyright ©2012 All Rights Reserved.&nbsp;&nbsp;友情链接请E-mail：bily@honoer.com</div>
+
+            </footer>
+        </div>
+        <script type='text/javascript' src="/Public/Plugins/jQuery/Validform_v5.3.2_min.js"></script>
+        <script type="text/javascript" src="/Public/Plugins/jQuery/jquery.lazyload.min.js"></script>
+        <script type="text/javascript" src="/Public/Plugins/syntaxhighlighter/scripts/brush.js"></script>
+        <script type="text/javascript" src="/Honoer/Tpl/Home/Default/Public/Js/function.js"></script>
+            </body>
+</html>

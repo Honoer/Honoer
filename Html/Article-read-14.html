@@ -1,0 +1,351 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>    
+        <title>select样式 jQuery模拟select样式-『Honoer.com』Web技术</title>
+        <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+        <meta name="Description" content="web技术分享平台，技术的沉淀" />
+        <meta name="Keywords" content="web技术，PHP，JS" />
+        <meta property="qc:admins" content="514175567760767526375" />
+        <link type="text/css" rel="stylesheet" href="/Honoer/Tpl/Home/Default/Public/Css/style.css"/>
+
+        <!--[if lt IE 9]><script src="http://html5shim.googlecode.com/svn/trunk/html5.js"></script><![endif]-->
+        <link type="text/css" rel="stylesheet" href="/Public/Plugins/syntaxhighlighter/styles/shCore.css"/>
+        <link type="text/css" rel="stylesheet" href="/Public/Plugins/syntaxhighlighter/styles/shThemeDefault.css"/>
+        <script type='text/javascript' src="/Public/Plugins/jQuery/jquery-1.7.1.min.js"></script> 
+        <script type="text/javascript">
+        var _hmt = _hmt || [];
+        (function() {
+            var hm = document.createElement("script");
+            hm.src = "//hm.baidu.com/hm.js?45b34fa03392243e4038fd601390f9dc";
+            var s = document.getElementsByTagName("script")[0]; 
+            s.parentNode.insertBefore(hm, s);
+        })();
+    </script>        <script type='text/javascript'>
+            <!--	
+            var URL='/Article';
+            var ROOT='';
+            var PUBLIC='/Public';
+            var Public='/Honoer/Tpl/Home/Default/Public';
+            //-->
+        </script>
+    </head>  
+    <body>
+        <div class="header">
+            <header class="clearfix">
+                <hgroup>
+    <a href="http://www.honoer.com" title="『Honoer.com』Web技术">
+        <img alt="『Honoer.com』Web技术" src="/Honoer/Tpl/Home/Default/Public/Images/logo.gif">
+    </a>
+</hgroup>
+
+
+
+<nav>
+    <ul>
+        <li >
+                            <a href="/Index/index">首页</a>            </li><li class="active">
+            <a class="nav-child" href="/Article/index">文章<i class="icon-caret"></i></a>
+                <dl>
+                    <dd >
+                        <a href="/Article/index/cid/1">PHP</a>
+                        </dd><dd >
+                        <a href="/Article/index/cid/2">HTML</a>
+                        </dd><dd >
+                        <a href="/Article/index/cid/3">JS</a>
+                        </dd>                </dl>
+                            </li><li >
+                            <a href="/About/index">关于Me</a>            </li>    </ul>
+</nav>
+
+
+<form class="search" action="/Article/index" method="get">
+    <input name="keyword" placeholder="请输入关键词" type="text" value="">
+    <button class="btn" name="search" value="Go!" type="submit">Go!</button>
+<input type="hidden" name="__hash__" value="50f11e3b5dd92834b9cdb71326c82410_ff76435ff7ee43bf1b387384156cdf15" /></form>
+            </header>
+        </div>
+        <div class="wrap clearfix">
+            <div class="span9">
+    <article class="clearfix box">
+        <div class="item-box">
+                <span class="item-tit">
+                    <h2>select样式 jQuery模拟select样式</h2>
+                </span>
+                <div class="item-tags">
+                    <span>Tags:JS</span>
+                    <span>Reply:96</span>
+                    <span>Time:2012-07-27</span>
+                    <span>Author:admin</span>
+                </div>
+                <div class="item-intro"><p>如下图：</p><p><img style="float:none" title="untitled.jpg" border="0" hspace="0" src="/Public/Upload/68731343370882.jpg" /></p><p> </p><p> </p><p>代码如下：</p><pre class="brush:html;">&lt;!doctype html&gt;  
+&lt;html&gt;  
+&lt;head&gt;  
+    
+&lt;script src="http://ajax.googleapis.com/ajax/libs/jquery/1.7/jquery.min.js"&gt;&lt;/script&gt;  
+&lt;style&gt;  
+*{padding:0;margin:0;}        
+p{float:left;margin:20px;font-size:14px}          
+.i_selectbox{margin-top:20px;height:32px;position:relative;font-size:14px}   
+.i_selectbox .i_currentselected{width:220px;height:32px;background:#fff url(http://mrthink.net/demo/images/bg-select.gif) right top no-repeat;border:1px solid #555;-webkit-border-radius:3px;-moz-border-radius:3px;border-radius:3px;text-indent:10px;line-height:32px;cursor:pointer}  
+.i_selectbox .i_selectoption{overflow-x:hidden;overflow-y:auto;padding:5px;background-color:#fff;background:rgba(255,255,255,.9);-webkit-box-shadow:-2px 3px 5px rgba(0,0,0,.3);-moz-box-shadow:-2px 3px 5px rgba(0,0,0,.3);box-shadow:-2px 3px 5px rgba(0,0,0,.3);border-radius:5px;border-right:1px solid #eee}   
+.i_selectbox .i_selectoption dt{height:24px;background-color:#eee;text-indent:5px;font-style:italic;color:#555;line-height:24px;}   
+.i_selectbox .i_selectoption dd{height:30px;border-bottom:1px dashed #ccc;cursor:pointer;text-indent:10px;line-height:30px}   
+.i_selectbox .i_selectoption dd:hover{background-color:#888;color:#fff}  
+.i_selectbox .i_selectoption dd.selected{background-color:#555;color:#fff}  
+    
+&lt;/style&gt;  
+&lt;/head&gt;  
+&lt;body&gt;  
+&lt;script&gt;  
+/*******************************  
+ * @author Mr.Think  
+ * @author blog http://mrthink.net/  
+ * @2012.02.28  
+ * @可自由转载及使用,但请注明版权归属  
+ *******************************/  
+;(function($){  
+    /*  
+     * 统一select样式并实现样式高度自定义的jQuery插件@Mr.Think(http://mrthink.net/)  
+     */  
+    $.fn.iSimulateSelect=function(iSet){  
+        iSet=$.extend({  
+            selectBoxCls:'i_selectbox', //string类型,外围class名  
+            curSCls:'i_currentselected',//string类型,默认显示class名  
+            optionCls:'i_selectoption',//string类型,下拉列表class名  
+            selectedCls:'selected',//string类型,当前选中class名  
+            width:222,//number类型，模拟select的宽度  
+            height:300,//number类型，模拟select的最大高度  
+            zindex:20//层级顺序  
+        },iSet||{});  
+        this.hide();  
+        return this.each(function(){  
+           var self=this;   
+           var thisCurVal,thisSelect,cIndex=0;  
+           //计算模拟select宽度  
+           if(iSet.width==0){  
+              iSet.width=$(self).width();  
+           }  
+           var html='&lt;div class="'+iSet.selectBoxCls+'" style="z-index:'+iSet.zindex+'"&gt;&lt;div class="'+iSet.curSCls+'" style="width:'+iSet.width+'px"&gt;'+$(self).find('option:selected').text()+'&lt;/div&gt;&lt;dl class="'+iSet.optionCls+'" style="display:none;width:'+iSet.width+'px"&gt;';  
+           //判断select中是否有optgroup  
+           //用dt替代optgroup，用dd替代option  
+           if($(self).find('optgroup').size()&gt;0){  
+               $(this).find('optgroup').each(function(){  
+                   html+='&lt;dt&gt;'+$(this).attr('label')+'&lt;/dt&gt;';  
+                   $(this).find('option').each(function(){  
+                        if($(this).is(':selected')){  
+                          html+='&lt;dd class="'+iSet.selectedCls+'"&gt;'+$(this).text()+'&lt;/dd&gt;';   
+                       }else{  
+                          html+='&lt;dd&gt;'+$(this).text()+'&lt;/dd&gt;';  
+                       }                      
+                   });  
+               });  
+           }else{  
+               $(this).find('option').each(function(){  
+                   if($(this).is(':selected')){  
+                      html+='&lt;dd class="'+iSet.selectedCls+'"&gt;'+$(this).text()+'&lt;/dd&gt;';   
+                   }else{  
+                      html+='&lt;dd&gt;'+$(this).text()+'&lt;/dd&gt;';  
+                   }  
+               });  
+           }  
+           //将模拟dl插入到select后面  
+           $(self).after(html);  
+           //当前模拟select外围box元素      
+           thisBox=$(self).next('.'+iSet.selectBoxCls);  
+           //当前模拟select初始值元素      
+           thisCurVal=thisBox.find('.'+iSet.curSCls);  
+           //当前模拟select列表  
+           thisSelect=thisBox.find('.'+iSet.optionCls);  
+           /*  
+           若同页面还有其他原生select,请前往https://github.com/brandonaaron/bgiframe下载bgiframe，同时在此处调用thisSelect.bgiframe()  
+            */   
+           //thisSelect.bgiframe();  
+               
+           //弹出模拟下拉列表  
+           thisCurVal.click(function(){  
+              $('.'+iSet.optionCls).hide();  
+              $('.'+iSet.selectBoxCls).css('zIndex',iSet.zindex);   
+              $(self).next('.'+iSet.selectBoxCls).css('zIndex',iSet.zindex+1);  
+              thisSelect.show();  
+           });  
+           //若模拟select高度超出限定高度，则自动overflow-y:auto  
+           if(thisSelect.height()&gt;iSet.height){  
+               thisSelect.height(iSet.height);  
+           }  
+           //模拟列表点击事件-赋值-改变y坐标位置-...  
+           thisSelect.find('dd').click(function(){  
+               $(this).addClass(iSet.selectedCls).siblings().removeClass(iSet.selectedCls);  
+               cIndex=thisSelect.find('dd').index(this);  
+               thisCurVal.text($(this).text());  
+               $(self).find('option').eq(cIndex).attr('selected','selected');  
+               $('.'+iSet.selectBoxCls).css('zIndex',iSet.zindex);  
+               thisSelect.hide();   
+           });  
+           //非模拟列表处点击隐藏模拟列表  
+           //$(document)点击事件不兼容部分移动设备  
+           $('html,body').click(function(e){  
+              if(e.target.className.indexOf(iSet.curSCls)==-1){  
+                  thisSelect.hide();  
+                  $('.'+iSet.selectBoxCls).css('zIndex',iSet.zindex);   
+              }   
+           });  
+           //取消模块列表处取消默认事件  
+           thisSelect.click(function(e){  
+              e.stopPropagation();  
+           });  
+        });  
+    }  
+})(jQuery);  
+    
+$(function(){  
+    //插件调用  
+    $('.iselect').iSimulateSelect();  
+})  
+    
+&lt;/script&gt;  
+    
+    
+    
+&lt;select class="iselect"&gt;  
+        &lt;option value="1"&gt;秦孝公(前361—前338年)&lt;/option&gt;  
+        &lt;option value="2"&gt;秦惠文王(前337—前311年)&lt;/option&gt;  
+        &lt;option value="4"&gt;秦昭襄王(前306—前251年)&lt;/option&gt;  
+        &lt;option value="5"&gt;秦孝文王(前250年)&lt;/option&gt;  
+        &lt;option value="6"&gt;秦庄襄王(前250—前247年)&lt;/option&gt;  
+        &lt;option value="7" selected="selected"&gt;秦始皇帝(前246—前210年)&lt;/option&gt;  
+        &lt;option value="8"&gt;秦二世(前209—前207年)&lt;/option&gt;  
+        &lt;option value="9"&gt;秦王子婴(前206年)&lt;/option&gt;  
+    &lt;/select&gt;  
+&lt;/body&gt;  
+&lt;/html&gt;</pre><p> </p></div>
+            </div>
+            <div class="pager">
+                <span>上一篇：&nbsp;<a href="/Article/read/aid/13" title="jquery制作浮动层随浏览器滚动条滚动一直保持在顶部位置">jquery制作浮动层随浏览器滚...</a></span>
+                <span>下一篇：&nbsp;<a href="/Article/read/aid/15" title="IE的条件注释">IE的条件注释</a></span>
+            </div>
+             
+    </article>
+    <section class="hd-msg">
+            </section>
+    <section class="hd-form">
+        
+<fieldset>
+    <legend>我来说一说</legend>
+    <form class="form" action="/Article/reply/aid/14" method="post" role="validationFrom">
+        <ul>
+            <li>
+                <label class="k"><em>*</em>Email:</label>
+                <span class="v"><input type="text" name="comment_email" value="" datatype="e" errormsg="邮箱格式不正确！" ></span>
+                <span class="Validform_checktip">邮箱不会公开~</span>
+            </li>
+            <li>
+                <label class="k"><em>*</em>Content:</label>
+                <span class="v"><textarea rows="4" cols="50" name="comment_content" datatype="*6-255"></textarea></span>
+                <span class="Validform_checktip"></span>
+            </li>
+            <li>
+                <label class="k">&nbsp;</label>
+                <span class="v"><button type="submit" class="btn">留言</button></span>
+            </li>
+        </ul>
+    <input type="hidden" name="__hash__" value="50f11e3b5dd92834b9cdb71326c82410_ff76435ff7ee43bf1b387384156cdf15" /></form>
+</fieldset>
+    </section>
+</div>
+<div class="span3">
+    <div class="tabs">
+    <div class="tabs-tit">
+        <h3>最新文章</h3>
+    </div>
+    <div class="tabs-box">
+        <ul>
+            <li>
+                    <a href="/Article/read/aid/50" title="222222222"><small>07/23</small>222222222</a>
+                </li><li>
+                    <a href="/Article/read/aid/48" title="12312312"><small>05/24</small>12312312</a>
+                </li><li>
+                    <a href="/Article/read/aid/46" title="JSONP跨域实例"><small>05/16</small>JSONP跨域实例</a>
+                </li><li>
+                    <a href="/Article/read/aid/45" title="jQuery 点击空白地方便的点击展开/关闭效果非常方便的点击展开/关闭效果"><small>05/16</small>jQuery 点击空白地方便的点击展...</a>
+                </li><li>
+                    <a href="/Article/read/aid/44" title="专业的身份证验证，不用正则验证身份证"><small>04/29</small>专业的身份证验证，不用正则验证...</a>
+                </li><li>
+                    <a href="/Article/read/aid/43" title="用php实现Google /Baidu Ping服务快速收录"><small>04/13</small>用php实现Google /Baidu Ping服...</a>
+                </li><li>
+                    <a href="/Article/read/aid/42" title="计算两个日期相差 年 月 日"><small>04/13</small>计算两个日期相差 年 月 日</a>
+                </li><li>
+                    <a href="/Article/read/aid/41" title="PHP字符串截取，支持gb2312和UTF-8编码。"><small>04/13</small>PHP字符串截取，支持gb2312和UT...</a>
+                </li>        </ul>
+    </div>
+</div>
+<div class="tabs">
+    <div class="tabs-tit">
+        <h3>热门文章</h3>
+    </div>
+    <div class="tabs-box">
+        <ul>
+            <li>
+                    <a href="/Article/read/aid/20" title="clearfix清除浮动闭合容器之:after与:before"><small>3088</small>clearfix清除浮动闭合容器之:af...</a>
+                </li><li>
+                    <a href="/Article/read/aid/1" title="iframe自动适应高度1"><small>213</small>iframe自动适应高度1</a>
+                </li><li>
+                    <a href="/Article/read/aid/2" title="图片水平垂直居中jquery-center-image"><small>147</small>图片水平垂直居中jquery-center...</a>
+                </li><li>
+                    <a href="/Article/read/aid/5" title="jQuery返回顶部代码"><small>125</small>jQuery返回顶部代码</a>
+                </li><li>
+                    <a href="/Article/read/aid/46" title="JSONP跨域实例"><small>115</small>JSONP跨域实例</a>
+                </li><li>
+                    <a href="/Article/read/aid/17" title="jQuery 图片水平垂直居中 另一方法"><small>114</small>jQuery 图片水平垂直居中 另一方法</a>
+                </li><li>
+                    <a href="/Article/read/aid/18" title="jQuery常用技巧"><small>114</small>jQuery常用技巧</a>
+                </li><li>
+                    <a href="/Article/read/aid/22" title="弹出窗口插件colorbox "><small>114</small>弹出窗口插件colorbox </a>
+                </li>        </ul>
+    </div>
+</div>
+<div class="tabs">
+    <div class="tabs-tit">
+        <h3>文章分类</h3>
+    </div>
+    <div class="tabs-box">
+        <ul>
+            <li >
+                    <a href="/Article/index/date/2013-07" title="2013-07"><small>1</small>2013-07</a>
+                </li><li >
+                    <a href="/Article/index/date/2013-05" title="2013-05"><small>3</small>2013-05</a>
+                </li><li >
+                    <a href="/Article/index/date/2013-04" title="2013-04"><small>5</small>2013-04</a>
+                </li><li >
+                    <a href="/Article/index/date/2012-11" title="2012-11"><small>4</small>2012-11</a>
+                </li><li >
+                    <a href="/Article/index/date/2012-10" title="2012-10"><small>4</small>2012-10</a>
+                </li><li >
+                    <a href="/Article/index/date/2012-09" title="2012-09"><small>6</small>2012-09</a>
+                </li><li >
+                    <a href="/Article/index/date/2012-08" title="2012-08"><small>6</small>2012-08</a>
+                </li><li >
+                    <a href="/Article/index/date/2012-07" title="2012-07"><small>14</small>2012-07</a>
+                </li><li >
+                    <a href="/Article/index/date/2012-06" title="2012-06"><small>5</small>2012-06</a>
+                </li>        </ul>
+    </div>
+</div>
+</div>
+        </div>
+        <div class="footer">
+            <footer class="clearfix">
+                
+<div class="user-login">
+    <a href="/Login/qq_login"><img src="/Honoer/Tpl/Home/Default/Public/Images/qq_login.png"></a>	
+</div>
+<div class="copyright">
+        ®copyright ©2012 All Rights Reserved.&nbsp;&nbsp;友情链接请E-mail：bily@honoer.com</div>
+
+            </footer>
+        </div>
+        <script type='text/javascript' src="/Public/Plugins/jQuery/Validform_v5.3.2_min.js"></script>
+        <script type="text/javascript" src="/Public/Plugins/jQuery/jquery.lazyload.min.js"></script>
+        <script type="text/javascript" src="/Public/Plugins/syntaxhighlighter/scripts/brush.js"></script>
+        <script type="text/javascript" src="/Honoer/Tpl/Home/Default/Public/Js/function.js"></script>
+            </body>
+</html>

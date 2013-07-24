@@ -1,0 +1,411 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>    
+        <title>JSONP跨域实例-『Honoer.com』Web技术</title>
+        <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+        <meta name="Description" content="什么是JSONP？1、一个众所周知的问题，Ajax直接请求普通文件存在跨域无权限访问的问题，甭管你是静态页面、动态网页、web服务、WCF，只要是跨域请求，一律不准； 2、不过我们又发现，Web页面上调用js文件时则不受是否跨域的影响（不仅如此，我们..." />
+        <meta name="Keywords" content="web技术，PHP，JS" />
+        <meta property="qc:admins" content="514175567760767526375" />
+        <link type="text/css" rel="stylesheet" href="/Honoer/Tpl/Home/Default/Public/Css/style.css"/>
+
+        <!--[if lt IE 9]><script src="http://html5shim.googlecode.com/svn/trunk/html5.js"></script><![endif]-->
+        <link type="text/css" rel="stylesheet" href="/Public/Plugins/syntaxhighlighter/styles/shCore.css"/>
+        <link type="text/css" rel="stylesheet" href="/Public/Plugins/syntaxhighlighter/styles/shThemeDefault.css"/>
+        <script type='text/javascript' src="/Public/Plugins/jQuery/jquery-1.7.1.min.js"></script> 
+        <script type="text/javascript">
+        var _hmt = _hmt || [];
+        (function() {
+            var hm = document.createElement("script");
+            hm.src = "//hm.baidu.com/hm.js?45b34fa03392243e4038fd601390f9dc";
+            var s = document.getElementsByTagName("script")[0]; 
+            s.parentNode.insertBefore(hm, s);
+        })();
+    </script>        <script type='text/javascript'>
+            <!--	
+            var URL='/Article';
+            var ROOT='';
+            var PUBLIC='/Public';
+            var Public='/Honoer/Tpl/Home/Default/Public';
+            //-->
+        </script>
+    </head>  
+    <body>
+        <div class="header">
+            <header class="clearfix">
+                <hgroup>
+    <a href="http://www.honoer.com" title="『Honoer.com』Web技术">
+        <img alt="『Honoer.com』Web技术" src="/Honoer/Tpl/Home/Default/Public/Images/logo.gif">
+    </a>
+</hgroup>
+
+
+
+<nav>
+    <ul>
+        <li >
+                            <a href="/Index/index">首页</a>            </li><li class="active">
+            <a class="nav-child" href="/Article/index">文章<i class="icon-caret"></i></a>
+                <dl>
+                    <dd >
+                        <a href="/Article/index/cid/1">PHP</a>
+                        </dd><dd >
+                        <a href="/Article/index/cid/2">HTML</a>
+                        </dd><dd >
+                        <a href="/Article/index/cid/3">JS</a>
+                        </dd>                </dl>
+                            </li><li >
+                            <a href="/About/index">关于Me</a>            </li>    </ul>
+</nav>
+
+
+<form class="search" action="/Article/index" method="get">
+    <input name="keyword" placeholder="请输入关键词" type="text" value="">
+    <button class="btn" name="search" value="Go!" type="submit">Go!</button>
+<input type="hidden" name="__hash__" value="a4803ce0d566259128db74bc78253532_88dbb492a35f82026381715de6ad9198" /></form>
+            </header>
+        </div>
+        <div class="wrap clearfix">
+            <div class="span9">
+    <article class="clearfix box">
+        <div class="item-box">
+                <span class="item-tit">
+                    <h2>JSONP跨域实例</h2>
+                </span>
+                <div class="item-tags">
+                    <span>Tags:JS</span>
+                    <span>Reply:115</span>
+                    <span>Time:2013-05-16</span>
+                    <span>Author:admin</span>
+                </div>
+                <div class="item-intro"><h3>
+	什么是JSONP？
+</h3>
+<p>
+	<p class="p0" style="text-align:left;background:#FFFFFF;">
+		<span style="color:#000000;font-size:10.5000pt;font-family:'Verdana';">1<span>、一个众所周知的问题，</span><span>Ajax</span><span>直接请求普通文件存在跨域无权限访问的问题，甭管你是静态页面、动态网页、</span><span>web</span><span>服务、</span><span>WCF</span><span>，只要是跨域请求，一律不准；</span></span><span style="color:#000000;font-size:9.0000pt;font-family:'Verdana';"></span>
+	</p>
+	<p class="p0" style="text-align:left;background:#FFFFFF;">
+		<span style="color:#000000;font-size:10.5000pt;font-family:'Verdana';">2<span>、不过我们又发现，</span><span>Web</span><span>页面上调用</span><span>js</span><span>文件时则不受是否跨域的影响（不仅如此，我们还发现凡是拥有</span><span>"src"</span><span>这个属性的标签都拥有跨域的能力，比如</span><span>&lt;script&gt;</span><span>、</span><span>&lt;img&gt;</span><span>、</span><span>&lt;iframe&gt;</span><span>）；</span></span><span style="color:#000000;font-size:9.0000pt;font-family:'Verdana';"></span>
+	</p>
+	<p class="p0" style="text-align:left;background:#FFFFFF;">
+		<span style="color:#000000;font-size:10.5000pt;font-family:'Verdana';">3<span>、于是可以判断，当前阶段如果想通过纯</span><span>web</span><span>端（</span><span>ActiveX</span><span>控件、服务端代理、属于未来的</span><span>HTML5</span><span>之</span><span>Websocket</span><span>等方式不算）跨域访问数据就只有一种可能，那就是在远程服务器上设法把数据装进</span><span>js</span><span>格式的文件里，供客户端调用和进一步处理；</span></span><span style="color:#000000;font-size:9.0000pt;font-family:'Verdana';"></span>
+	</p>
+	<p class="p0" style="text-align:left;background:#FFFFFF;">
+		<span style="color:#000000;font-size:10.5000pt;font-family:'Verdana';">4<span>、恰巧我们已经知道有一种叫做</span><span>JSON</span><span>的纯字符数据格式可以简洁的描述复杂数据，更妙的是</span><span>JSON</span><span>还被</span><span>js</span><span>原生支持，所以在客户端几乎可以随心所欲的处理这种格式的数据；</span></span><span style="color:#000000;font-size:9.0000pt;font-family:'Verdana';"></span>
+	</p>
+	<p class="p0" style="text-align:left;background:#FFFFFF;">
+		<span style="color:#000000;font-size:10.5000pt;font-family:'Verdana';">5<span>、这样子解决方案就呼之欲出了，</span><span>web</span><span>客户端通过与调用脚本一模一样的方式，来调用跨域服务器上动态生成的</span><span>js</span><span>格式文件（一般以</span><span>JSON</span><span>为后缀），显而易见，服务器之所以要动态生成</span><span>JSON</span><span>文件，目的就在于把客户端需要的数据装入进去。</span></span><span style="color:#000000;font-size:9.0000pt;font-family:'Verdana';"></span>
+	</p>
+	<p class="p0" style="text-align:left;background:#FFFFFF;">
+		<span style="color:#000000;font-size:10.5000pt;font-family:'Verdana';">6<span>、客户端在对</span><span>JSON</span><span>文件调用成功之后，也就获得了自己所需的数据，剩下的就是按照自己需求进行处理和展现了，这种获取远程数据的方式看起来非常像</span><span>AJAX</span><span>，但其实并不一样。</span></span><span style="color:#000000;font-size:9.0000pt;font-family:'Verdana';"></span>
+	</p>
+	<p class="p0" style="text-align:left;background:#FFFFFF;">
+		<span style="color:#000000;font-size:10.5000pt;font-family:'Verdana';">7<span>、为了便于客户端使用数据，逐渐形成了一种非正式传输协议，人们把它称作</span><span>JSONP</span><span>，该协议的一个要点就是允许用户传递一个</span><span>callback</span><span>参数给服务端，然后服务端返回数据时会将这个</span><span>callback</span><span>参数作为函数名来包裹住</span><span>JSON</span><span>数据，这样客户端就可以随意定制自己的函数来自动处理返回数据了。</span></span><span style="color:#000000;font-size:9.0000pt;font-family:'Verdana';"></span>
+	</p>
+</p>
+<p>
+<pre class="brush:html">&lt;!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"&gt;
+&lt;html xmlns="http://www.w3.org/1999/xhtml" &gt;
+    &lt;head&gt;
+        &lt;title&gt;Untitled Page&lt;/title&gt;
+        &lt;script type="text/javascript" src="jquery-1.9.1.min.js"&gt;&lt;/script&gt;
+    &lt;/head&gt;
+    &lt;body&gt;
+        &lt;input type="text" name="name" value="" /&gt;
+        &lt;input type="button" name="btn" value="提交" /&gt;
+        &lt;script type="text/javascript"&gt;
+            jQuery(document).ready(function(){
+                $("input[name='btn']").on('click',function(){
+                    $.ajax({
+                        type: "get",
+                        async: false,
+                        url: "http://h.me/data.php",
+                        data:{name:$("input[name='name']").val()},
+                        dataType: "jsonp",
+                        jsonp: "callback",//传递给请求处理程序或页面的，用以获得jsonp回调函数名的参数名(一般默认为:callback)
+                        jsonpCallback:"returnRes",//自定义的jsonp回调函数名称，默认为jQuery自动生成的随机函数名，也可以写"?"，jQuery会自动为你处理数据
+                        success: function(json){
+                            alert(json);
+                        },
+                        error: function(){
+                            alert('fail');
+                        }
+                    });
+                });
+            });
+        &lt;/script&gt;
+    &lt;/body&gt;
+&lt;/html&gt;</pre>
+<img data-original="/Public/Upload/image/20130517/20130517101208_39113.jpg" src="/Public/Upload/image/20130517/20130517101208_39113.jpg" alt="" height="258" width="293" /><img data-original="/Public/Upload/image/20130517/20130517101209_89002.jpg" src="/Public/Upload/image/20130517/20130517101209_89002.jpg" alt="" height="258" width="293" />
+</p>
+<p>
+	<br />
+</p>
+<p>
+	后台代码：
+</p>
+<p>
+<pre class="brush:php">&lt;?php
+
+$name = $_GET['name'];
+$data = returnRes($name);
+exit($_GET['callback'] . '(' . json_encode($data) . ')');
+
+//这里定义一个函数处理内容让callback调用
+function returnRes($name) {
+    if ($name === 'honoer.com') {
+        $_SESSION['name'] = $name;
+        $_SESSION['time'] = time();
+        $str = '你已在' . $_SERVER["HTTP_HOST"] . '下登录成功！';
+    } else {
+        $str = '用户名错误！';
+    }
+    return $str;
+}
+?&gt;</pre>
+<img data-original="/Public/Upload/image/20130517/20130517101210_31971.jpg" src="/Public/Upload/image/20130517/20130517101210_31971.jpg" alt="" />
+</p></div>
+            </div>
+            <div class="pager">
+                <span>上一篇：&nbsp;<a href="/Article/read/aid/45" title="jQuery 点击空白地方便的点击展开/关闭效果非常方便的点击展开/关闭效果">jQuery 点击空白地方便的点...</a></span>
+                <span>下一篇：&nbsp;<a href="/Article/read/aid/48" title="12312312">12312312</a></span>
+            </div>
+             
+    </article>
+    <section class="hd-msg">
+        <ul>
+        <li class="even">
+            <ol class="info clearfix">
+                <dl>
+                    <label class="k">昵称：</label>
+                    <span class="v">1231</span>
+                </dl>
+                <dl>
+                    <label class="k">时间：</label>
+                    <span class="v">2013-07-23</span>
+                </dl>
+            </ol>
+<!--            <div class="avatar">
+                <img src="/Honoer/Tpl/Home/Default/Public/Images/none.jpg" data-original="" width="60" height="60" />
+            </div>-->
+            <div class="comment">
+                21321312313            </div>
+            </li><li >
+            <ol class="info clearfix">
+                <dl>
+                    <label class="k">昵称：</label>
+                    <span class="v">1231</span>
+                </dl>
+                <dl>
+                    <label class="k">时间：</label>
+                    <span class="v">2013-07-23</span>
+                </dl>
+            </ol>
+<!--            <div class="avatar">
+                <img src="/Honoer/Tpl/Home/Default/Public/Images/none.jpg" data-original="" width="60" height="60" />
+            </div>-->
+            <div class="comment">
+                &lt;img src=''&gt;            </div>
+            </li><li class="even">
+            <ol class="info clearfix">
+                <dl>
+                    <label class="k">昵称：</label>
+                    <span class="v">123123</span>
+                </dl>
+                <dl>
+                    <label class="k">时间：</label>
+                    <span class="v">2013-07-23</span>
+                </dl>
+            </ol>
+<!--            <div class="avatar">
+                <img src="/Honoer/Tpl/Home/Default/Public/Images/none.jpg" data-original="" width="60" height="60" />
+            </div>-->
+            <div class="comment">
+                dasdasdsd            </div>
+            </li><li >
+            <ol class="info clearfix">
+                <dl>
+                    <label class="k">昵称：</label>
+                    <span class="v">123123</span>
+                </dl>
+                <dl>
+                    <label class="k">时间：</label>
+                    <span class="v">2013-07-23</span>
+                </dl>
+            </ol>
+<!--            <div class="avatar">
+                <img src="/Honoer/Tpl/Home/Default/Public/Images/none.jpg" data-original="" width="60" height="60" />
+            </div>-->
+            <div class="comment">
+                dasdasdsd            </div>
+            </li><li class="even">
+            <ol class="info clearfix">
+                <dl>
+                    <label class="k">昵称：</label>
+                    <span class="v">123123</span>
+                </dl>
+                <dl>
+                    <label class="k">时间：</label>
+                    <span class="v">2013-07-23</span>
+                </dl>
+            </ol>
+<!--            <div class="avatar">
+                <img src="/Honoer/Tpl/Home/Default/Public/Images/none.jpg" data-original="" width="60" height="60" />
+            </div>-->
+            <div class="comment">
+                dasdasdsd            </div>
+            </li><li >
+            <ol class="info clearfix">
+                <dl>
+                    <label class="k">昵称：</label>
+                    <span class="v">123123</span>
+                </dl>
+                <dl>
+                    <label class="k">时间：</label>
+                    <span class="v">2013-07-23</span>
+                </dl>
+            </ol>
+<!--            <div class="avatar">
+                <img src="/Honoer/Tpl/Home/Default/Public/Images/none.jpg" data-original="" width="60" height="60" />
+            </div>-->
+            <div class="comment">
+                dasdasdsd            </div>
+            </li><li class="even">
+            <ol class="info clearfix">
+                <dl>
+                    <label class="k">昵称：</label>
+                    <span class="v">123123</span>
+                </dl>
+                <dl>
+                    <label class="k">时间：</label>
+                    <span class="v">2013-07-23</span>
+                </dl>
+            </ol>
+<!--            <div class="avatar">
+                <img src="/Honoer/Tpl/Home/Default/Public/Images/none.jpg" data-original="" width="60" height="60" />
+            </div>-->
+            <div class="comment">
+                dasdasdsd            </div>
+            </li>    </ul>    </section>
+    <section class="hd-form">
+        
+<fieldset>
+    <legend>我来说一说</legend>
+    <form class="form" action="/Article/reply/aid/46" method="post" role="validationFrom">
+        <ul>
+            <li>
+                <label class="k"><em>*</em>Email:</label>
+                <span class="v"><input type="text" name="comment_email" value="" datatype="e" errormsg="邮箱格式不正确！" ></span>
+                <span class="Validform_checktip">邮箱不会公开~</span>
+            </li>
+            <li>
+                <label class="k"><em>*</em>Content:</label>
+                <span class="v"><textarea rows="4" cols="50" name="comment_content" datatype="*6-255"></textarea></span>
+                <span class="Validform_checktip"></span>
+            </li>
+            <li>
+                <label class="k">&nbsp;</label>
+                <span class="v"><button type="submit" class="btn">留言</button></span>
+            </li>
+        </ul>
+    <input type="hidden" name="__hash__" value="a4803ce0d566259128db74bc78253532_88dbb492a35f82026381715de6ad9198" /></form>
+</fieldset>
+    </section>
+</div>
+<div class="span3">
+    <div class="tabs">
+    <div class="tabs-tit">
+        <h3>最新文章</h3>
+    </div>
+    <div class="tabs-box">
+        <ul>
+            <li>
+                    <a href="/Article/read/aid/50" title="222222222"><small>07/23</small>222222222</a>
+                </li><li>
+                    <a href="/Article/read/aid/48" title="12312312"><small>05/24</small>12312312</a>
+                </li><li>
+                    <a href="/Article/read/aid/46" title="JSONP跨域实例"><small>05/16</small>JSONP跨域实例</a>
+                </li><li>
+                    <a href="/Article/read/aid/45" title="jQuery 点击空白地方便的点击展开/关闭效果非常方便的点击展开/关闭效果"><small>05/16</small>jQuery 点击空白地方便的点击展...</a>
+                </li><li>
+                    <a href="/Article/read/aid/44" title="专业的身份证验证，不用正则验证身份证"><small>04/29</small>专业的身份证验证，不用正则验证...</a>
+                </li><li>
+                    <a href="/Article/read/aid/43" title="用php实现Google /Baidu Ping服务快速收录"><small>04/13</small>用php实现Google /Baidu Ping服...</a>
+                </li><li>
+                    <a href="/Article/read/aid/42" title="计算两个日期相差 年 月 日"><small>04/13</small>计算两个日期相差 年 月 日</a>
+                </li><li>
+                    <a href="/Article/read/aid/41" title="PHP字符串截取，支持gb2312和UTF-8编码。"><small>04/13</small>PHP字符串截取，支持gb2312和UT...</a>
+                </li>        </ul>
+    </div>
+</div>
+<div class="tabs">
+    <div class="tabs-tit">
+        <h3>热门文章</h3>
+    </div>
+    <div class="tabs-box">
+        <ul>
+            <li>
+                    <a href="/Article/read/aid/20" title="clearfix清除浮动闭合容器之:after与:before"><small>3089</small>clearfix清除浮动闭合容器之:af...</a>
+                </li><li>
+                    <a href="/Article/read/aid/1" title="iframe自动适应高度1"><small>213</small>iframe自动适应高度1</a>
+                </li><li>
+                    <a href="/Article/read/aid/2" title="图片水平垂直居中jquery-center-image"><small>147</small>图片水平垂直居中jquery-center...</a>
+                </li><li>
+                    <a href="/Article/read/aid/5" title="jQuery返回顶部代码"><small>125</small>jQuery返回顶部代码</a>
+                </li><li>
+                    <a href="/Article/read/aid/46" title="JSONP跨域实例"><small>116</small>JSONP跨域实例</a>
+                </li><li>
+                    <a href="/Article/read/aid/17" title="jQuery 图片水平垂直居中 另一方法"><small>115</small>jQuery 图片水平垂直居中 另一方法</a>
+                </li><li>
+                    <a href="/Article/read/aid/18" title="jQuery常用技巧"><small>115</small>jQuery常用技巧</a>
+                </li><li>
+                    <a href="/Article/read/aid/22" title="弹出窗口插件colorbox "><small>115</small>弹出窗口插件colorbox </a>
+                </li>        </ul>
+    </div>
+</div>
+<div class="tabs">
+    <div class="tabs-tit">
+        <h3>文章分类</h3>
+    </div>
+    <div class="tabs-box">
+        <ul>
+            <li >
+                    <a href="/Article/index/date/2013-07" title="2013-07"><small>1</small>2013-07</a>
+                </li><li >
+                    <a href="/Article/index/date/2013-05" title="2013-05"><small>3</small>2013-05</a>
+                </li><li >
+                    <a href="/Article/index/date/2013-04" title="2013-04"><small>5</small>2013-04</a>
+                </li><li >
+                    <a href="/Article/index/date/2012-11" title="2012-11"><small>4</small>2012-11</a>
+                </li><li >
+                    <a href="/Article/index/date/2012-10" title="2012-10"><small>4</small>2012-10</a>
+                </li><li >
+                    <a href="/Article/index/date/2012-09" title="2012-09"><small>6</small>2012-09</a>
+                </li><li >
+                    <a href="/Article/index/date/2012-08" title="2012-08"><small>6</small>2012-08</a>
+                </li><li >
+                    <a href="/Article/index/date/2012-07" title="2012-07"><small>14</small>2012-07</a>
+                </li><li >
+                    <a href="/Article/index/date/2012-06" title="2012-06"><small>5</small>2012-06</a>
+                </li>        </ul>
+    </div>
+</div>
+</div>
+        </div>
+        <div class="footer">
+            <footer class="clearfix">
+                
+<div class="user-login">
+    <a href="/Login/qq_login"><img src="/Honoer/Tpl/Home/Default/Public/Images/qq_login.png"></a>	
+</div>
+<div class="copyright">
+        ®copyright ©2012 All Rights Reserved.&nbsp;&nbsp;友情链接请E-mail：bily@honoer.com</div>
+
+            </footer>
+        </div>
+        <script type='text/javascript' src="/Public/Plugins/jQuery/Validform_v5.3.2_min.js"></script>
+        <script type="text/javascript" src="/Public/Plugins/jQuery/jquery.lazyload.min.js"></script>
+        <script type="text/javascript" src="/Public/Plugins/syntaxhighlighter/scripts/brush.js"></script>
+        <script type="text/javascript" src="/Honoer/Tpl/Home/Default/Public/Js/function.js"></script>
+            </body>
+</html>

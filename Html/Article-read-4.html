@@ -1,0 +1,233 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>    
+        <title>iframe 高度自适应，结果2W多条。-『Honoer.com』Web技术</title>
+        <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+        <meta name="Description" content="web技术分享平台，技术的沉淀" />
+        <meta name="Keywords" content="web技术，PHP，JS" />
+        <meta property="qc:admins" content="514175567760767526375" />
+        <link type="text/css" rel="stylesheet" href="/Honoer/Tpl/Home/Default/Public/Css/style.css"/>
+
+        <!--[if lt IE 9]><script src="http://html5shim.googlecode.com/svn/trunk/html5.js"></script><![endif]-->
+        <link type="text/css" rel="stylesheet" href="/Public/Plugins/syntaxhighlighter/styles/shCore.css"/>
+        <link type="text/css" rel="stylesheet" href="/Public/Plugins/syntaxhighlighter/styles/shThemeDefault.css"/>
+        <script type='text/javascript' src="/Public/Plugins/jQuery/jquery-1.7.1.min.js"></script> 
+        <script type="text/javascript">
+        var _hmt = _hmt || [];
+        (function() {
+            var hm = document.createElement("script");
+            hm.src = "//hm.baidu.com/hm.js?45b34fa03392243e4038fd601390f9dc";
+            var s = document.getElementsByTagName("script")[0]; 
+            s.parentNode.insertBefore(hm, s);
+        })();
+    </script>        <script type='text/javascript'>
+            <!--	
+            var URL='/Article';
+            var ROOT='';
+            var PUBLIC='/Public';
+            var Public='/Honoer/Tpl/Home/Default/Public';
+            //-->
+        </script>
+    </head>  
+    <body>
+        <div class="header">
+            <header class="clearfix">
+                <hgroup>
+    <a href="http://www.honoer.com" title="『Honoer.com』Web技术">
+        <img alt="『Honoer.com』Web技术" src="/Honoer/Tpl/Home/Default/Public/Images/logo.gif">
+    </a>
+</hgroup>
+
+
+
+<nav>
+    <ul>
+        <li >
+                            <a href="/Index/index">首页</a>            </li><li class="active">
+            <a class="nav-child" href="/Article/index">文章<i class="icon-caret"></i></a>
+                <dl>
+                    <dd >
+                        <a href="/Article/index/cid/1">PHP</a>
+                        </dd><dd >
+                        <a href="/Article/index/cid/2">HTML</a>
+                        </dd><dd >
+                        <a href="/Article/index/cid/3">JS</a>
+                        </dd>                </dl>
+                            </li><li >
+                            <a href="/About/index">关于Me</a>            </li>    </ul>
+</nav>
+
+
+<form class="search" action="/Article/index" method="get">
+    <input name="keyword" placeholder="请输入关键词" type="text" value="">
+    <button class="btn" name="search" value="Go!" type="submit">Go!</button>
+<input type="hidden" name="__hash__" value="2b4167d6aa43ff4760f180a864a6f183_ba6cb1200e7ed9c142d2ab6e593e9b6e" /></form>
+            </header>
+        </div>
+        <div class="wrap clearfix">
+            <div class="span9">
+    <article class="clearfix box">
+        <div class="item-box">
+                <span class="item-tit">
+                    <h2>iframe 高度自适应，结果2W多条。</h2>
+                </span>
+                <div class="item-tags">
+                    <span>Tags:HTML</span>
+                    <span>Reply:99</span>
+                    <span>Time:2012-06-27</span>
+                    <span>Author:admin</span>
+                </div>
+                <div class="item-intro"><p>
+&nbsp;&nbsp;&nbsp;&nbsp;<img data-original="/Public/Upload/96971340785841.jpg" style="width:314px;height:194px;float:right;" title="t010ba35b5b89b15f4a.jpg" border="0" hspace="0" vspace="0" />
+</p>
+<p>
+&nbsp;&nbsp;&nbsp;&nbsp;通过Google搜索iframe&nbsp;自适应高度，结果5W多条，搜索iframe&nbsp;高度自适应，结果2W多条。<br />
+&nbsp;&nbsp;&nbsp;&nbsp;我翻了前面的几十条，刨去大量的转载，有那么三五篇是原创的。而这几篇原创里面，基本上只谈到如何自适应静的东西，就是没有考虑到JS操作DOM之后，如何做动态同步的问题。另外，在兼容性方面，也研究的不彻底。<br />
+&nbsp;&nbsp;&nbsp;&nbsp;<br />
+&nbsp;&nbsp;&nbsp;&nbsp;这篇文章，希望在这两个方面再做一些深入。<br />
+&nbsp;&nbsp;&nbsp;&nbsp;<br />
+&nbsp;&nbsp;&nbsp;&nbsp;可能有人还没接触到这个问题过，先说明一下，什么是自适应高度吧。所谓iframe自适应高度，就是，基于界面美观和交互的考虑，隐藏了iframe的border和scrollbar，让人看不出它是个iframe。如果iframe始终调用同一个固定高度的页面，我们直接写死iframe高度就可以了。而如果iframe要切换页面，或者被包含页面要做DOM动态操作，这时候，就需要程序去同步iframe高度和被包含页的实际高度了。<br />
+&nbsp;&nbsp;&nbsp;&nbsp;<br />
+&nbsp;&nbsp;&nbsp;&nbsp;顺便说下，iframe在迫不得已的时候才去用，它会给前端开发带来太多的麻烦。<br />
+&nbsp;&nbsp;&nbsp;&nbsp;<br />
+&nbsp;&nbsp;&nbsp;&nbsp;传统做法大致有两个：<br />
+&nbsp;&nbsp;&nbsp;&nbsp;方法一，在每个被包含页在本身内容加载完毕之后，执行JS取得本页面的高度，然后去同步父页面的iframe高度。<br />
+&nbsp;&nbsp;&nbsp;&nbsp;方法二，在主页面iframe的onload事件中执行JS，去取得被包含页的高度内容，然后去同步高度。<br />
+&nbsp;&nbsp;&nbsp;&nbsp;在代码维护角度考虑，方法二是优于方法一的，因为方法一，每个被包含页都要去引入一段相同的代码来做这个事情，创建了好多副本。<br />
+&nbsp;&nbsp;&nbsp;&nbsp;<br />
+&nbsp;&nbsp;&nbsp;&nbsp;两个方法都只处理了静的东西，就是只在内容加载的时候执行，如果JS去操作DOM引起的高度变化，都不太方便。<br />
+&nbsp;&nbsp;&nbsp;&nbsp;<br />
+&nbsp;&nbsp;&nbsp;&nbsp;如果在主窗口做一个Interval，不停的来获取被包含页的高度，然后做同步，是不是即方便，又解决了JS操作DOM的问题了呢？答案是肯定的。<br />
+&nbsp;&nbsp;&nbsp;&nbsp;<br />
+</p></div>
+            </div>
+            <div class="pager">
+                <span>上一篇：&nbsp;<a href="/Article/read/aid/3" title="快来看美女喽~">快来看美女喽~</a></span>
+                <span>下一篇：&nbsp;<a href="/Article/read/aid/5" title="jQuery返回顶部代码">jQuery返回顶部代码</a></span>
+            </div>
+             
+    </article>
+    <section class="hd-msg">
+            </section>
+    <section class="hd-form">
+        
+<fieldset>
+    <legend>我来说一说</legend>
+    <form class="form" action="/Article/reply/aid/4" method="post" role="validationFrom">
+        <ul>
+            <li>
+                <label class="k"><em>*</em>Email:</label>
+                <span class="v"><input type="text" name="comment_email" value="" datatype="e" errormsg="邮箱格式不正确！" ></span>
+                <span class="Validform_checktip">邮箱不会公开~</span>
+            </li>
+            <li>
+                <label class="k"><em>*</em>Content:</label>
+                <span class="v"><textarea rows="4" cols="50" name="comment_content" datatype="*6-255"></textarea></span>
+                <span class="Validform_checktip"></span>
+            </li>
+            <li>
+                <label class="k">&nbsp;</label>
+                <span class="v"><button type="submit" class="btn">留言</button></span>
+            </li>
+        </ul>
+    <input type="hidden" name="__hash__" value="2b4167d6aa43ff4760f180a864a6f183_ba6cb1200e7ed9c142d2ab6e593e9b6e" /></form>
+</fieldset>
+    </section>
+</div>
+<div class="span3">
+    <div class="tabs">
+    <div class="tabs-tit">
+        <h3>最新文章</h3>
+    </div>
+    <div class="tabs-box">
+        <ul>
+            <li>
+                    <a href="/Article/read/aid/50" title="222222222"><small>07/23</small>222222222</a>
+                </li><li>
+                    <a href="/Article/read/aid/48" title="12312312"><small>05/24</small>12312312</a>
+                </li><li>
+                    <a href="/Article/read/aid/46" title="JSONP跨域实例"><small>05/16</small>JSONP跨域实例</a>
+                </li><li>
+                    <a href="/Article/read/aid/45" title="jQuery 点击空白地方便的点击展开/关闭效果非常方便的点击展开/关闭效果"><small>05/16</small>jQuery 点击空白地方便的点击展...</a>
+                </li><li>
+                    <a href="/Article/read/aid/44" title="专业的身份证验证，不用正则验证身份证"><small>04/29</small>专业的身份证验证，不用正则验证...</a>
+                </li><li>
+                    <a href="/Article/read/aid/43" title="用php实现Google /Baidu Ping服务快速收录"><small>04/13</small>用php实现Google /Baidu Ping服...</a>
+                </li><li>
+                    <a href="/Article/read/aid/42" title="计算两个日期相差 年 月 日"><small>04/13</small>计算两个日期相差 年 月 日</a>
+                </li><li>
+                    <a href="/Article/read/aid/41" title="PHP字符串截取，支持gb2312和UTF-8编码。"><small>04/13</small>PHP字符串截取，支持gb2312和UT...</a>
+                </li>        </ul>
+    </div>
+</div>
+<div class="tabs">
+    <div class="tabs-tit">
+        <h3>热门文章</h3>
+    </div>
+    <div class="tabs-box">
+        <ul>
+            <li>
+                    <a href="/Article/read/aid/20" title="clearfix清除浮动闭合容器之:after与:before"><small>3088</small>clearfix清除浮动闭合容器之:af...</a>
+                </li><li>
+                    <a href="/Article/read/aid/1" title="iframe自动适应高度1"><small>213</small>iframe自动适应高度1</a>
+                </li><li>
+                    <a href="/Article/read/aid/2" title="图片水平垂直居中jquery-center-image"><small>147</small>图片水平垂直居中jquery-center...</a>
+                </li><li>
+                    <a href="/Article/read/aid/5" title="jQuery返回顶部代码"><small>124</small>jQuery返回顶部代码</a>
+                </li><li>
+                    <a href="/Article/read/aid/46" title="JSONP跨域实例"><small>115</small>JSONP跨域实例</a>
+                </li><li>
+                    <a href="/Article/read/aid/17" title="jQuery 图片水平垂直居中 另一方法"><small>114</small>jQuery 图片水平垂直居中 另一方法</a>
+                </li><li>
+                    <a href="/Article/read/aid/18" title="jQuery常用技巧"><small>114</small>jQuery常用技巧</a>
+                </li><li>
+                    <a href="/Article/read/aid/22" title="弹出窗口插件colorbox "><small>114</small>弹出窗口插件colorbox </a>
+                </li>        </ul>
+    </div>
+</div>
+<div class="tabs">
+    <div class="tabs-tit">
+        <h3>文章分类</h3>
+    </div>
+    <div class="tabs-box">
+        <ul>
+            <li >
+                    <a href="/Article/index/date/2013-07" title="2013-07"><small>1</small>2013-07</a>
+                </li><li >
+                    <a href="/Article/index/date/2013-05" title="2013-05"><small>3</small>2013-05</a>
+                </li><li >
+                    <a href="/Article/index/date/2013-04" title="2013-04"><small>5</small>2013-04</a>
+                </li><li >
+                    <a href="/Article/index/date/2012-11" title="2012-11"><small>4</small>2012-11</a>
+                </li><li >
+                    <a href="/Article/index/date/2012-10" title="2012-10"><small>4</small>2012-10</a>
+                </li><li >
+                    <a href="/Article/index/date/2012-09" title="2012-09"><small>6</small>2012-09</a>
+                </li><li >
+                    <a href="/Article/index/date/2012-08" title="2012-08"><small>6</small>2012-08</a>
+                </li><li >
+                    <a href="/Article/index/date/2012-07" title="2012-07"><small>14</small>2012-07</a>
+                </li><li >
+                    <a href="/Article/index/date/2012-06" title="2012-06"><small>5</small>2012-06</a>
+                </li>        </ul>
+    </div>
+</div>
+</div>
+        </div>
+        <div class="footer">
+            <footer class="clearfix">
+                
+<div class="user-login">
+    <a href="/Login/qq_login"><img src="/Honoer/Tpl/Home/Default/Public/Images/qq_login.png"></a>	
+</div>
+<div class="copyright">
+        ®copyright ©2012 All Rights Reserved.&nbsp;&nbsp;友情链接请E-mail：bily@honoer.com</div>
+
+            </footer>
+        </div>
+        <script type='text/javascript' src="/Public/Plugins/jQuery/Validform_v5.3.2_min.js"></script>
+        <script type="text/javascript" src="/Public/Plugins/jQuery/jquery.lazyload.min.js"></script>
+        <script type="text/javascript" src="/Public/Plugins/syntaxhighlighter/scripts/brush.js"></script>
+        <script type="text/javascript" src="/Honoer/Tpl/Home/Default/Public/Js/function.js"></script>
+            </body>
+</html>

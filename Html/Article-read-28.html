@@ -1,0 +1,211 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>    
+        <title>触发器 的详解与实例-『Honoer.com』Web技术</title>
+        <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+        <meta name="Description" content="web技术分享平台，技术的沉淀" />
+        <meta name="Keywords" content="web技术，PHP，JS" />
+        <meta property="qc:admins" content="514175567760767526375" />
+        <link type="text/css" rel="stylesheet" href="/Honoer/Tpl/Home/Default/Public/Css/style.css"/>
+
+        <!--[if lt IE 9]><script src="http://html5shim.googlecode.com/svn/trunk/html5.js"></script><![endif]-->
+        <link type="text/css" rel="stylesheet" href="/Public/Plugins/syntaxhighlighter/styles/shCore.css"/>
+        <link type="text/css" rel="stylesheet" href="/Public/Plugins/syntaxhighlighter/styles/shThemeDefault.css"/>
+        <script type='text/javascript' src="/Public/Plugins/jQuery/jquery-1.7.1.min.js"></script> 
+        <script type="text/javascript">
+        var _hmt = _hmt || [];
+        (function() {
+            var hm = document.createElement("script");
+            hm.src = "//hm.baidu.com/hm.js?45b34fa03392243e4038fd601390f9dc";
+            var s = document.getElementsByTagName("script")[0]; 
+            s.parentNode.insertBefore(hm, s);
+        })();
+    </script>        <script type='text/javascript'>
+            <!--	
+            var URL='/Article';
+            var ROOT='';
+            var PUBLIC='/Public';
+            var Public='/Honoer/Tpl/Home/Default/Public';
+            //-->
+        </script>
+    </head>  
+    <body>
+        <div class="header">
+            <header class="clearfix">
+                <hgroup>
+    <a href="http://www.honoer.com" title="『Honoer.com』Web技术">
+        <img alt="『Honoer.com』Web技术" src="/Honoer/Tpl/Home/Default/Public/Images/logo.gif">
+    </a>
+</hgroup>
+
+
+
+<nav>
+    <ul>
+        <li >
+                            <a href="/Index/index">首页</a>            </li><li class="active">
+            <a class="nav-child" href="/Article/index">文章<i class="icon-caret"></i></a>
+                <dl>
+                    <dd >
+                        <a href="/Article/index/cid/1">PHP</a>
+                        </dd><dd >
+                        <a href="/Article/index/cid/2">HTML</a>
+                        </dd><dd >
+                        <a href="/Article/index/cid/3">JS</a>
+                        </dd>                </dl>
+                            </li><li >
+                            <a href="/About/index">关于Me</a>            </li>    </ul>
+</nav>
+
+
+<form class="search" action="/Article/index" method="get">
+    <input name="keyword" placeholder="请输入关键词" type="text" value="">
+    <button class="btn" name="search" value="Go!" type="submit">Go!</button>
+<input type="hidden" name="__hash__" value="a6cfaabbf8dcf083d480169eb203142f_2121aae21ab2dd9191dcf362eb93db95" /></form>
+            </header>
+        </div>
+        <div class="wrap clearfix">
+            <div class="span9">
+    <article class="clearfix box">
+        <div class="item-box">
+                <span class="item-tit">
+                    <h2>触发器 的详解与实例</h2>
+                </span>
+                <div class="item-tags">
+                    <span>Tags:PHP</span>
+                    <span>Reply:76</span>
+                    <span>Time:2012-09-25</span>
+                    <span>Author:admin</span>
+                </div>
+                <div class="item-intro"><p><strong>一、创建一个简单的触发器 </strong></p><p> </p><p>触发器是一种特殊的存储过程，类似于事件函数，SQL Server™ 允许为 INSERT、UPDATE、DELETE 创建触发器，即当在表中插入、更新、删除记录时，触发一个或一系列 T-SQL语句。</p><p>触发器可以在查询分析器里创建，也可以在表名上点右键-&gt;“所有任务”-&gt;“管理触发器”来创建，不过都是要写 T-SQL 语句的，只是在查询分析器里要先确定当前操作的数据库。</p><p>创建触发器用 CREATE TRIGGER<br /><br />CREATE TRIGGER 触发器名称<br />ON 表名<br />FOR INSERT、UPDATE 或 DELETE<br />AS<br /> &nbsp; &nbsp;T-SQL 语句<br />注意：触发器名称是不加引号的。<br /><br />如下是联机丛书上的一个示例，当在 titles 表上更改记录时，发送邮件通知 MaryM。<br />CREATE TRIGGER reminder<br />ON titles<br />FOR INSERT, UPDATE, DELETE <br />AS<br /> &nbsp; EXEC master..xp_sendmail &#39;MaryM&#39;, <br /> &nbsp; &nbsp; &nbsp;&#39;Don&#39;&#39;t forget to print a report for the distributors.&#39;</p><p> </p><p><strong>二、删除触发器 </strong></p><p> </p><p>用查询分析器删除<br />在查询分析器中使用 drop trigger 触发器名称 来删除触发器。<br />也可以同时删除多个触发器：drop trigger 触发器名称,触发器名称...<br />注意：触发器名称是不加引号的。在删除触发器之前可以先看一下触发器是否存在：<br />if Exists(select name from sysobjects where name=触发器名称 and xtype=&#39;TR&#39;)<br /></p><p>用企业管理器删除<br />在企业管理器中，在表上点右键-&gt;“所有任务”-&gt;“管理触发器”，选中所要删除的触发器，然后点击“删除”。</p><p> </p><p><strong>三、重命名触发器 </strong></p><p> </p><p>用查询分析器重命名<br />exec sp_rename 原名称, 新名称<br />sp_rename 是 SQL Server™ 自带的一个存储过程，用于更改当前数据库中用户创建的对象的名称，如表名、列表、索引名等。</p><p>用企业管理器重命名<br />在表上点右键-&gt;“所有任务”-&gt;“管理触发器”，选中所要重命名的触发器，修改触发器语句中的触发器名称，点击“确定”。</p><p> </p><p><strong>四、more....</strong> </p><p> </p><p>INSTEAD OF<br />执行触发器语句，但不执行触发触发器的 SQL 语句，比如试图删除一条记录时，将执行触发器指定的语句，此时不再执行 delete 语句。例：<br />create trigger f<br />on tbl<br />instead of delete<br />as<br /> &nbsp; &nbsp;insert into Logs...</p><p>IF UPDATE(列名)<br />检查是否更新了某一列，用于 insert 或 update，不能用于 delete。例：<br />create trigger f<br />on tbl<br />for update<br />as<br /> &nbsp; &nbsp;if update(status) or update(title)<br /> &nbsp; &nbsp; &nbsp; &nbsp;sql_statement --更新了 status 或 title 列</p><p>inserted、deleted<br />这是两个虚拟表，inserted 保存的是 insert 或 update 之后所影响的记录形成的表，deleted 保存的是 delete 或 update 之前所影响的记录形成的表。例：<br />create trigger tbl_delete<br />on tbl<br />for delete<br />as<br /> &nbsp; &nbsp;declare @title varchar(200)<br /> &nbsp; &nbsp;select @title=title from deleted<br /> &nbsp; &nbsp;insert into Logs(logContent) values(&#39;删除了 title 为：&#39; + title + &#39;的记录&#39;)<br />说明：如果向 inserted 或 deleted 虚拟表中取字段类型为 text、image 的字段值时，所取得的值将会是 null。</p><p> </p><p><strong>五、查看数据库中所有的触发器 </strong></p><p> </p><p>在查询分析器中运行： </p><p>use 数据库名<br />go<br />select*fromsysobjectswhere xtype=&#39;TR&#39; </p><p>sysobjects 保存着数据库的对象，其中 xtype 为 TR 的记录即为触发器对象。在 name 一列，我们可以看到触发器名称。</p><p> </p><p><strong>六、sp_helptext 查看触发器内容 </strong></p><p> </p><p>用查询分析器查看</p><p>use 数据库名<br />go<br />execsp_helptext&#39;触发器名称&#39; </p><p>将会以表的样式显示触发器内容。 <br />除了触发器外，sp_helptext 还可以显示 规则、默认值、未加密的存储过程、用户定义函数、视图的文本 </p><p>用企业管理器查看</p><p>在表上点右键-&gt;“所有任务”-&gt;“管理触发器”，选择所要查看的触发器存储过程 </p><p> </p><p><strong>七、sp_helptrigger 用于查看触发器的属性</strong> </p><p> </p><p>sp_helptrigger 有两个参数：第一个参数为表名；第二个为触发器类型，为 char(6) 类型，可以是 INSERT、UPDATE、DELETE，如果省略则显示指定表中所有类型触发器的属性。</p><p>例：</p><p>use 数据库名<br />go<br />execsp_helptrigger tbl </p><p> </p><p><strong>八、递归、嵌套触发器</strong> </p><p> </p><p>递归分两种，间接递归和直接递归。我们举例解释如下，假如有表1、表2名称分别为 T1、T2，在 T1、T2 上分别有触发器 G1、G2。</p><p>间接递归：对 T1 操作从而触发 G1，G1 对 T2 操作从而触发 G2，G2 对 T1 操作从而再次触发 G1... 直接递归：对 T1 操作从而触发 G1，G1 对 T1 操作从而再次触发 G1... </p><p>嵌套触发器</p><p>类似于间接递归，间接递归必然要形成一个环，而嵌套触发器不一定要形成一个环，它可以 T1-&gt;T2-&gt;T3...这样一直触发下去，最多允许嵌套 32 层。</p><p>设置直接递归</p><p>默认情况下是禁止直接递归的，要设置为允许有两种方法：</p><p>T-SQL：exec sp_dboption &#39;dbName&#39;, &#39;recursive triggers&#39;, true EM：数据库上点右键-&gt;属性-&gt;选项。 </p><p>设置间接递归、嵌套</p><p>默认情况下是允许间接递归、嵌套的，要设置为禁止有两种方法：</p><p>T-SQL：exec sp_configure &#39;nested triggers&#39;, 0 --第二个参数为 1 则为允许 EM：注册上点右键-&gt;属性-&gt;服务器设置。 </p><p><br /></p><p><strong>九、触发器回滚 </strong></p><p> </p><p>我们看到许多注册系统在注册后都不能更改用户名，但这多半是由应用程序决定的， 如果直接打开数据库表进行更改，同样可以更改其用户名，在触发器中利用回滚就可以巧妙地实现无法更改用户名。</p><p>use 数据库名<br />go<br />create trigger tr<br />on 表名<br />for update<br />as<br /> &nbsp; &nbsp;if update(userName)<br /> &nbsp; &nbsp; &nbsp; &nbsp;rollback tran</p><p>关键在最后两句，其解释为：如果更新了 userName 列，就回滚事务。</p><p> </p><p><strong>十、禁用、启用触发器 </strong></p><p> </p><p>禁用：alter table 表名 disable trigger 触发器名称<br />启用：alter table 表名 enable trigger 触发器名称</p><p>如果有多个触发器，则各个触发器名称之间用英文逗号隔开。</p><p>如果把“触发器名称”换成“ALL”，则表示禁用或启用该表的全部触发器。</p><p>SQL触发器实例1<br /><br /></p>定义： 何为触发器？在SQL Server里面也就是对某一个表的一定的操作，触发某种条件，从而执行的一段程序。触发器是一个特殊的存储过程。 <br /> &nbsp; &nbsp; &nbsp;常见的触发器有三种：分别应用于Insert , Update , Delete 事件。 <br /><br /> &nbsp; &nbsp; &nbsp;我为什么要使用触发器？比如，这么两个表： <br /><br /> &nbsp; &nbsp; &nbsp;Create Table Student( &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;--学生表 <br /> &nbsp; &nbsp; &nbsp; &nbsp;StudentID int primary key, &nbsp; &nbsp; &nbsp; --学号 <br /> &nbsp; &nbsp; &nbsp; &nbsp;.... <br /> &nbsp; &nbsp; &nbsp; ) <br /><br /> &nbsp; &nbsp; &nbsp;Create Table BorrowRecord( &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; --学生借书记录表 <br /> &nbsp; &nbsp; &nbsp; &nbsp;BorrowRecord &nbsp; int identity(1,1), &nbsp; &nbsp; &nbsp; --流水号 &nbsp; <br /> &nbsp; &nbsp; &nbsp; &nbsp;StudentID &nbsp; &nbsp; &nbsp;int , &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;--学号 <br /> &nbsp; &nbsp; &nbsp; &nbsp;BorrowDate &nbsp; &nbsp; datetime, &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;--借出时间 <br /> &nbsp; &nbsp; &nbsp; &nbsp;ReturnDAte &nbsp; &nbsp; Datetime, &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;--归还时间 <br /> &nbsp; &nbsp; &nbsp; &nbsp;... <br /> &nbsp; &nbsp; &nbsp;) <br /><br /> &nbsp; &nbsp; 用到的功能有: <br /> &nbsp; &nbsp; &nbsp; &nbsp;1.如果我更改了学生的学号,我希望他的借书记录仍然与这个学生相关(也就是同时更改借书记录表的学号); <br /> &nbsp; &nbsp; &nbsp; &nbsp;2.如果该学生已经毕业，我希望删除他的学号的同时，也删除它的借书记录。 <br /> &nbsp; &nbsp; 等等。 <br /><br /> &nbsp; &nbsp; 这时候可以用到触发器。对于1，创建一个Update触发器： <br /><br /> &nbsp; &nbsp; Create Trigger truStudent <br /> &nbsp; &nbsp; &nbsp; On Student &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; --在Student表中创建触发器 <br /> &nbsp; &nbsp; &nbsp; for Update &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;--为什么事件触发 <br /> &nbsp; &nbsp; As &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;--事件触发后所要做的事情 <br /> &nbsp; &nbsp; &nbsp; if Update(StudentID) &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;<br /> &nbsp; &nbsp; &nbsp; begin <br /><br /> &nbsp; &nbsp; &nbsp; &nbsp; Update BorrowRecord <br /> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; Set StudentID=i.StudentID <br /> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; From BorrowRecord br , Deleted &nbsp; d ,Inserted i &nbsp; &nbsp; &nbsp;--Deleted和Inserted临时表 <br /> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; Where br.StudentID=d.StudentID <br /><br /> &nbsp; &nbsp; &nbsp; end &nbsp; &nbsp; &nbsp; &nbsp;<br /> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; <br /> &nbsp; &nbsp; 理解触发器里面的两个临时的表：Deleted , Inserted 。注意Deleted 与Inserted分别表示触发事件的表“旧的一条记录”和“新的一条记录”。 <br /> &nbsp; &nbsp; 一个数据库系统中有两个虚拟表用于存储在表中记录改动的信息，分别是： <br /> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; 虚拟表Inserted &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; 虚拟表Deleted <br /><br />在表记录新增时 &nbsp; &nbsp; 存放新增的记录 &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; 不存储记录 <br /> &nbsp; &nbsp; &nbsp; &nbsp; 修改时 &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; 存放用来更新的新记录 &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; 存放更新前的记录 <br /> &nbsp; &nbsp; &nbsp; &nbsp; 删除时 &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; 不存储记录 &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; 存放被删除的记录 <br /><br /><br /> &nbsp; &nbsp; 一个Update 的过程可以看作为：生成新的记录到Inserted表，复制旧的记录到Deleted表，然后删除Student记录并写入新纪录。 <br /><br /> &nbsp; &nbsp; 对于2，创建一个Delete触发器 <br /> &nbsp; &nbsp; Create trigger trdStudent <br /> &nbsp; &nbsp; &nbsp; On Student <br /> &nbsp; &nbsp; &nbsp; for Delete <br /> &nbsp; &nbsp; As <br /> &nbsp; &nbsp; &nbsp; Delete BorrowRecord <br /> &nbsp; &nbsp; &nbsp; &nbsp; From BorrowRecord br , Delted d <br /> &nbsp; &nbsp; &nbsp; &nbsp; Where br.StudentID=d.StudentID <br /><br /> &nbsp; &nbsp; 从这两个例子我们可以看到了触发器的关键：A.2个临时的表；B.触发机制。 <br /><br /><strong>SQL触发器实例2</strong><br /><br /><p>/* <br />建立虚拟测试环境，包含：表[卷烟库存表]，表[卷烟销售表]。 <br />请大家注意跟踪这两个表的数据，体会触发器到底执行了什么业务逻辑，对数据有什么影响。 <br />为了能更清晰的表述触发器的作用，表结构存在数据冗余，且不符合第三范式，这里特此说明。 <br />*/ <br />USE Master <br />GO <br /><br />IF EXISTS (SELECT NAME FROM SYSOBJECTS WHERE XTYPE = ’U’ AND NAME = ’卷烟库存表’) <br />DROP TABLE 卷烟库存表 <br />GO <br />IF EXISTS (SELECT NAME FROM SYSOBJECTS WHERE XTYPE = ’U’ AND NAME = ’卷烟销售表’) <br />DROP TABLE 卷烟销售表 <br />GO <br /><br />--业务规则：销售金额 = 销售数量 * 销售单价 业务规则。 <br /><br />CREATE TABLE 卷烟销售表 <br />( <br />卷烟品牌 VARCHAR(40) PRIMARY KEY NOT NULL, <br />购货商 VARCHAR(40) NULL, <br />销售数量 INT NULL, <br />销售单价 MONEY NULL, <br />销售金额 MONEY NULL <br />) <br />GO <br /><br />--业务规则：库存金额 = 库存数量 * 库存单价 业务规则。 <br /><br />CREATE TABLE 卷烟库存表 <br />( <br />卷烟品牌 VARCHAR(40) PRIMARY KEY NOT NULL, <br />库存数量 INT NULL, <br />库存单价 MONEY NULL, <br />库存金额 MONEY NULL <br />) <br />GO <br /><br /><strong>--创建触发器，示例1 <br /></strong><br />/* <br />创建触发器[T_INSERT_卷烟库存表]，这个触发器较简单。 <br />说明： 每当[卷烟库存表]发生 INSERT 动作，则引发该触发器。 <br />触发器功能： 强制执行业务规则，保证插入的数据中，库存金额 = 库存数量 * 库存单价。 <br />注意： [INSERTED]、[DELETED]为系统表，不可创建、修改、删除，但可以调用。 <br />重要： 这两个系统表的结构同插入数据的表的结构。 <br />*/ <br />IF EXISTS (SELECT NAME FROM SYSOBJECTS WHERE XTYPE = ’TR’ AND NAME = ’T_INSERT_卷烟库存表’) <br />DROP TRIGGER T_INSERT_卷烟库存表 <br />GO <br /><br />CREATE TRIGGER T_INSERT_卷烟库存表 <br />ON 卷烟库存表 <br />FOR INSERT <br />AS <br />--提交事务处理 <br />BEGIN TRANSACTION <br />--强制执行下列语句，保证业务规则 <br />UPDATE 卷烟库存表 <br />SET 库存金额 = 库存数量 * 库存单价 <br />WHERE 卷烟品牌 IN (SELECT 卷烟品牌 from INSERTED) <br />COMMIT TRANSACTION <br />GO <br /><br />/* <br />针对[卷烟库存表]，插入测试数据： <br />注意，第一条数据（红塔山新势力）中的数据符合业务规则， <br />第二条数据（红塔山人为峰）中，[库存金额]空，不符合业务规则， <br />第三条数据（云南映像）中，[库存金额]不等于[库存数量]乘以[库存单价]，不符合业务规则。 <br />第四条数据库存数量为0。 <br />请注意在插入数据后，检查[卷烟库存表]中的数据是否 库存金额 = 库存数量 * 库存单价。 <br />*/ <br /><br />INSERT INTO 卷烟库存表(卷烟品牌,库存数量,库存单价,库存金额) <br />SELECT ’红塔山新势力’,100,12,1200 UNION ALL <br />SELECT ’红塔山人为峰’,100,22,NULL UNION ALL <br />SELECT ’云南映像’,100,60,500 UNION ALL <br />SELECT ’玉溪’,0,30,0 <br />GO <br /><br /><strong>--查询数据 <br /></strong><br />SELECT * FROM 卷烟库存表 <br />GO <br />/* <br /><br />结果集 <br /><br />RecordId 卷烟品牌 库存数量 库存单价 库存金额 <br />-------- ------------ -------- ------- --------- <br />1 红塔山新势力 100 12.0000 1200.0000 <br />2 红塔山人为峰 100 22.0000 2200.0000 <br />3 云南映像 100 60.0000 6000.0000 <br />4 玉溪 0 30.0000 .0000 <br /><br />（所影响的行数为 4 行） <br /><br />*/ <br /><br /><strong>--触发器示例2 <br /><br /></strong>/* <br />创建触发器[T_INSERT_卷烟销售表]，该触发器较复杂。 <br />说明: 每当[卷烟库存表]发生 INSERT 动作，则引发该触发器。 <br />触发器功能： 实现业务规则。 <br />业务规则: 如果销售的卷烟品牌不存在库存或者库存为零，则返回错误。 <br />否则则自动减少[卷烟库存表]中对应品牌卷烟的库存数量和库存金额。 <br />*/ <br />IF EXISTS (SELECT NAME FROM SYSOBJECTS WHERE XTYPE = ’TR’ AND NAME = ’T_INSERT_卷烟销售表’) <br />DROP TRIGGER T_INSERT_卷烟销售表 <br />GO <br /><br />CREATE TRIGGER T_INSERT_卷烟销售表 <br />ON 卷烟销售表 <br />FOR INSERT <br />AS <br />BEGIN TRANSACTION <br />--检查数据的合法性：销售的卷烟是否有库存，或者库存是否大于零 <br />IF NOT EXISTS ( <br />SELECT 库存数量 <br />FROM 卷烟库存表 <br />WHERE 卷烟品牌 IN (SELECT 卷烟品牌 FROM INSERTED) <br />) <br />BEGIN <br />--返回错误提示 <br />RAISERROR(’错误！该卷烟不存在库存，不能销售。’,16,1) <br />--回滚事务 <br />ROLLBACK <br />RETURN <br />END <br /><br />IF EXISTS ( <br />SELECT 库存数量 <br />FROM 卷烟库存表 <br />WHERE 卷烟品牌 IN (SELECT 卷烟品牌 FROM INSERTED) AND <br />库存数量 &lt;= 0 <br />) <br />BEGIN <br />--返回错误提示 <br />RAISERROR(’错误！该卷烟库存小于等于0，不能销售。’,16,1) <br />--回滚事务 <br />ROLLBACK <br />RETURN <br />END <br /><br />--对合法的数据进行处理 <br /><br />--强制执行下列语句，保证业务规则 <br />UPDATE 卷烟销售表 <br />SET 销售金额 = 销售数量 * 销售单价 <br />WHERE 卷烟品牌 IN (SELECT 卷烟品牌 FROM INSERTED) <br /><br />DECLARE @卷烟品牌 VARCHAR(40) <br />SET @卷烟品牌 = (SELECT 卷烟品牌 FROM INSERTED) <br /><br />DECLARE @销售数量 MONEY <br />SET @销售数量 = (SELECT 销售数量 FROM INSERTED) <br /><br />UPDATE 卷烟库存表 <br />SET 库存数量 = 库存数量 - @销售数量, <br />库存金额 = (库存数量 - @销售数量)*库存单价 <br />WHERE 卷烟品牌 = @卷烟品牌 <br />COMMIT TRANSACTION <br />GO <br /><br />--请大家自行跟踪[卷烟库存表]和[卷烟销售表]的数据变化。 <br />--针对[卷烟销售表]，插入第一条测试数据，该数据是正常的。 <br /><br />INSERT INTO 卷烟销售表(卷烟品牌,购货商,销售数量,销售单价,销售金额) <br />SELECT ’红塔山新势力’,’某购货商’,10,12,1200 <br />GO <br /><br />--针对[卷烟销售表]，插入第二条测试数据，该数据 销售金额 不等于 销售单价 * 销售数量。 <br />--触发器将自动更正数据，使 销售金额 等于 销售单价 * 销售数量。 <br /><br />INSERT INTO 卷烟销售表(卷烟品牌,购货商,销售数量,销售单价,销售金额) <br />SELECT ’红塔山人为峰’,’某购货商’,10,22,2000 <br />GO <br /><br />--针对[卷烟销售表]，插入第三条测试数据，该数据中的卷烟品牌在 卷烟库存表中找不到对应。 <br />--触发器将报错。 <br /><br />INSERT INTO 卷烟销售表(卷烟品牌,购货商,销售数量,销售单价,销售金额) <br />SELECT ’红河V8’,’某购货商’,10,60,600 <br />GO <br /><br />/* <br />结果集 <br />服务器: 消息 50000，级别 16，状态 1，过程 T_INSERT_卷烟销售表，行 15 <br />错误！该卷烟不存在库存，不能销售。 <br />*/ <br /><br />--针对[卷烟销售表]，插入第三条测试数据，该数据中的卷烟品牌在 卷烟库存表中库存为0。 <br />--触发器将报错。 <br /><br />INSERT INTO 卷烟销售表(卷烟品牌,购货商,销售数量,销售单价,销售金额) <br />SELECT ’玉溪’,’某购货商’,10,30,300 <br />GO <br /><br />/* <br />结果集 <br />服务器: 消息 50000，级别 16，状态 1，过程 T_INSERT_卷烟销售表，行 29 <br />错误！该卷烟库存小于等于0，不能销售。 <br />*/ <br />--查询数据 <br />SELECT * FROM 卷烟库存表 <br /><br />SELECT * FROM 卷烟销售表 <br />GO <br /><br />/* <br />补充： <br />1、本示例主要通过一个简单的业务规则实现来进行触发器使用的说明，具体的要根据需要灵活处理； <br />2、关于触发器要理解并运用好 INSERTED ，DELETED 两个系统表； <br />3、本示例创建的触发器都是 FOR INSERT ,具体的语法可参考： <br />/////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////</p><p> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;Trigger语法</p><p>//////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////<br /><br /><br />CREATE TRIGGER trigger_name <br />ON { table | view } <br />[ WITH ENCRYPTION ] --用于加密触发器 <br />{ <br />{ { FOR | AFTER | INSTEAD OF } { [ INSERT ] [ , ] [ UPDATE ] } <br />[ WITH APPEND ] <br />[ NOT FOR REPLICATION ] <br />AS <br />[ { IF UPDATE ( column ) <br />[ { AND | OR } UPDATE ( column ) ] <br />[ ...n ] <br />| IF ( COLUMNS_UPDATED ( ) { bitwise_operator } updated_bitmask ) <br />{ comparison_operator } column_bitmask [ ...n ] <br />} ] <br />sql_statement [ ...n ] <br />} <br />} <br /><br />4、关于触发器，还应该注意 <br />(1)、DELETE 触发器不能捕获 TRUNCATE TABLE 语句。 <br />(2)、触发器中不允许以下 Transact-SQL 语句： <br />ALTER DATABASE CREATE DATABASE DISK INIT <br />DISK RESIZE DROP DATABASE LOAD DATABASE <br />LOAD LOG RECONFIGURE RESTORE DATABASE <br />RESTORE LOG <br />(3)、触发器最多可以嵌套 32 层。 <br /><br />*/ <br /><br />--修改触发器 <br />--实质上，是将 CREATE TRIGGER ... 修改为 ALTER TRIGGER ...即可。 <br /><br />--删除触发器 <br />DROP TRIGGER xxx <br />GO <br /><br />--删除测试环境 <br />DROP TABLE 卷烟库存表 <br />GO <br />DROP TABLE 卷烟销售表 <br />GO <br />DROP TRIGGER T_INSERT_卷烟库存表 <br />GO <br />DROP TRIGGER T_INSERT_卷烟销售表 <br />GO <br />################################################################## <br />触发器的基础知识和例子 <br />：create trigger tr_name <br />on table/view <br />{for | after | instead of } [update][,][insert][,][delete] <br />[with encryption] <br />as {batch | if update (col_name) [{and|or} update (col_name)] } <br /><br />说明： <br />1 tr_name ：触发器名称 <br />2 on table/view ：触发器所作用的表。一个触发器只能作用于一个表 <br />3 for 和after ：同义 <br />4 after 与instead of :sql 2000新增项目afrer 与 instead of 的区别 <br />After <br />在触发事件发生以后才被激活,只可以建立在表上 <br />Instead of <br />代替了相应的触发事件而被执行,既可以建立在表上也可以建立在视图上 <br />5 insert、update、delete：激活触发器的三种操作，可以同时执行，也可选其一 <br />6 if update (col_name)：表明所作的操作对指定列是否有影响，有影响，则激活触发器。此外，因为delete 操作只对行有影响， <br />所以如果使用delete操作就不能用这条语句了(虽然使用也不出错，但是不能激活触发器，没意义)。 <br />7 触发器执行时用到的两个特殊表：deleted ,inserted <br />deleted 和inserted 可以说是一种特殊的临时表，是在进行激活触发器时由系统自动生成的，其结构与触发器作用的表结构是一 <br />样的，只是存放 的数据有差异。 <br /><br />续 <br />下面表格说明deleted 与inserted 数据的差异 <br />deleted 与inserted 数据的差异 <br />Inserted <br />存放进行insert和update 操作后的数据 <br />Deleted <br />存放进行delete 和update操作前的数据 <br />注意：update 操作相当于先进行delete 再进行insert ,所以在进行update操作时，修改前的数据拷贝一条到deleted 表中，修改后 <br />的数据在存到触发器作用的表的同时，也同时生成一条拷贝到insered表中</p><p>/////////</p><p>CREATE TRIGGER [TRIGGER admixture_receive_log] ON dbo.chl_lydj <br />FOR UPDATE<br />AS<br />begin<br /> &nbsp; &nbsp; &nbsp; &nbsp;declare @djsfxg char(10) &nbsp; &nbsp; &nbsp;declare @wtbh char(20)<br /> &nbsp; &nbsp; &nbsp; &nbsp;select @wtbh=wtbh from inserted<br /> &nbsp; &nbsp; &nbsp; update ly_tzk set djsfxg=&#39;已修改&#39; where <br />end<br />if (select data_sfjl from t_logsetup)=&#39;是&#39;<br />begin<br />declare @oldcjmc char (100) &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;declare @oldlyrq datetime<br />declare @oldbzbh char (60) &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; declare @oldzl char (20)<br />declare @olddj char (10)</p><p>declare @newcjmc char (100) &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;declare @newlyrq datetime<br />declare @newbzbh char (60) &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; declare @newzl char (20)<br />declare @newdj char (10)</p><p> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; declare @xgr char (20)</p><p> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; select @oldcjmc=cjmc,@oldlyrq=lyrq,@oldbzbh=bzbh,@oldzl=zl,@olddj=dj from deleted<br /> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; select @newcjmc=cjmc,@newlyrq=lyrq,@newbzbh=bzbh,@newzl=zl,@newdj=dj from inserted<br /> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; select @xgr=xgr from t_modifyuser where @wtbh=wtbh<br /> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; <br /> &nbsp; &nbsp; &nbsp; &nbsp; if @oldcjmc&lt;&gt;@newcjmc<br /> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; begin<br /> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;insert into t_modifylog (wtbh, mod_time, mod_table, mod_field, ori_value, now_value, mod_people) values<br /> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;(@wtbh,getdate(), &#39;chl_lydj&#39;,&#39;cjmc&#39;, @oldcjmc, @newcjmc, @xgr)<br /> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; end</p><p><br />end<br />//////////修改时，直接把‘create’改为‘alter’即可</p><p>/////////////////////////</p><p>CREATE TRIGGER [TRIGGER ly_tzk_syf] ON dbo.ly_tzk <br />FOR insert <br />AS<br />begin<br /> &nbsp; &nbsp; &nbsp; &nbsp; declare @clmc char(100) &nbsp; &nbsp; declare @dwbh char(100) declare @syf char(100) &nbsp; declare @dwgcbh char(100) declare @wtbh char(50) <br /> &nbsp; &nbsp; &nbsp; &nbsp; declare @dj_1 money &nbsp; &nbsp; declare @feiyong_z money &nbsp; declare @feiyong_xf money &nbsp; declare @feiyong_sy money <br /> &nbsp; &nbsp; &nbsp; &nbsp; declare @dj char(20)<br /> &nbsp; &nbsp; &nbsp; &nbsp;select @wtbh=wtbh , @clmc=clmc , @dwbh=dwbh ,@syf=syf from inserted<br /> &nbsp; &nbsp; &nbsp; &nbsp;select &nbsp; @dj=dj from feihao_bz where <br /> &nbsp; &nbsp; &nbsp; &nbsp;select @feiyong_z=feiyong_z, @feiyong_xf=feiyong_xf, @feiyong_sy=feiyong_sy from gongchengxinxi where </p><p> &nbsp; &nbsp; &nbsp; &nbsp;set @dj_1=convert(money ,@dj)<br /> &nbsp; &nbsp; &nbsp; if @dj_1 &lt;&gt;0 <br /> &nbsp; &nbsp; &nbsp; begin<br /> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; set @feiyong_xf=@feiyong_xf+@dj_1<br /> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; set @feiyong_sy=@feiyong_sy-@dj_1<br /> &nbsp; &nbsp; &nbsp; &nbsp;<br /> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;update ly_tzk set where &nbsp; &nbsp; &nbsp; <br /> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;update gongchengxinxi set , where <br /> &nbsp; &nbsp; &nbsp; end<br /> &nbsp; &nbsp; &nbsp; else &nbsp; &nbsp;update ly_tzk set syf=convert(char , 0.0) where </p><p>end</p><p>//////////////////////</p><p>CREATE TRIGGER [TRIGGER ly_tzk_syf_shanchu] ON dbo.ly_tzk <br />FOR delete <br />AS<br />begin<br /> &nbsp; &nbsp; &nbsp; &nbsp; declare @clmc char(100) &nbsp; &nbsp; declare @dwbh char(100) &nbsp; &nbsp;declare @dwgcbh char(100) declare @wtbh char(50) <br /> &nbsp; &nbsp; &nbsp; &nbsp; declare @feiyong_z money &nbsp; &nbsp;declare @feiyong_xf money &nbsp; declare @feiyong_sy money <br /> &nbsp; &nbsp; &nbsp; &nbsp; declare @syf char(100) &nbsp; &nbsp; &nbsp;declare @syf_1 money<br /> &nbsp; &nbsp; &nbsp; &nbsp; --declare @dj char(20) &nbsp; declare @dj_1 money <br /> &nbsp; &nbsp; &nbsp; &nbsp;select @wtbh=wtbh , @clmc=clmc , @dwbh=dwbh ,@syf=syf from inserted<br /> &nbsp; &nbsp; &nbsp; &nbsp;--select &nbsp; @dj=dj from feihao_bz where <br /> &nbsp; &nbsp; &nbsp; &nbsp;select @feiyong_z=feiyong_z, @feiyong_xf=feiyong_xf, @feiyong_sy=feiyong_sy from gongchengxinxi where </p><p> &nbsp; &nbsp; &nbsp; &nbsp;set @syf_1=convert(money ,@syf)<br /> &nbsp; &nbsp; &nbsp; if @syf_1 &lt;&gt;0 <br /> &nbsp; &nbsp; &nbsp; begin<br /> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; set @feiyong_xf=@feiyong_xf-@syf_1<br /> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; set @feiyong_sy=@feiyong_sy+@syf_1 <br /> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;update gongchengxinxi set , where <br /> &nbsp; &nbsp; &nbsp; end<br />end</p><p> </p></div>
+            </div>
+            <div class="pager">
+                <span>上一篇：&nbsp;<a href="/Article/read/aid/27" title="数据库 存储过程 语法及实例">数据库 存储过程 语法及实例</a></span>
+                <span>下一篇：&nbsp;<a href="/Article/read/aid/29" title="php二维数组的合并">php二维数组的合并</a></span>
+            </div>
+             
+    </article>
+    <section class="hd-msg">
+            </section>
+    <section class="hd-form">
+        
+<fieldset>
+    <legend>我来说一说</legend>
+    <form class="form" action="/Article/reply/aid/28" method="post" role="validationFrom">
+        <ul>
+            <li>
+                <label class="k"><em>*</em>Email:</label>
+                <span class="v"><input type="text" name="comment_email" value="" datatype="e" errormsg="邮箱格式不正确！" ></span>
+                <span class="Validform_checktip">邮箱不会公开~</span>
+            </li>
+            <li>
+                <label class="k"><em>*</em>Content:</label>
+                <span class="v"><textarea rows="4" cols="50" name="comment_content" datatype="*6-255"></textarea></span>
+                <span class="Validform_checktip"></span>
+            </li>
+            <li>
+                <label class="k">&nbsp;</label>
+                <span class="v"><button type="submit" class="btn">留言</button></span>
+            </li>
+        </ul>
+    <input type="hidden" name="__hash__" value="a6cfaabbf8dcf083d480169eb203142f_2121aae21ab2dd9191dcf362eb93db95" /></form>
+</fieldset>
+    </section>
+</div>
+<div class="span3">
+    <div class="tabs">
+    <div class="tabs-tit">
+        <h3>最新文章</h3>
+    </div>
+    <div class="tabs-box">
+        <ul>
+            <li>
+                    <a href="/Article/read/aid/50" title="222222222"><small>07/23</small>222222222</a>
+                </li><li>
+                    <a href="/Article/read/aid/48" title="12312312"><small>05/24</small>12312312</a>
+                </li><li>
+                    <a href="/Article/read/aid/46" title="JSONP跨域实例"><small>05/16</small>JSONP跨域实例</a>
+                </li><li>
+                    <a href="/Article/read/aid/45" title="jQuery 点击空白地方便的点击展开/关闭效果非常方便的点击展开/关闭效果"><small>05/16</small>jQuery 点击空白地方便的点击展...</a>
+                </li><li>
+                    <a href="/Article/read/aid/44" title="专业的身份证验证，不用正则验证身份证"><small>04/29</small>专业的身份证验证，不用正则验证...</a>
+                </li><li>
+                    <a href="/Article/read/aid/43" title="用php实现Google /Baidu Ping服务快速收录"><small>04/13</small>用php实现Google /Baidu Ping服...</a>
+                </li><li>
+                    <a href="/Article/read/aid/42" title="计算两个日期相差 年 月 日"><small>04/13</small>计算两个日期相差 年 月 日</a>
+                </li><li>
+                    <a href="/Article/read/aid/41" title="PHP字符串截取，支持gb2312和UTF-8编码。"><small>04/13</small>PHP字符串截取，支持gb2312和UT...</a>
+                </li>        </ul>
+    </div>
+</div>
+<div class="tabs">
+    <div class="tabs-tit">
+        <h3>热门文章</h3>
+    </div>
+    <div class="tabs-box">
+        <ul>
+            <li>
+                    <a href="/Article/read/aid/20" title="clearfix清除浮动闭合容器之:after与:before"><small>3089</small>clearfix清除浮动闭合容器之:af...</a>
+                </li><li>
+                    <a href="/Article/read/aid/1" title="iframe自动适应高度1"><small>213</small>iframe自动适应高度1</a>
+                </li><li>
+                    <a href="/Article/read/aid/2" title="图片水平垂直居中jquery-center-image"><small>147</small>图片水平垂直居中jquery-center...</a>
+                </li><li>
+                    <a href="/Article/read/aid/5" title="jQuery返回顶部代码"><small>125</small>jQuery返回顶部代码</a>
+                </li><li>
+                    <a href="/Article/read/aid/17" title="jQuery 图片水平垂直居中 另一方法"><small>115</small>jQuery 图片水平垂直居中 另一方法</a>
+                </li><li>
+                    <a href="/Article/read/aid/18" title="jQuery常用技巧"><small>115</small>jQuery常用技巧</a>
+                </li><li>
+                    <a href="/Article/read/aid/22" title="弹出窗口插件colorbox "><small>115</small>弹出窗口插件colorbox </a>
+                </li><li>
+                    <a href="/Article/read/aid/46" title="JSONP跨域实例"><small>115</small>JSONP跨域实例</a>
+                </li>        </ul>
+    </div>
+</div>
+<div class="tabs">
+    <div class="tabs-tit">
+        <h3>文章分类</h3>
+    </div>
+    <div class="tabs-box">
+        <ul>
+            <li >
+                    <a href="/Article/index/date/2013-07" title="2013-07"><small>1</small>2013-07</a>
+                </li><li >
+                    <a href="/Article/index/date/2013-05" title="2013-05"><small>3</small>2013-05</a>
+                </li><li >
+                    <a href="/Article/index/date/2013-04" title="2013-04"><small>5</small>2013-04</a>
+                </li><li >
+                    <a href="/Article/index/date/2012-11" title="2012-11"><small>4</small>2012-11</a>
+                </li><li >
+                    <a href="/Article/index/date/2012-10" title="2012-10"><small>4</small>2012-10</a>
+                </li><li >
+                    <a href="/Article/index/date/2012-09" title="2012-09"><small>6</small>2012-09</a>
+                </li><li >
+                    <a href="/Article/index/date/2012-08" title="2012-08"><small>6</small>2012-08</a>
+                </li><li >
+                    <a href="/Article/index/date/2012-07" title="2012-07"><small>14</small>2012-07</a>
+                </li><li >
+                    <a href="/Article/index/date/2012-06" title="2012-06"><small>5</small>2012-06</a>
+                </li>        </ul>
+    </div>
+</div>
+</div>
+        </div>
+        <div class="footer">
+            <footer class="clearfix">
+                
+<div class="user-login">
+    <a href="/Login/qq_login"><img src="/Honoer/Tpl/Home/Default/Public/Images/qq_login.png"></a>	
+</div>
+<div class="copyright">
+        ®copyright ©2012 All Rights Reserved.&nbsp;&nbsp;友情链接请E-mail：bily@honoer.com</div>
+
+            </footer>
+        </div>
+        <script type='text/javascript' src="/Public/Plugins/jQuery/Validform_v5.3.2_min.js"></script>
+        <script type="text/javascript" src="/Public/Plugins/jQuery/jquery.lazyload.min.js"></script>
+        <script type="text/javascript" src="/Public/Plugins/syntaxhighlighter/scripts/brush.js"></script>
+        <script type="text/javascript" src="/Honoer/Tpl/Home/Default/Public/Js/function.js"></script>
+            </body>
+</html>

@@ -1,0 +1,212 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>    
+        <title>50个常用的jQuery代码段-『Honoer.com』Web技术</title>
+        <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+        <meta name="Description" content="web技术分享平台，技术的沉淀" />
+        <meta name="Keywords" content="web技术，PHP，JS" />
+        <meta property="qc:admins" content="514175567760767526375" />
+        <link type="text/css" rel="stylesheet" href="/Honoer/Tpl/Home/Default/Public/Css/style.css"/>
+
+        <!--[if lt IE 9]><script src="http://html5shim.googlecode.com/svn/trunk/html5.js"></script><![endif]-->
+        <link type="text/css" rel="stylesheet" href="/Public/Plugins/syntaxhighlighter/styles/shCore.css"/>
+        <link type="text/css" rel="stylesheet" href="/Public/Plugins/syntaxhighlighter/styles/shThemeDefault.css"/>
+        <script type='text/javascript' src="/Public/Plugins/jQuery/jquery-1.7.1.min.js"></script> 
+        <script type="text/javascript">
+        var _hmt = _hmt || [];
+        (function() {
+            var hm = document.createElement("script");
+            hm.src = "//hm.baidu.com/hm.js?45b34fa03392243e4038fd601390f9dc";
+            var s = document.getElementsByTagName("script")[0]; 
+            s.parentNode.insertBefore(hm, s);
+        })();
+    </script>        <script type='text/javascript'>
+            <!--	
+            var URL='/Article';
+            var ROOT='';
+            var PUBLIC='/Public';
+            var Public='/Honoer/Tpl/Home/Default/Public';
+            //-->
+        </script>
+    </head>  
+    <body>
+        <div class="header">
+            <header class="clearfix">
+                <hgroup>
+    <a href="http://www.honoer.com" title="『Honoer.com』Web技术">
+        <img alt="『Honoer.com』Web技术" src="/Honoer/Tpl/Home/Default/Public/Images/logo.gif">
+    </a>
+</hgroup>
+
+
+
+<nav>
+    <ul>
+        <li >
+                            <a href="/Index/index">首页</a>            </li><li class="active">
+            <a class="nav-child" href="/Article/index">文章<i class="icon-caret"></i></a>
+                <dl>
+                    <dd >
+                        <a href="/Article/index/cid/1">PHP</a>
+                        </dd><dd >
+                        <a href="/Article/index/cid/2">HTML</a>
+                        </dd><dd >
+                        <a href="/Article/index/cid/3">JS</a>
+                        </dd>                </dl>
+                            </li><li >
+                            <a href="/About/index">关于Me</a>            </li>    </ul>
+</nav>
+
+
+<form class="search" action="/Article/index" method="get">
+    <input name="keyword" placeholder="请输入关键词" type="text" value="">
+    <button class="btn" name="search" value="Go!" type="submit">Go!</button>
+<input type="hidden" name="__hash__" value="af14334d82b92b90b19baf8578b0605c_71c49086f8e454e6cbda1b548b8b9be8" /></form>
+            </header>
+        </div>
+        <div class="wrap clearfix">
+            <div class="span9">
+    <article class="clearfix box">
+        <div class="item-box">
+                <span class="item-tit">
+                    <h2>50个常用的jQuery代码段</h2>
+                </span>
+                <div class="item-tags">
+                    <span>Tags:JS</span>
+                    <span>Reply:108</span>
+                    <span>Time:2012-07-31</span>
+                    <span>Author:admin</span>
+                </div>
+                <div class="item-intro"><p><span style="font-size:12px" id="_baidu_bookmark_start_23">﻿</span><span style="font-size:12px" id="_baidu_bookmark_start_23">1. 如何创建嵌套的过滤器： </span></p><ul type="1"><li><p><span style="font-size:12px" id="_baidu_bookmark_start_23">//允许你减少集合中的匹配元素的过滤器， </span></p></li><li><p><span style="font-size:12px" id="_baidu_bookmark_start_23">//只剩下那些与给定的选择器匹配的部分。在这种情况下， </span></p></li><li><p><span style="font-size:12px" id="_baidu_bookmark_start_23">//查询删除了任何没（:not）有（:has） </span></p></li><li><p><span style="font-size:12px" id="_baidu_bookmark_start_23">//包含class为“selected”（.selected）的子节点。 </span></p></li><li><p><span style="font-size:12px" id="_baidu_bookmark_start_23">.filter(“:not(:has(.selected))”)<br /></span></p></li></ul><p><span style="font-size:12px" id="_baidu_bookmark_start_23">2. 如何重用元素搜索 </span></p><ul type="1"><li><p><span style="font-size:12px" id="_baidu_bookmark_start_23">var allItems = $(“div.item”); </span></p></li><li><p><span style="font-size:12px" id="_baidu_bookmark_start_23">var keepList = $(“div#container1 div.item”); </span></p></li><li><p><span style="font-size:12px" id="_baidu_bookmark_start_23">//现在你可以继续使用这些jQuery对象来工作了。例如， </span></p></li><li><p><span style="font-size:12px" id="_baidu_bookmark_start_23">//基于复选框裁剪“keep list”，复选框的名称 </span></p></li><li><p><span style="font-size:12px" id="_baidu_bookmark_start_23">//符合 </span></p></li><li><p><span style="font-size:12px" id="_baidu_bookmark_start_23">&lt; DIV &gt;class names: </span></p></li><li><p><span style="font-size:12px" id="_baidu_bookmark_start_23">$(formToLookAt + ” input:checked”).each(function() { </span></p></li><li><p><span style="font-size:12px" id="_baidu_bookmark_start_23"> &nbsp; &nbsp;keepList = keepList.filter(“.” + $(this).attr(“name”)); </span></p></li><li><p><span style="font-size:12px" id="_baidu_bookmark_start_23">}); </span></p></li><li><p><span style="font-size:12px" id="_baidu_bookmark_start_23">&lt; /DIV&gt;<br /></span></p></li></ul><p><span style="font-size:12px" id="_baidu_bookmark_start_23">3. 任何使用has()来检查某个元素是否包含某个类或是元素： </span></p><ul type="1"><li><p><span style="font-size:12px" id="_baidu_bookmark_start_23">//jQuery 1.4.*包含了对这一has方法的支持。该方法找出 </span></p></li><li><p><span style="font-size:12px" id="_baidu_bookmark_start_23">//某个元素是否包含了其他另一个元素类或是其他任何的 </span></p></li><li><p><span style="font-size:12px" id="_baidu_bookmark_start_23">//你正在查找并要在其之上进行操作的东东。 </span></p></li><li><p><span style="font-size:12px" id="_baidu_bookmark_start_23">$(“input”).has(“.email”).addClass(“email_icon”);<br /></span></p></li></ul><p><span style="font-size:12px" id="_baidu_bookmark_start_23">4. 如何使用jQuery来切换样式表 </span></p><ul type="1"><li><p><span style="font-size:12px" id="_baidu_bookmark_start_23">//找出你希望切换的媒体类型（media-type），然后把href设置成新的样式表。 </span></p></li><li><p><span style="font-size:12px" id="_baidu_bookmark_start_23">$(‘link[media=&#39;screen&#39;]‘).attr(‘href’, ’Alternative.css’);<br /></span></p></li></ul><p><span style="font-size:12px" id="_baidu_bookmark_start_23">5. 如何限制选择范围（基于优化目的）： </span></p><ul type="1"><li><p><span style="font-size:12px" id="_baidu_bookmark_start_23">//尽可能使用标签名来作为类名的前缀， </span></p></li><li><p><span style="font-size:12px" id="_baidu_bookmark_start_23">//这样jQuery就不需要花费更多的时间来搜索 </span></p></li><li><p><span style="font-size:12px" id="_baidu_bookmark_start_23">//你想要的元素。还要记住的一点是， </span></p></li><li><p><span style="font-size:12px" id="_baidu_bookmark_start_23">//针对于你的页面上的元素的操作越具体化， </span></p></li><li><p><span style="font-size:12px" id="_baidu_bookmark_start_23">//就越能降低执行和搜索的时间。 </span></p></li><li><p><span style="font-size:12px" id="_baidu_bookmark_start_23">var in_stock = $(‘#shopping_cart_items input.is_in_stock’); &lt;ul id=”shopping_cart_items”&gt;<br />&lt;li&gt;&lt;input type=”radio” value=”Item-X” name=”item” /&gt; Item X&lt;/li&gt;<br />&lt;li&gt;&lt;input type=”radio” value=”Item-Y” name=”item” /&gt; Item Y&lt;/li&gt;<br />&lt;li&gt;&lt;input type=”radio” value=”Item-Z” name=”item” /&gt; Item Z&lt;/li&gt;<br />&lt;/ul&gt;<br /></span></p></li></ul><p><span style="font-size:12px" id="_baidu_bookmark_start_23">6. 如何正确地使用ToggleClass： </span></p><ul type="1"><li><p><span style="font-size:12px" id="_baidu_bookmark_start_23">//切换（toggle）类允许你根据某个类的 </span></p></li><li><p><span style="font-size:12px" id="_baidu_bookmark_start_23">//是否存在来添加或是删除该类。 </span></p></li><li><p><span style="font-size:12px" id="_baidu_bookmark_start_23">//这种情况下有些开发者使用： </span></p></li><li><p><span style="font-size:12px" id="_baidu_bookmark_start_23">a.hasClass(‘blueButton’) ? a.removeClass(‘blueButton’) : a.addClass(‘blueButton’); </span></p></li><li><p><span style="font-size:12px" id="_baidu_bookmark_start_23">//toggleClass允许你使用下面的语句来很容易地做到这一点 </span></p></li><li><p><span style="font-size:12px" id="_baidu_bookmark_start_23">a.toggleClass(‘blueButton’);<br /></span></p></li></ul><p><span style="font-size:12px" id="_baidu_bookmark_start_23">7. 如何设置IE特有的功能： </span></p><ul type="1"><li><p><span style="font-size:12px" id="_baidu_bookmark_start_23">if ($.browser.msie) { </span></p></li><li><p><span style="font-size:12px" id="_baidu_bookmark_start_23">// Internet Explorer就是个虐待狂 </span></p></li><li><p><span style="font-size:12px" id="_baidu_bookmark_start_23">}<br /></span></p></li></ul><p><span style="font-size:12px" id="_baidu_bookmark_start_23">8. 如何使用jQuery来代替一个元素： </span></p><ul type="1"><li><p><span style="font-size:12px" id="_baidu_bookmark_start_23">$(‘#thatdiv’).replaceWith(‘fnuh’);<br /></span></p></li></ul><p><span style="font-size:12px" id="_baidu_bookmark_start_23">9. 如何验证某个元素是否为空： </span></p><ul type="1"><li><p><span style="font-size:12px" id="_baidu_bookmark_start_23">if ($(‘#keks’).html()) { </span></p></li><li><p><span style="font-size:12px" id="_baidu_bookmark_start_23">//什么都没有找到; </span></p></li><li><p><span style="font-size:12px" id="_baidu_bookmark_start_23">}<br /></span></p></li></ul><p><span style="font-size:12px" id="_baidu_bookmark_start_23">10. 如何从一个未排序的集合中找出某个元素的索引号 </span></p><ul type="1"><li><p><span style="font-size:12px" id="_baidu_bookmark_start_23">$(“ul &gt; li”).click(function () { </span></p></li><li><p><span style="font-size:12px" id="_baidu_bookmark_start_23"> &nbsp; &nbsp;var index = $(this).prevAll().length; </span></p></li><li><p><span style="font-size:12px" id="_baidu_bookmark_start_23">});<br /></span></p></li></ul><p><span style="font-size:12px" id="_baidu_bookmark_start_23">11. 如何把函数绑定到事件上： </span></p><ul type="1"><li><p><span style="font-size:12px" id="_baidu_bookmark_start_23">$(‘#foo’).bind(‘click’, function() { </span></p></li><li><p><span style="font-size:12px" id="_baidu_bookmark_start_23"> &nbsp; &nbsp;alert(‘User clicked on ”foo.”‘); </span></p></li><li><p><span style="font-size:12px" id="_baidu_bookmark_start_23">});<br /></span></p></li></ul><p><span style="font-size:12px" id="_baidu_bookmark_start_23">12. 如何追加或是添加html到元素中： </span></p><ul type="1"><li><p><span style="font-size:12px" id="_baidu_bookmark_start_23">$(‘#lal’).append(‘sometext’);<br /></span></p></li></ul><p><span style="font-size:12px" id="_baidu_bookmark_start_23">13. 在创建元素时，如何使用对象字面量（literal）来定义属性 </span></p><ul type="1"><li><p><span style="font-size:12px" id="_baidu_bookmark_start_23">var e = $(“”, { href: ”#”, class: ”a-class another-class”, title: ”…” });<br /></span></p></li></ul><p><span style="font-size:12px" id="_baidu_bookmark_start_23">14. 如何使用多个属性来进行过滤 </span></p><ul type="1"><li><p><span style="font-size:12px" id="_baidu_bookmark_start_23">//在使用许多相类似的有着不同类型的input元素时， </span></p></li><li><p><span style="font-size:12px" id="_baidu_bookmark_start_23">//这种基于精确度的方法很有用 </span></p></li><li><p><span style="font-size:12px" id="_baidu_bookmark_start_23">var elements = $(‘#someid input[type=sometype][value=somevalue]‘).get();<br /></span></p></li></ul><p><span style="font-size:12px" id="_baidu_bookmark_start_23">15. 如何使用jQuery来预加载图像： </span></p><ul type="1"><li><p><span style="font-size:12px" id="_baidu_bookmark_start_23">jQuery.preloadImages = function() { </span></p></li><li><p><span style="font-size:12px" id="_baidu_bookmark_start_23"> &nbsp; &nbsp;for(var i = 0; i &lt; arguments.length; i++) { </span></p></li><li><p><span style="font-size:12px" id="_baidu_bookmark_start_23"> &nbsp; &nbsp; &nbsp; &nbsp;$(“&lt;img /&gt;”).attr(‘src’, arguments</span><p> </p><p> </p></p></li></ul><p> </p><p><span style="font-size:12px" id="_baidu_bookmark_end_24">﻿
+<p><span style="font-size:12px" id="_baidu_bookmark_start_23">31. 如何在jQuery中克隆一个元素：</span></p><ul class="litype_1" type="1"><li><p><span style="font-size:12px" id="_baidu_bookmark_start_23">var cloned = $(‘#somediv’).clone();<br /></span></p></li></ul><p><span style="font-size:12px" id="_baidu_bookmark_start_23">32. 在jQuery中如何测试某个元素是否可见</span></p><ul class="litype_1" type="1"><li><p><span style="font-size:12px" id="_baidu_bookmark_start_23">if($(element).is(‘:visible’) == ’true’) { </span></p></li><li><p><span style="font-size:12px" id="_baidu_bookmark_start_23"> &nbsp; &nbsp;//该元素是可见的 </span></p></li><li><p><span style="font-size:12px" id="_baidu_bookmark_start_23">}<br /></span></p></li></ul><p><span style="font-size:12px" id="_baidu_bookmark_start_23">33. 如何把一个元素放在屏幕的中心位置：</span></p><ul class="litype_1" type="1"><li><p><span style="font-size:12px" id="_baidu_bookmark_start_23">jQuery.fn.center = function () { </span></p></li><li><p><span style="font-size:12px" id="_baidu_bookmark_start_23"> &nbsp; &nbsp;this.css(‘position’,&#39;absolute’); </span></p></li><li><p><span style="font-size:12px" id="_baidu_bookmark_start_23"> &nbsp; &nbsp;this.css(‘top’, ( $(window).height() - this.height() ) / +$(window).scrollTop() + ’px’); </span></p></li><li><p><span style="font-size:12px" id="_baidu_bookmark_start_23"> &nbsp; &nbsp;this.css(‘left’, ( $(window).width() - this.width() ) / 2+$(window).scrollLeft() + ’px’); </span></p></li><li><p><span style="font-size:12px" id="_baidu_bookmark_start_23"> &nbsp; &nbsp;return this; </span></p></li><li><p><span style="font-size:12px" id="_baidu_bookmark_start_23">} </span></p></li><li><p><span style="font-size:12px" id="_baidu_bookmark_start_23">//这样来使用上面的函数： </span></p></li><li><p><span style="font-size:12px" id="_baidu_bookmark_start_23">$(element).center();<br /></span></p></li></ul><p><span style="font-size:12px" id="_baidu_bookmark_start_23">34. 如何把有着某个特定名称的所有元素的值都放到一个数组中：</span></p><ul class="litype_1" type="1"><li><p><span style="font-size:12px" id="_baidu_bookmark_start_23">var arrInputValues = new Array(); </span></p></li><li><p><span style="font-size:12px" id="_baidu_bookmark_start_23">$(“input[name=&#39;table[]‘]”).each(function(){ </span></p></li><li><p><span style="font-size:12px" id="_baidu_bookmark_start_23"> &nbsp; &nbsp;arrInputValues.push($(this).val()); </span></p></li><li><p><span style="font-size:12px" id="_baidu_bookmark_start_23">});<br /></span></p></li></ul><p><span style="font-size:12px" id="_baidu_bookmark_start_23">35. 如何从元素中除去HTML</span></p><ul class="litype_1" type="1"><li><p><span style="font-size:12px" id="_baidu_bookmark_start_23">(function($) { </span></p></li><li><p><span style="font-size:12px" id="_baidu_bookmark_start_23"> &nbsp; &nbsp;$.fn.stripHtml = function() { </span></p></li><li><p><span style="font-size:12px" id="_baidu_bookmark_start_23"> &nbsp; &nbsp; &nbsp; &nbsp;var regexp = /&lt;(“[^&quot;]*”|’[^&#39;]*’|[^&#39;&quot;&gt;])*&gt;/gi; </span></p></li><li><p><span style="font-size:12px" id="_baidu_bookmark_start_23"> &nbsp; &nbsp; &nbsp; &nbsp;this.each(function() { </span></p></li><li><p><span style="font-size:12px" id="_baidu_bookmark_start_23"> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;$(this).html( $(this).html().replace(regexp,””) ); </span></p></li><li><p><span style="font-size:12px" id="_baidu_bookmark_start_23"> &nbsp; &nbsp; &nbsp; &nbsp;}); </span></p></li><li><p><span style="font-size:12px" id="_baidu_bookmark_start_23"> &nbsp; &nbsp; &nbsp; &nbsp;return $(this); </span></p></li><li><p><span style="font-size:12px" id="_baidu_bookmark_start_23"> &nbsp; &nbsp;} </span></p></li><li><p><span style="font-size:12px" id="_baidu_bookmark_start_23">})(jQuery); </span></p></li><li><p><span style="font-size:12px" id="_baidu_bookmark_start_23">//用法： </span></p></li><li><p><span style="font-size:12px" id="_baidu_bookmark_start_23">$(‘p’).stripHtml();<br /></span></p></li></ul><p><span style="font-size:12px" id="_baidu_bookmark_start_23">36. 如何使用closest来取得父元素：</span></p><ul class="litype_1" type="1"><li><p><span style="font-size:12px" id="_baidu_bookmark_start_23">$(‘#searchBox’).closest(‘div’);<br /></span></p></li></ul><p><span style="font-size:12px" id="_baidu_bookmark_start_23">37. 如何使用Firebug和Firefox来记录jQuery事件日志：</span></p><ul class="litype_1" type="1"><li><p><span style="font-size:12px" id="_baidu_bookmark_start_23">// 允许链式日志记录 </span></p></li><li><p><span style="font-size:12px" id="_baidu_bookmark_start_23">// 用法： </span></p></li><li><p><span style="font-size:12px" id="_baidu_bookmark_start_23">$(‘#someDiv’).hide().log(‘div hidden’).addClass(‘someClass’); </span></p></li><li><p><span style="font-size:12px" id="_baidu_bookmark_start_23">jQuery.log = jQuery.fn.log = function (msg) { </span></p></li><li><p><span style="font-size:12px" id="_baidu_bookmark_start_23"> &nbsp; &nbsp;if (console){ </span></p></li><li><p><span style="font-size:12px" id="_baidu_bookmark_start_23"> &nbsp; &nbsp; &nbsp; &nbsp;console.log(“%s: %o”, msg, this); </span></p></li><li><p><span style="font-size:12px" id="_baidu_bookmark_start_23"> &nbsp; &nbsp;} </span></p></li><li><p><span style="font-size:12px" id="_baidu_bookmark_start_23"> &nbsp; &nbsp;return this; </span></p></li><li><p><span style="font-size:12px" id="_baidu_bookmark_start_23">};<br /></span></p></li></ul><p><span style="font-size:12px" id="_baidu_bookmark_start_23">38. 如何强制在弹出窗口中打开链接：</span></p><ul class="litype_1" type="1"><li><p><span style="font-size:12px" id="_baidu_bookmark_start_23">jQuery(‘a.popup’).live(‘click’, function(){ </span></p></li><li><p><span style="font-size:12px" id="_baidu_bookmark_start_23"> &nbsp; &nbsp;newwindow=window.open($(this).attr(‘href’),”,’height=200,width=150′); </span></p></li><li><p><span style="font-size:12px" id="_baidu_bookmark_start_23"> &nbsp; &nbsp;if (window.focus) { </span></p></li><li><p><span style="font-size:12px" id="_baidu_bookmark_start_23"> &nbsp; &nbsp; &nbsp; &nbsp;newwindow.focus(); </span></p></li><li><p><span style="font-size:12px" id="_baidu_bookmark_start_23"> &nbsp; &nbsp;} </span></p></li><li><p><span style="font-size:12px" id="_baidu_bookmark_start_23"> &nbsp; &nbsp;return false; </span></p></li><li><p><span style="font-size:12px" id="_baidu_bookmark_start_23">});<br /></span></p></li></ul><p><span style="font-size:12px" id="_baidu_bookmark_start_23">39. 如何强制在新的选项卡中打开链接：</span></p><ul class="litype_1" type="1"><li><p><span style="font-size:12px" id="_baidu_bookmark_start_23">jQuery(‘a.newTab’).live(‘click’, function(){ </span></p></li><li><p><span style="font-size:12px" id="_baidu_bookmark_start_23"> &nbsp; &nbsp;newwindow=window.open($(this).href); </span></p></li><li><p><span style="font-size:12px" id="_baidu_bookmark_start_23"> &nbsp; &nbsp;jQuery(this).target = ”_blank”; </span></p></li><li><p><span style="font-size:12px" id="_baidu_bookmark_start_23"> &nbsp; &nbsp;return false; </span></p></li><li><p><span style="font-size:12px" id="_baidu_bookmark_start_23">});<br /></span></p></li></ul><p><span style="font-size:12px" id="_baidu_bookmark_start_23">40. 在jQuery中如何使用.siblings()来选择同辈元素</span></p><ul class="litype_1" type="1"><li><p><span style="font-size:12px" id="_baidu_bookmark_start_23">// 不这样做 </span></p></li><li><p><span style="font-size:12px" id="_baidu_bookmark_start_23">$(‘#nav li’).click(function(){ </span></p></li><li><p><span style="font-size:12px" id="_baidu_bookmark_start_23"> &nbsp; &nbsp;$(‘#nav li’).removeClass(‘active’); </span></p></li><li><p><span style="font-size:12px" id="_baidu_bookmark_start_23"> &nbsp; &nbsp;$(this).addClass(‘active’); </span></p></li><li><p><span style="font-size:12px" id="_baidu_bookmark_start_23">}); </span></p></li><li><p><span style="font-size:12px" id="_baidu_bookmark_start_23">//替代做法是 </span></p></li><li><p><span style="font-size:12px" id="_baidu_bookmark_start_23">$(‘#nav li’).click(function(){ </span></p></li><li><p><span style="font-size:12px" id="_baidu_bookmark_start_23"> &nbsp; &nbsp;$(this).addClass(‘active’).siblings().removeClass(‘active’); </span></p></li><li><p><span style="font-size:12px" id="_baidu_bookmark_start_23">});<br /></span></p></li></ul><p><span style="font-size:12px" id="_baidu_bookmark_start_23">41. 如何切换页面上的所有复选框：</span></p><ul class="litype_1" type="1"><li><p><span style="font-size:12px" id="_baidu_bookmark_start_23">var tog = false; </span></p></li><li><p><span style="font-size:12px" id="_baidu_bookmark_start_23">// 或者为true，如果它们在加载时为被选中状态的话 </span></p></li><li><p><span style="font-size:12px" id="_baidu_bookmark_start_23">$(‘a’).click(function() { </span></p></li><li><p><span style="font-size:12px" id="_baidu_bookmark_start_23"> &nbsp; &nbsp;$(“input[type=checkbox]“).attr(“checked”,!tog); </span></p></li><li><p><span style="font-size:12px" id="_baidu_bookmark_start_23"> &nbsp; &nbsp;tog = !tog; </span></p></li><li><p><span style="font-size:12px" id="_baidu_bookmark_start_23">});<br /></span></p></li></ul><p><span style="font-size:12px" id="_baidu_bookmark_start_23">42. 如何基于一些输入文本来过滤一个元素列表：</span></p><ul class="litype_1" type="1"><li><p><span style="font-size:12px" id="_baidu_bookmark_start_23">//如果元素的值和输入的文本相匹配的话 </span></p></li><li><p><span style="font-size:12px" id="_baidu_bookmark_start_23">//该元素将被返回 </span></p></li><li><p><span style="font-size:12px" id="_baidu_bookmark_start_23">$(‘.someClass’).filter(function() { </span></p></li><li><p><span style="font-size:12px" id="_baidu_bookmark_start_23"> &nbsp; &nbsp;return $(this).attr(‘value’) == $(‘input#someId’).val(); </span></p></li><li><p><span style="font-size:12px" id="_baidu_bookmark_start_23">})<br /></span></p></li></ul><p><span style="font-size:12px" id="_baidu_bookmark_start_23">43. 如何获得鼠标垫光标位置x和y</span></p><ul class="litype_1" type="1"><li><p><span style="font-size:12px" id="_baidu_bookmark_start_23">$(document).ready(function() { </span></p></li><li><p><span style="font-size:12px" id="_baidu_bookmark_start_23"> &nbsp; &nbsp;$(document).mousemove(function(e){ </span></p></li><li><p><span style="font-size:12px" id="_baidu_bookmark_start_23"> &nbsp; &nbsp; &nbsp; &nbsp;$(’#XY’).html(”X Axis : ” + e.pageX + ” | Y Axis ” + e.pageY); </span></p></li><li><p><span style="font-size:12px" id="_baidu_bookmark_start_23"> &nbsp; &nbsp;}); </span></p></li><li><p><span style="font-size:12px" id="_baidu_bookmark_start_23">});<br /></span></p></li></ul><p><span style="font-size:12px" id="_baidu_bookmark_start_23">44. 如何把整个的列表元素（List Element，LI）变成可点击的</span></p><ul class="litype_1" type="1"><li><p><span style="font-size:12px" id="_baidu_bookmark_start_23">$(“ul li”).click(function(){ </span></p></li><li><p><span style="font-size:12px" id="_baidu_bookmark_start_23"> &nbsp;window.location=$(this).find(“a”).attr(“href”); </span></p></li><li><p><span style="font-size:12px" id="_baidu_bookmark_start_23"> &nbsp;return false; </span></p></li><li><p><span style="font-size:12px" id="_baidu_bookmark_start_23">});<br /></span></p></li></ul><ul class="litype_1" type="1"><li><p><span style="font-size:12px" id="_baidu_bookmark_start_23">&lt;ul&gt; </span></p></li><li><p><span style="font-size:12px" id="_baidu_bookmark_start_23">&lt;li&gt;&lt;a href=”#”&gt;Link 1&lt;/a&gt;&lt;/li&gt; </span></p></li><li><p><span style="font-size:12px" id="_baidu_bookmark_start_23">&lt;li&gt;&lt;a href=”#”&gt;Link 2&lt;/a&gt;&lt;/li&gt; </span></p></li><li><p><span style="font-size:12px" id="_baidu_bookmark_start_23">&lt;li&gt;&lt;a href=”#”&gt;Link 3&lt;/a&gt;&lt;/li&gt; </span></p></li><li><p><span style="font-size:12px" id="_baidu_bookmark_start_23">&lt;li&gt;&lt;a href=”#”&gt;Link 4&lt;/a&gt;&lt;/li&gt; </span></p></li><li><p><span style="font-size:12px" id="_baidu_bookmark_start_23">&lt;/ul&gt;<br /></span></p></li></ul><p><span style="font-size:12px" id="_baidu_bookmark_start_23">45. 如何使用jQuery来解析XML（基本的例子）：</span></p><ul class="litype_1" type="1"><li><p><span style="font-size:12px" id="_baidu_bookmark_start_23">function parseXml(xml) { </span></p></li><li><p><span style="font-size:12px" id="_baidu_bookmark_start_23"> &nbsp; &nbsp;//找到每个Tutorial并打印出author </span></p></li><li><p><span style="font-size:12px" id="_baidu_bookmark_start_23"> &nbsp; &nbsp;$(xml).find(“Tutorial”).each(function() { </span></p></li><li><p><span style="font-size:12px" id="_baidu_bookmark_start_23"> &nbsp; &nbsp; &nbsp; &nbsp;$(“#output”).append($(this).attr(“author”) + ”&quot;); </span></p></li><li><p><span style="font-size:12px" id="_baidu_bookmark_start_23"> &nbsp; &nbsp;}); </span></p></li><li><p><span style="font-size:12px" id="_baidu_bookmark_start_23">}<br /></span></p></li></ul><p><span style="font-size:12px" id="_baidu_bookmark_start_23">46. 如何检查图像是否已经被完全加载进来</span></p><ul class="litype_1" type="1"><li><p><span style="font-size:12px" id="_baidu_bookmark_start_23">$(‘#theImage’).attr(‘src’, ’image.jpg’).load(function() { </span></p></li><li><p><span style="font-size:12px" id="_baidu_bookmark_start_23"> &nbsp; &nbsp;alert(‘This Image Has Been Loaded’); </span></p></li><li><p><span style="font-size:12px" id="_baidu_bookmark_start_23">});<br /></span></p></li></ul><p><span style="font-size:12px" id="_baidu_bookmark_start_23">47. 如何使用jQuery来为事件指定命名空间：</span></p><ul class="litype_1" type="1"><li><p><span style="font-size:12px" id="_baidu_bookmark_start_23">//事件可以这样绑定命名空间 </span></p></li><li><p><span style="font-size:12px" id="_baidu_bookmark_start_23">$(‘input’).bind(‘blur.validation’, function(e){ </span></p></li><li><p><span style="font-size:12px" id="_baidu_bookmark_start_23">// … </span></p></li><li><p><span style="font-size:12px" id="_baidu_bookmark_start_23">}); </span></p></li><li><p><span style="font-size:12px" id="_baidu_bookmark_start_23">//data方法也接受命名空间 </span></p></li><li><p><span style="font-size:12px" id="_baidu_bookmark_start_23">$(‘input’).data(‘validation.isValid’, true);<br /></span></p></li></ul><p><span style="font-size:12px" id="_baidu_bookmark_start_23">48. 如何检查cookie是否启用</span></p><ul class="litype_1" type="1"><li><p><span style="font-size:12px" id="_baidu_bookmark_start_23">var dt = new Date(); </span></p></li><li><p><span style="font-size:12px" id="_baidu_bookmark_start_23">dt.setSeconds(dt.getSeconds() + 60); </span></p></li><li><p><span style="font-size:12px" id="_baidu_bookmark_start_23">document.cookie = ”cookietest=1; expires=” + dt.toGMTString(); </span></p></li><li><p><span style="font-size:12px" id="_baidu_bookmark_start_23">var cookiesEnabled = document.cookie.indexOf(“cookietest=”) != -1; </span></p></li><li><p><span style="font-size:12px" id="_baidu_bookmark_start_23">if(!cookiesEnabled) { </span></p></li><li><p><span style="font-size:12px" id="_baidu_bookmark_start_23">//没有启用cookie </span></p></li><li><p><span style="font-size:12px" id="_baidu_bookmark_start_23">}<br /></span></p></li></ul><p><span style="font-size:12px" id="_baidu_bookmark_start_23">49. 如何让cookie过期：</span></p><ul class="litype_1" type="1"><li><p><span style="font-size:12px" id="_baidu_bookmark_start_23">var date = new Date(); </span></p></li><li><p><span style="font-size:12px" id="_baidu_bookmark_start_23">date.setTime(date.getTime() + (x * 60 * 1000)); </span></p></li><li><p><span style="font-size:12px" id="_baidu_bookmark_start_23">$.cookie(‘example’, ’foo’, { expires: date });<br /></span></p></li></ul><p><span style="font-size:12px" id="_baidu_bookmark_start_23">50. 如何使用一个可点击的链接来替换页面中任何的URL</span></p><ul class="litype_1" type="1"><li><p><span style="font-size:12px" id="_baidu_bookmark_start_23">$.fn.replaceUrl = function() { </span></p></li><li><p><span style="font-size:12px" id="_baidu_bookmark_start_23"> &nbsp; &nbsp;var regexp = /((ftp|http|https)://(w+:{0,1}w*@)?(S+)(:[0-9]+)?(/|/([w#!:.?+=&amp;%@!-/]))?)/gi; </span></p></li><li><p><span style="font-size:12px" id="_baidu_bookmark_start_23"> &nbsp; &nbsp;this.each(function() { </span></p></li><li><p><span style="font-size:12px" id="_baidu_bookmark_start_23"> &nbsp; &nbsp; &nbsp; &nbsp;$(this).html( </span></p></li><li><p><span style="font-size:12px" id="_baidu_bookmark_start_23"> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;$(this).html().replace(regexp,’&lt;a href=”$1″&gt;$1&lt;/a&gt;‘) </span></p></li><li><p><span style="font-size:12px" id="_baidu_bookmark_start_23"> &nbsp; &nbsp; &nbsp; &nbsp;); </span></p></li><li><p><span style="font-size:12px" id="_baidu_bookmark_start_23"> &nbsp; &nbsp;}); </span></p></li><li><p><span style="font-size:12px" id="_baidu_bookmark_start_23"> &nbsp; &nbsp;return $(this); </span></p></li><li><p><span style="font-size:12px" id="_baidu_bookmark_start_23">} </span></p></li><li><p><span style="font-size:12px" id="_baidu_bookmark_start_23">//用法<br /></span></p></li></ul><br /></span></p><p> </p></div>
+            </div>
+            <div class="pager">
+                <span>上一篇：&nbsp;<a href="/Article/read/aid/18" title="jQuery常用技巧">jQuery常用技巧</a></span>
+                <span>下一篇：&nbsp;<a href="/Article/read/aid/20" title="clearfix清除浮动闭合容器之:after与:before">clearfix清除浮动闭合容器之...</a></span>
+            </div>
+             
+    </article>
+    <section class="hd-msg">
+            </section>
+    <section class="hd-form">
+        
+<fieldset>
+    <legend>我来说一说</legend>
+    <form class="form" action="/Article/reply/aid/19" method="post" role="validationFrom">
+        <ul>
+            <li>
+                <label class="k"><em>*</em>Email:</label>
+                <span class="v"><input type="text" name="comment_email" value="" datatype="e" errormsg="邮箱格式不正确！" ></span>
+                <span class="Validform_checktip">邮箱不会公开~</span>
+            </li>
+            <li>
+                <label class="k"><em>*</em>Content:</label>
+                <span class="v"><textarea rows="4" cols="50" name="comment_content" datatype="*6-255"></textarea></span>
+                <span class="Validform_checktip"></span>
+            </li>
+            <li>
+                <label class="k">&nbsp;</label>
+                <span class="v"><button type="submit" class="btn">留言</button></span>
+            </li>
+        </ul>
+    <input type="hidden" name="__hash__" value="af14334d82b92b90b19baf8578b0605c_71c49086f8e454e6cbda1b548b8b9be8" /></form>
+</fieldset>
+    </section>
+</div>
+<div class="span3">
+    <div class="tabs">
+    <div class="tabs-tit">
+        <h3>最新文章</h3>
+    </div>
+    <div class="tabs-box">
+        <ul>
+            <li>
+                    <a href="/Article/read/aid/50" title="222222222"><small>07/23</small>222222222</a>
+                </li><li>
+                    <a href="/Article/read/aid/48" title="12312312"><small>05/24</small>12312312</a>
+                </li><li>
+                    <a href="/Article/read/aid/46" title="JSONP跨域实例"><small>05/16</small>JSONP跨域实例</a>
+                </li><li>
+                    <a href="/Article/read/aid/45" title="jQuery 点击空白地方便的点击展开/关闭效果非常方便的点击展开/关闭效果"><small>05/16</small>jQuery 点击空白地方便的点击展...</a>
+                </li><li>
+                    <a href="/Article/read/aid/44" title="专业的身份证验证，不用正则验证身份证"><small>04/29</small>专业的身份证验证，不用正则验证...</a>
+                </li><li>
+                    <a href="/Article/read/aid/43" title="用php实现Google /Baidu Ping服务快速收录"><small>04/13</small>用php实现Google /Baidu Ping服...</a>
+                </li><li>
+                    <a href="/Article/read/aid/42" title="计算两个日期相差 年 月 日"><small>04/13</small>计算两个日期相差 年 月 日</a>
+                </li><li>
+                    <a href="/Article/read/aid/41" title="PHP字符串截取，支持gb2312和UTF-8编码。"><small>04/13</small>PHP字符串截取，支持gb2312和UT...</a>
+                </li>        </ul>
+    </div>
+</div>
+<div class="tabs">
+    <div class="tabs-tit">
+        <h3>热门文章</h3>
+    </div>
+    <div class="tabs-box">
+        <ul>
+            <li>
+                    <a href="/Article/read/aid/20" title="clearfix清除浮动闭合容器之:after与:before"><small>3088</small>clearfix清除浮动闭合容器之:af...</a>
+                </li><li>
+                    <a href="/Article/read/aid/1" title="iframe自动适应高度1"><small>213</small>iframe自动适应高度1</a>
+                </li><li>
+                    <a href="/Article/read/aid/2" title="图片水平垂直居中jquery-center-image"><small>147</small>图片水平垂直居中jquery-center...</a>
+                </li><li>
+                    <a href="/Article/read/aid/5" title="jQuery返回顶部代码"><small>125</small>jQuery返回顶部代码</a>
+                </li><li>
+                    <a href="/Article/read/aid/17" title="jQuery 图片水平垂直居中 另一方法"><small>115</small>jQuery 图片水平垂直居中 另一方法</a>
+                </li><li>
+                    <a href="/Article/read/aid/18" title="jQuery常用技巧"><small>115</small>jQuery常用技巧</a>
+                </li><li>
+                    <a href="/Article/read/aid/46" title="JSONP跨域实例"><small>115</small>JSONP跨域实例</a>
+                </li><li>
+                    <a href="/Article/read/aid/22" title="弹出窗口插件colorbox "><small>114</small>弹出窗口插件colorbox </a>
+                </li>        </ul>
+    </div>
+</div>
+<div class="tabs">
+    <div class="tabs-tit">
+        <h3>文章分类</h3>
+    </div>
+    <div class="tabs-box">
+        <ul>
+            <li >
+                    <a href="/Article/index/date/2013-07" title="2013-07"><small>1</small>2013-07</a>
+                </li><li >
+                    <a href="/Article/index/date/2013-05" title="2013-05"><small>3</small>2013-05</a>
+                </li><li >
+                    <a href="/Article/index/date/2013-04" title="2013-04"><small>5</small>2013-04</a>
+                </li><li >
+                    <a href="/Article/index/date/2012-11" title="2012-11"><small>4</small>2012-11</a>
+                </li><li >
+                    <a href="/Article/index/date/2012-10" title="2012-10"><small>4</small>2012-10</a>
+                </li><li >
+                    <a href="/Article/index/date/2012-09" title="2012-09"><small>6</small>2012-09</a>
+                </li><li >
+                    <a href="/Article/index/date/2012-08" title="2012-08"><small>6</small>2012-08</a>
+                </li><li >
+                    <a href="/Article/index/date/2012-07" title="2012-07"><small>14</small>2012-07</a>
+                </li><li >
+                    <a href="/Article/index/date/2012-06" title="2012-06"><small>5</small>2012-06</a>
+                </li>        </ul>
+    </div>
+</div>
+</div>
+        </div>
+        <div class="footer">
+            <footer class="clearfix">
+                
+<div class="user-login">
+    <a href="/Login/qq_login"><img src="/Honoer/Tpl/Home/Default/Public/Images/qq_login.png"></a>	
+</div>
+<div class="copyright">
+        ®copyright ©2012 All Rights Reserved.&nbsp;&nbsp;友情链接请E-mail：bily@honoer.com</div>
+
+            </footer>
+        </div>
+        <script type='text/javascript' src="/Public/Plugins/jQuery/Validform_v5.3.2_min.js"></script>
+        <script type="text/javascript" src="/Public/Plugins/jQuery/jquery.lazyload.min.js"></script>
+        <script type="text/javascript" src="/Public/Plugins/syntaxhighlighter/scripts/brush.js"></script>
+        <script type="text/javascript" src="/Honoer/Tpl/Home/Default/Public/Js/function.js"></script>
+            </body>
+</html>
