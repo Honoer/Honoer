@@ -38,6 +38,7 @@ class ArticleModel extends RelationModel {
             $this->limit($Page->firstRow . ',' . $Page->listRows);
         }
         return $this->relation(true)->where($where)->order(array('create_time' => 'DESC'))->select();
+        //echo $this->relation(true)->getLastSql();
     }
 
     function getDetail($where, $order = null) {

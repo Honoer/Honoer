@@ -68,12 +68,17 @@ class ArticleAction extends CommonAction {
         $this->assign('page', $pages);
         $this->display('index');
     }
-    
-    public function reply(){
-        $args = array_merge(array('article_id'=>$_GET['aid']),$_POST);
-        
+
+    public function reply() {
+        $args = array_merge(array('article_id' => $_GET['aid']), $_POST);
         $result = D('Comment')->addComment($args);
         $this->ajaxReturn($result, '留言成功！', $result);
+    }
+
+    public function send() {
+        $data = $this->_model->getList($where, $pages);
+
+        $this->ajaxReturn(array('data' => $data, 'pages' => $pages), '成功~', 1);
     }
 
 }

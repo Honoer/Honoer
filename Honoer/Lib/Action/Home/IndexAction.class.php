@@ -23,10 +23,13 @@ class IndexAction extends CommonAction {
     }
 
     public function masonry() {
+        $p = $_GET['p'];
         for ($i = 0; $i < 10; $i++) {
-            $res[$i] = rand(100, 400);
+            $res[][$i] = rand(100, 400);
+            $res[]['title'] ='萨达速度达大厦'.$i;
+            $res[]['name'] ='使用介绍/全套快捷键及插件推荐'.$i;
         }
-        $this->assign('height', $res);
+        $this->assign('data', $res);
         $this->display();
     }
 
