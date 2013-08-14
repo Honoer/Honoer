@@ -77,7 +77,9 @@ class ArticleAction extends CommonAction {
 
     public function send() {
         $data = $this->_model->getList($where, $pages);
-
+        foreach ($data as $k => $val) {
+            $data[$k]['url'] = U('Article/read', array('aid' => $val['article_id']));
+        }
         $this->ajaxReturn(array('data' => $data, 'pages' => $pages), '成功~', 1);
     }
 

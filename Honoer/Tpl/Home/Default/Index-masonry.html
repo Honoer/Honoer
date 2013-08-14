@@ -1,48 +1,68 @@
 <style>
-    .waterfall {width: 90%;}
+    .waterfall {width: 100%;}
     .waterfall .item-box{
         border: 1px solid #D4D4D4;
         border-radius: 5px 5px 5px 5px;
-        margin: 0 10px 10px 0;
+        margin: 0 0 10px 12px;
         padding: 10px;
         position: relative;
         width: 29.5%;
+        word-break:break-all;
     }
-
+    .loading-wrap{
+        bottom: 5px;
+        position: absolute;
+        display: none;
+        height: 52px;
+        text-align: center;
+        width: 100%;
+    }
+   .waterfall .loading{
+        background: none repeat scroll 10px center rgba(0, 0, 0, 0.7);
+        border-radius: 5px 5px 5px 5px;
+        color: #FFFFFF;
+        font-size: 20px;
+        height: 28px;
+        line-height: 28px;
+        padding: 10px 30px;
+    }
 </style>
 <script type="text/javascript" src="__PUBLIC__/Plugins/jQuery/jquery.masonry_2.1.min.js"></script>
 <div id="waterfall" class="waterfall link">
     <volist name="data" id="vo">
         <div class="item-box">
             <ul>
-                <li>{$key}</li>
-                <li>{$vo.title}</li>
-                <li>{$vo.name}</li>
+                <noempty name="{$vo.article_picpath}">
+                    <li><img src="{$vo.article_picpath}" art="{$vo.article_title}"/></li>
+                </noempty>
+                <li class="item-tit"><a href="{:U('Article/read',array('aid'=>$vo['article_id']))}" title="{$vo.article_title}">{$vo.article_title}</a></li>
+                <li>分类：{$vo.class_name}</li>
+                <li><span class="more"><a href="{:U('Article/read',array('aid'=>$vo['article_id']))}" title="去围观">去围观</a></span></li>
+                <li>时间：{$vo.create_time}</li>
+                <li>{$vo.article_intro}</li>
+
             </ul>
         </div>
     </volist>
+    <!--加载中-->
+    <div id="loading" class="loading-wrap">
+        <span class="loading">加载中，请稍后...</span>
+    </div>
+    <!--加载中-->
+    <div class="clearfix"></div>
 </div>
 
-
-<!--加载中-->
-<div id="loading" class="loading-wrap">
-    <span class="loading">加载中，请稍后...</span>
-</div>
-<div class="clearfix"></div>
-<!--加载中-->
 <script type="text/javascript">
     $(function(){
         var $container = $('#waterfall');
         $container.masonry({ itemSelector : '.item-box', isAnimated: true });
         var loading = $("#loading").data("on", false);
-        var page=1;
+        var page=2;
         $(window).scroll(function(){
             if(loading.data("on")) return ;
-            //-$('.footer').height()
-            if($(document).scrollTop() > $(document).height()-$(window).height()-70){
+            if($(document).scrollTop() > $(document).height()-$(window).height()-60){
                 loading.data("on", true).fadeIn();
                 page++;
-                var url = "http://www.17php.org/index.php/Index/ajaxArticle";
                 url = "{:U('Article/send')}";
                 getArticle(url,page);
             }
@@ -64,14 +84,12 @@
                     if(!$.isEmptyObject(data)){
                         $.each(data,function(){
                             html +='<div class="item-box"><ul>';
-                            html +='<li>'+this.article_id+'</li>';
                             if(this.article_picpath)
                                 html +='<li><img width="250" height="250" src="'+this.article_picpath+'" class="img-polaroid" /></li>';
-                            html +='<li><a href="/article-'+this.article_title+'.html" title="'+this.article_title+'">'+this.article_title+'</a></li>';
+                            html +='<li class="item-tit"><a href="'+this.url+'" title="'+this.article_title+'">'+this.article_title+'</a></li>';
+                            html +='<li>分类：<a href="'+this.class_name+'">'+this.class_name+'</a></li>';
+                            html +='<li><span class="more"><a href="'+this.url+'">去围观</a></span></li>';
                             html +='<li>'+this.article_intro+'</li>';
-                            html +='<li><i class="icon-user"></i> 作者：<a target="_blank" href="/user-'+this.user_nickname+'.html">'+this.user_nickname+'</a></li>';
-                            html +='<li><i class="icon-folder-open"></i> 分类：<a target="_blank" href="'+this.class_name+'">'+this.class_name+'</a></li>';
-                            html +='<li><i class="icon-eye-open"></i> 被围观'+this.article_view+'次  <a href="/article-'+this.article_id+'.html" class="fr"><i class="icon-random"></i> 去围观</a></li>';
                             html +='</ul></div>';
                         })
                         var $newElems = $(html).css({ opacity: 0 }).appendTo($container);
@@ -84,7 +102,7 @@
                         loading.find("span").html("已经加载完了所有的记录");
                         setTimeout(function(){
                             loading.fadeOut();
-                        },2000);
+                        },3000);
                     }
                 }
             });

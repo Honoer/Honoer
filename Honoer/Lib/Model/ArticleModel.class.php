@@ -30,15 +30,18 @@ class ArticleModel extends RelationModel {
     );
 
     public function getList($where = null, &$pages = false) {
+
         if (false !== $pages) {
             import('@.ORG.Page');
             $count = $this->where($where)->count();
+            if ($_GET[C('VAR_PAGE')] * C('PAGESIZE') > $count) {
+                return null;
+            }
             $Page = new Page($count, C('PAGESIZE'));
             $pages = $Page->show();
             $this->limit($Page->firstRow . ',' . $Page->listRows);
         }
         return $this->relation(true)->where($where)->order(array('create_time' => 'DESC'))->select();
-        //echo $this->relation(true)->getLastSql();
     }
 
     function getDetail($where, $order = null) {

@@ -3,12 +3,11 @@
 class IndexAction extends CommonAction {
 
     public function index() {
-        $Belle = D('Belle');
-        C('PAGESIZE', 10);
-        $data = $Belle->getList($where, $pages);
+        $Article = D('Article');
+        C('PAGESIZE',10);
+        $data = $Article->getList($where, $pages);
         $this->assign('data', $data);
-        //$this->assign('page', $pages);
-        $this->display();
+        $this->display('Index:masonry');
     }
 
     public function read() {
@@ -23,13 +22,10 @@ class IndexAction extends CommonAction {
     }
 
     public function masonry() {
-        $p = $_GET['p'];
-        for ($i = 0; $i < 10; $i++) {
-            $res[][$i] = rand(100, 400);
-            $res[]['title'] ='萨达速度达大厦'.$i;
-            $res[]['name'] ='使用介绍/全套快捷键及插件推荐'.$i;
-        }
-        $this->assign('data', $res);
+        $Article = D('Article');
+        C('PAGESIZE',10);
+        $data = $Article->getList($where, $pages);
+        $this->assign('data', $data);
         $this->display();
     }
 
