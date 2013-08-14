@@ -1,6 +1,5 @@
 <?php
 
-
 //KindEditor编辑器
 function editor($name, $width, $height, $content) {
     $editor = "<script charset=\"utf-8\" src=\"" . __ROOT__ . "/Public/Plugins/kindeditor-4.1.6/kindeditor-all.js\"></script>\n";
@@ -9,7 +8,9 @@ function editor($name, $width, $height, $content) {
     $editor.="var editor;
     KindEditor.ready(function(K) {
         editor = K.create(\"textarea[name='{$name}']\", {
-            allowFileManager : true
+            uploadJson : '" . U('Upload/upload_file') . "',
+            fileManagerJson : '" . U('Upload/file_manager') . "',
+            allowFileManager : true,
         });
     });\n";
     $editor.="</script>\n";

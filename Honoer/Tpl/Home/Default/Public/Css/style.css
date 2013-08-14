@@ -44,7 +44,10 @@ header nav{float:left;}
 header nav ul{height:35px;line-height: 35px;position: absolute;top:30px;left:200px;}
 header nav li{float:left;text-align: center;margin: 0 10px;border:1px dashed #1E71B1;}
 header nav li:hover,
-header nav li.active,header nav li.this{position: relative;z-index: 9999;display: block;border:1px solid #FFF;border-radius: 5px;background: #F2F2F2;box-shadow: 0 3px 6px #333333;}
+header nav li.active,
+header nav li.this{position: relative;z-index: 9999;display: block;border:1px solid #FFF;border-radius: 5px;background: #F2F2F2;box-shadow: 0 3px 6px #333333;}
+header nav li:hover a,
+header nav li.this a,
 header nav li.active a{color: #333;}
 header nav li > dl{display: none;}
 header nav li > dl dd:hover{background: #1E71B1;transition: all 0.5s linear 0s;}
@@ -135,18 +138,6 @@ i.icon-caret {border-left: 4px solid transparent;border-right: 4px solid transpa
 .hd-form {margin-bottom: 10px;}
 .hd-form fieldset{border:1px solid #CCC;border-radius: 5px;padding:20px;}
 .hd-form fieldset legend {}
-
-
-
-
-
-
-
-
-
-
-
-
 
 
 
@@ -254,30 +245,30 @@ input[type="checkbox"] {
 
 
 .Validform_checktip{
-	margin-left:8px;
-	line-height:20px;
-	height:20px;
-	overflow:hidden;
-	color:#999;
-	font-size:12px;
+    margin-left:8px;
+    line-height:20px;
+    height:20px;
+    overflow:hidden;
+    color:#999;
+    font-size:12px;
 }
 .Validform_right{
-	color:#71b83d;
-	padding-left:20px;
-	background:url(../images/right.png) no-repeat left center;
+    color:#71b83d;
+    padding-left:20px;
+    background:url(../images/right.png) no-repeat left center;
 }
 .Validform_wrong{
-	color:red;
-	padding-left:20px;
-	white-space:nowrap;
-	background:url(../images/error.png) no-repeat left center;
+    color:red;
+    padding-left:20px;
+    white-space:nowrap;
+    background:url(../images/error.png) no-repeat left center;
 }
 .Validform_loading{
-	padding-left:20px;
-	background:url(../images/onLoad.gif) no-repeat left center;
+    padding-left:20px;
+    background:url(../images/onLoad.gif) no-repeat left center;
 }
 .Validform_error{
-	background-color:#ffe7e7;
+    background-color:#ffe7e7;
 }
 #Validform_msg{color:#7d8289; font: 12px/1.5 tahoma, arial, \5b8b\4f53, sans-serif; width:280px; -webkit-box-shadow:2px 2px 3px #aaa; -moz-box-shadow:2px 2px 3px #aaa; background:#fff; position:absolute; top:0px; right:50px; z-index:99999; display:none;filter: progid:DXImageTransform.Microsoft.Shadow(Strength=3, Direction=135, Color='#999999');}
 #Validform_msg .iframe{position:absolute; left:0px; top:-1px; z-index:-1;}
@@ -285,3 +276,39 @@ input[type="checkbox"] {
 #Validform_msg a.Validform_close:link,#Validform_msg a.Validform_close:visited{line-height:22px; position:absolute; right:8px; top:0px; color:#fff; text-decoration:none;}
 #Validform_msg a.Validform_close:hover{color:#cc0;}
 #Validform_msg .Validform_info{padding:8px;border:1px solid #000; border-top:none; text-align:left;}
+
+
+
+
+
+/** 瀑布流Css **/
+.waterfall {width: 100%;}
+.waterfall .item-box{
+    border: 1px solid #D4D4D4;
+    border-radius: 5px 5px 5px 5px;
+    margin: 0 0 10px 12px;
+    padding: 10px;
+    position: relative;
+    width: 29.5%;
+    word-break:break-all;
+}
+.waterfall .item-box:hover{
+    border:1px solid #08C;transition: all 0.5s linear 0s;box-shadow:0 0 8px rgba(82, 168, 236, 0.6);
+}
+.loading-wrap{
+    bottom: 5px;
+    position: absolute;
+    display: none;
+    height: 52px;
+    text-align: center;
+    width: 100%;
+}
+.waterfall .loading{
+    background: none repeat scroll 10px center rgba(0, 0, 0, 0.7);
+    border-radius: 5px 5px 5px 5px;
+    color: #FFFFFF;
+    font-size: 20px;
+    height: 28px;
+    line-height: 28px;
+    padding: 10px 30px;
+}

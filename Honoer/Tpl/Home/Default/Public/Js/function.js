@@ -14,7 +14,9 @@ $(document).ready(function(){
     
     /** 顶部导航 **/
     $("header > nav").find("li").hover(function(){
-        $(this).addClass("this").find("dl").slideDown().css({"z-index":9999});
+        $(this).addClass("this").find("dl").slideDown().css({
+            "z-index":9999
+        });
     },function(){
         $(this).removeClass("this").find("dl").slideUp();
     });
@@ -65,11 +67,18 @@ $(document).ready(function(){
         ajaxPost:true,
         callback:function(data){
             if(data.status){
-               location.reload();
+                location.reload();
             }
             return false;
         }
             
     }); 
+
+    /**
+     * 瀑布流Js
+     */
     
+
 })
+
+

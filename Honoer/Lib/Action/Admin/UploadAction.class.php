@@ -4,12 +4,29 @@ class UploadAction extends BasicAction {
 
     private $savePath = null;
     private $saveUrl = null;
+    private $uploadObj = null;
 
     public function __construct() {
         parent::__construct();
-        import("@.ORG.Uploader");
+        import("@.ORG.Upload");
         $this->savePath = UPLOAD_PATH;
         $this->saveUrl = '/Public/Upload/';
+        $this->uploadObj = new Upload($this->savePath, $this->saveUrl);
+    }
+
+    
+    /**
+     * KingEditor 文件上传
+     */
+    public function upload_file() {
+        $rs = $this->uploadObj->upload_json();
+    }
+
+    /**
+     * KingEditor 文件管理
+     */
+    public function file_manager() {
+        $rs = $this->uploadObj->file_manager_json();
     }
 
     //图片上传

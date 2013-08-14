@@ -75,7 +75,7 @@ class ArticleAction extends CommonAction {
         $this->ajaxReturn($result, '留言成功！', $result);
     }
 
-    public function send() {
+    public function masonry() {
         $data = $this->_model->getList($where, $pages);
         foreach ($data as $k => $val) {
             $data[$k]['url'] = U('Article/read', array('aid' => $val['article_id']));

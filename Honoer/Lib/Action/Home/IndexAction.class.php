@@ -7,7 +7,7 @@ class IndexAction extends CommonAction {
         C('PAGESIZE',10);
         $data = $Article->getList($where, $pages);
         $this->assign('data', $data);
-        $this->display('Index:masonry');
+        $this->display();
     }
 
     public function read() {
@@ -19,22 +19,6 @@ class IndexAction extends CommonAction {
         $this->assign('data', $data);
         $this->assign('page', $page);
         $this->display('Index:index');
-    }
-
-    public function masonry() {
-        $Article = D('Article');
-        C('PAGESIZE',10);
-        $data = $Article->getList($where, $pages);
-        $this->assign('data', $data);
-        $this->display();
-    }
-
-    //获取一次请求的数据
-    public function more() {
-        for ($i = 0; $i < 6; $i++) {
-            $res[$i] = rand(100, 400);
-        }
-        $this->ajaxReturn($res);
     }
 
 }
