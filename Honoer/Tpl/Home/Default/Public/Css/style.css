@@ -103,7 +103,7 @@ li small{float:right;color: #390;}
 
 
 /*返回顶部*/
-.rollto {bottom: 62px;display: none;font-family: simsun;position: fixed;right: 60px;width: 32px;z-index: 999;}
+.rollto {bottom: 86px;display: none;font-family: simsun;position: fixed;left: 50%;margin-left: 510px;width: 32px;z-index: 999;}
 .ico{background-image: url("../Images/sprite.png");background-repeat: no-repeat;}
 .ico-totop {background-position: 0 0;}
 .ico-totop, .ico-torespond {cursor: pointer;display: block;height: 32px;margin-top: 2px;opacity: 0.8;width: 32px;}
