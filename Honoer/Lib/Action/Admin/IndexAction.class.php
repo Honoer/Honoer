@@ -39,18 +39,21 @@ class IndexAction extends CommonAction {
     }
 
     public function seting() {
+        $this->display();
+    }
+
+    public function setSave() {
         if (!empty($_POST)) {
-            $_POST['WEB_STATISTIC']=stripslashes($_POST['WEB_STATISTIC']);
-            $_POST['WEB_SHARE']=stripslashes($_POST['WEB_SHARE']);
+            $_POST['WEB_STATISTIC'] = stripslashes($_POST['WEB_STATISTIC']);
+            $_POST['WEB_SHARE'] = stripslashes($_POST['WEB_SHARE']);
             $oldConfig = require CONF_PATH . '/config.php';
             $config = array_merge($oldConfig, $_POST);
             arr2file(CONF_PATH . '/config.php', $config);
             if (updateCache()) {
                 $this->ajaxReturn(null, '修改成功！', 1);
             }
-        } else {
-            $this->display();
         }
+        return false;
     }
 
 }

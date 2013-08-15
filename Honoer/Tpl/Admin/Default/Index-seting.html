@@ -3,7 +3,7 @@
         <include file="Common:left" />
     </div>
     <div class="span10">
-        <form method="post" enctype="multipart/form-data">
+        <form action="{:U('setSave')}" method="post" enctype="multipart/form-data">
             <table class="table table-bordered table-striped table-hover">
                 <colgroup>
                     <col style="text-align: right;width: 120px;">
@@ -12,8 +12,8 @@
                 <tbody>
                     <tr><td>网站名称：</td><td><input type="text" name="WEB_NAME" value="{$Think.config.WEB_NAME}"></td></tr>
                     <tr><td>网站LOGO：</td><td>
-                            <input type="text" readonly="readonly" name="WEB_LOGO" id="uploadFile" />
-                            <button type="button" name="upload" id="uploadBtn">Upload</button>
+                            <input type="text" readonly="readonly" name="WEB_LOGO" value="{$Think.config.WEB_LOGO}" id="uploadFile" />
+                            <button type="button" name="upload" id="uploadBtn">上传图片</button>
                         </td></tr>
                     <tr><td>版权信息：</td><td><input type="text" name="WEB_RECODE" value="{$Think.config.WEB_RECODE}"></td></tr>
                     <tr><td>网站ICP：</td><td><input type="text" name="WEB_ICP" value="{$Think.config.WEB_ICP}"></td></tr>
@@ -60,12 +60,12 @@
             // Button settings
             //button_image_url: "images/TestImageNoText_65x29.png",
             button_width: "65",
-            button_height: "29",
+            button_height: "25",
             button_placeholder_id: "uploadBtn",
-            //button_text: '<span class="theFont">Hello</span>',
-            //button_text_style: ".theFont { font-size: 16; }",
+            button_text: '<span class="theFont">上传LOGO</span>',
+            button_text_style: ".theFont {height:18px;line-height:18px; }",
             //button_text_left_padding: 12,
-            //button_text_top_padding: 3,
+            button_text_top_padding: 3,
 				
             // The event handler functions are defined in handlers.js
             file_queued_handler : fileQueued,
@@ -81,12 +81,4 @@
 
         swfu = new SWFUpload(settings);
     };
-</script>
-<script type='text/javascript'>
-    $(function(){
-        $("form").submit(function(){
-            doSubmit();
-            return false;
-        });
-    })
 </script>
